@@ -19,6 +19,40 @@ body main {
   background-size: cover;
 }
 
+/* Buat Footer */
+footer {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-indent: 2em;
+  margin-bottom: 2em;
+}
+
+.copy {
+  color: white;
+  font-size: 18px !important;
+}
+
+/* Buat Logo */
+header {
+  width: 100%;
+  text-align: right;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 2em;
+  margin-top: -1%;
+}
+.logo {
+  width: 250px;
+  height: 250px;
+}
+
 /* Buat bungkus input, tombol dll */
 .bungkus {
   width: 420px;
