@@ -1,0 +1,140 @@
+/* Semua % Header */
+* {
+    margin: 0px;
+}
+
+body{
+    background-color: #E5E4E2;
+}
+
+header{
+    display: flex;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    background-color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.headerbg{
+    height: 70px;
+}
+
+header span{
+    display: flex;
+}
+
+.head_nav{
+    padding: 25px 10px 24px 10px;
+    background: white;
+    color: black;
+    text-decoration: none;
+}
+
+.head_nav:hover{
+    color: white;
+    background: black;
+}
+
+main {
+    margin: 50px;
+}
+
+
+
+
+
+/* Halaman Lamaran */
+.mboh {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+input[type="file"] {
+    border: none;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.row input {
+    flex: 1;
+}
+.subButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.subButton:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Footer */
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.copy{
+    padding-left: 20px;
+}
+
+.footerf{
+    text-decoration: none;
+    color: black;
+}
+
+.follow{
+    display: flex;
+    align-items: center;
+} 
+
+.follow1{
+    padding: 0 15px 0 5px;
+}
+
+.footerimg{
+    width: 25px;
+    border-radius: 50%;
+}
