@@ -9,12 +9,16 @@ body{
     background-color: #E5E4E2;
 }
 
+#icon{
+    width: 26%;
+}
+
 header{
     display: flex;
     height: 70px;
     width: 100%;
     position: fixed;
-    background-color: #FFFFFF;
+    background-color: lightgray;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content:space-between;
     align-items: center;
@@ -38,7 +42,7 @@ header div{
     height: 100%;
     padding-left: 10px;
     padding-right: 10px;
-    background: white;
+    background: lightgrey;
     color: black;
     text-decoration: none;
 }
@@ -48,8 +52,14 @@ header div{
     background: black;
 }
 
+body{
+    background-image: url("../Asset/coba.png");
+    background-size: 103%;
+    background-repeat: no-repeat;
+}
+
 main {
-    margin: 50px;
+    margin: 4%;
 }
 
 
