@@ -116,6 +116,25 @@ main {
     padding-left: 14%;
 }
 
+#lamar{
+    text-align: center;
+    padding-top: 3%;
+}
+
+#lamar a{
+    text-decoration: none;
+    color: white;
+    background-color: #4285F4;
+    padding: 1.5% 4% 1.5% 4%;
+    box-shadow: 0vh 0vh 0.3vh #3367D6;
+}
+
+#lamar a:hover{
+    text-shadow: 0vh 0vh 0.2vh;
+    background-color: #3367D6;
+    padding: 1.5% 4% 1.5% 4%;
+    box-shadow: 0vh 0vh 0.7vh darkblue;
+}
 
 
 
