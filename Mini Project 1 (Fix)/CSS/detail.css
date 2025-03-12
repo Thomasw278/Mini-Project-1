@@ -6,7 +6,8 @@
 }
 
 body{
-    background-color: #E5E4E2;
+    /* background-color: #E5E4E2; */
+    background-color: white;
 }
 
 #icon{
@@ -51,7 +52,7 @@ header div{
 
 .head_nav:hover{
     color: white;
-    background: black;
+    background: #4285F4;
 }
 
 /* body{
@@ -60,12 +61,13 @@ header div{
     background-repeat: no-repeat;
 } */
 
+
 main {
     margin-top: 3%;
-    width: 100%;
     display: flex;
+    width: 100%; 
+    margin-bottom: 9%;
 }
-
 
 
 
@@ -74,17 +76,26 @@ main {
 
 
 /* Halaman Utama */
-#detail_section {
+/* Kotak kiri */
+section{
+    width: 66.5%;
+}
+
+#brief_desc {
     padding: 2%;
-    width: 65%;
-    margin-right: 2%;
-    margin-left: 2%;
+    width: 88%;
+    margin-right: 4%;
+    margin-left: 4%;
     border: 1px solid darkgrey;
     background-color: white;
     height: fit-content;
 }
 
-#detail_section h1 a{
+#brief_desc h1{
+    font-size: 32px;
+}
+
+#brief_desc h1 a{
     text-decoration: none;
     color: black;
 }
@@ -103,7 +114,6 @@ main {
     display: flex;
     align-items: center;
     margin-bottom: 2%;
-    font-weight: bold;
 }
 
 .jobdesc_title img{
@@ -137,14 +147,51 @@ main {
 }
 
 
+/* Section 2 */
+.job_description{
+    padding-top: 3%;
+    width: 92%;
+    margin-right: 4%;
+    margin-left: 4%;
+}
 
+.job_description h2{
+    padding-bottom: 1.7%;
+}
+
+.job_description h3{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.job_description p{
+    text-align: justify;
+    line-height: 160%;
+}
+
+.job_description ul{
+    padding-left: 3%;
+}
+
+.job_description li{
+    line-height: 175%;
+}
+
+.job_description ul li::marker{
+    color: #3367D6;
+}
+
+
+
+/* Kanan PT..... */
 #detail_aside{
     background-color: white;
-    width: 26%;
-    margin-right: 3%;
+    width: 27%;
+    margin-right: 2.5%;
     border: 1px solid darkgrey;
     padding: 1.5% 2% 2% 2%;
     height: fit-content;
+    /* display: flex; */
 }
 
 #iconpt{
