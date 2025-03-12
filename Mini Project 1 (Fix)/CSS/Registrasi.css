@@ -17,6 +17,7 @@ body{
   min-height: 100vh;
   background: url(../Asset/BGLOGIN.png);
   background-size: cover;
+  overflow-x: hidden;
 }
 
 /* Buat Copyright */
@@ -54,43 +55,36 @@ header {
 }
 /* Buat bungkus input, tombol dll */
 .bungkus {
-  width: 420px;
+  width: 620px;
   background: transparent;
   color:#fff;
-  border-radius: 25px;
-  padding: 30px 25px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  padding: 40px 40px;
   border: 2px solid rgba(185, 185, 185, 0.2);
   backdrop-filter: blur(20px);
 }
 
 /* Buat judul dari si bungkus "LOGIN"  */
 .bungkus h1 {
-  font-size:36px;
+  font-size:30px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 30px;
+  letter-spacing: 25px;
   font-style: italic;
-  color: black;
+  color: green;
   animation: fadeIn 0.8s ease-out;
   animation-delay: 0.5s;
   animation-fill-mode: both;
   text-align: center;
 }
-.bungkus h2 {
-  font-size:15px;
-  text-align: center;
-  text-transform: uppercase;
-  font-style: italic;
-  letter-spacing: 5px;
-  color: black;
-  text-align: center;
-}
 /* Buat isi kotak input  */
 .bungkus .inputbox {
   position: relative;
-  width: 100%;
+  width: 75%;
   height: 50px;
   margin: 30px 0;
+  margin-left: 60px;
 }
 
 /* Kotak buat masukin nama dan pass */
@@ -103,7 +97,7 @@ header {
   border: 2px solid rgba(255,255,255,.2);
   border-radius: 40px;
   font-size: 15px;
-  color: #2ECC71;
+  color: red;
   font-weight: bold;
   padding: 20px 45px 20px 20px;
 }
@@ -122,40 +116,12 @@ header {
   transform: translateX(-50%);
   transform: translateY(-50%);
   font-size: 18px;
-  color:#2ECC71;
+  color:black;
 }
-
-/* Kotak remember me */
-.bungkus .checkingat {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  margin: -15px 0 15px;
-  text-indent: 1em;
-}
-
-/* Buat checkbox ketika sudah dicentang */
-.checkingat label input {
-  accent-color: #2ECC71;
-  margin-right: 3px;
-}
-
-/* Buat tulisan remember */
-.checkingat a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Buat tulisan lupa password */
-.checkingat a:hover{
-  text-decoration: underline #2ECC71;
-  color: white;
-}
-
 /* Buat submit login */
 .bungkus .tombol {
-  width: 100%;
+  width: 90%;
+  margin-left: 25px;
   height: 40px;
   background: #fff;
   border:none;
@@ -167,46 +133,29 @@ header {
   transition: color 0.3s ease-in-out;
 }
 
+form h1 {
+  margin-bottom: 10px !important;
+  color: white !important;
+}
 .bungkus .tombol::after {
   content: ""; /* Biar muncul garisnya */
   position: absolute; /* Biar posisi bisa diatur atur */
   left: 0; /* posisi garis mulai dari kiri */
-  bottom: -10px; /* Jarak dari password/text biar gak nabrak */
+  bottom: 0px; /* Jarak dari password/text biar gak nabrak */
   width: 0%; /* posisi awal garis biar gak kelihatan */
   height: 5px; /* Tebal garis efek */
-  background-color:#2ECC71; /* Warna garisnya */
+  background-color:red; /* Warna garisnya */
   transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
 }
 
 /* Efek hover ketika cursor udah diatasnya */
 .bungkus .tombol:hover{
-  background-color:#2ECC71;
+  background-color:red;
   color:white
 }
 .bungkus .tombol:hover::after{
   width: 100%;
 }
-
-/* Buat tulisan daftar akun */
-.bungkus .daftarakun {
-  font-size: 14.5px;
-  text-align: center;
-  margin: 20px;
-}
-
-/* Tulisan daftar disini */
-.daftarakun p a {
-  color: white;
-  text-decoration: none;
-  font-weight: bolder;
-}
-
-/* Efek hover ketika udah diatasnya */
-.daftarakun a:hover {
-  text-decoration: underline #2ECC71;
-  color:white;
-}
-
 /*  Efek tulisan login */
 @keyframes fadeIn {
   from {

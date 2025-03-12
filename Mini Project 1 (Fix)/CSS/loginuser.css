@@ -204,8 +204,7 @@ header {
 
 /* Efek hover ketika udah diatasnya */
 .daftarakun a:hover {
-  text-decoration: underline red;
-  color: white;
+  color: red;
 }
 
 
