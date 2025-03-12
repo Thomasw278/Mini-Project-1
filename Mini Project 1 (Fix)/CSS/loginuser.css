@@ -104,7 +104,8 @@ header {
   border: 2px solid rgba(255,255,255,.2);
   border-radius: 40px;
   font-size: 15px;
-  color:#fff;
+  color:red;
+  font-weight: bold;
   padding: 20px 45px 20px 20px;
 }
 
