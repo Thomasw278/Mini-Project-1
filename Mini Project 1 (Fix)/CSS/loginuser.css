@@ -150,8 +150,7 @@ header {
 
 /* Buat Header Footer Main */
 .checkingat a:hover{
-  text-decoration: underline red;
-  color: white;
+  color: red;
 }
 
 /* Buat submit login */

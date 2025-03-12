@@ -149,8 +149,7 @@ header {
 
 /* Buat tulisan lupa password */
 .checkingat a:hover{
-  text-decoration: underline #2ECC71;
-  color: white;
+  color: #2ECC71;
 }
 
 /* Buat submit login */
@@ -203,8 +202,7 @@ header {
 
 /* Efek hover ketika udah diatasnya */
 .daftarakun a:hover {
-  text-decoration: underline #2ECC71;
-  color:white;
+  color:#2ECC71;
 }
 
 /*  Efek tulisan login */
