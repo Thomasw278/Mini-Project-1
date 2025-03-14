@@ -14,14 +14,15 @@ header a{
 }
 
 .icon{
-    margin-left: 40%;
-    width: 70px;
-    height: 70px;
+    margin-left: 10%;
+    width: 350px;
+    height: 100px;
 }
 
 header{
     display: flex;
     height: 70px;
+    padding-bottom: 25px;
     width: 100%;
     position: fixed;
     background-color: #F2F2F2;
@@ -42,6 +43,9 @@ header div{
 }
 
 .head_nav{
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
     justify-items: center;
     align-items: center;
@@ -57,30 +61,6 @@ header div{
     color: white;
     background: #4285F4;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Main */
 #main_main{
@@ -143,6 +123,7 @@ header div{
 
 /* Search Bar */
 .sb{
+    margin-top: 25px;
     justify-content: center;
     display: flex;
     box-sizing: border-box;
@@ -605,7 +586,7 @@ input[type="file"] {
     width: fit-content;
     padding: 0.8%;
     border-radius: 5px;
-    margin: 1.25% 0 0 1.75%;
+    margin: 1.75% 0 0 1.75%;
 }
 
 /* Halaman Form */
@@ -615,7 +596,7 @@ input[type="file"] {
     width: fit-content;
     padding: 0.8%;
     border-radius: 5px;
-    margin: 1.25% 0 0 1.75%;
+    margin: 1.75% 0 0 1.75%;
     position: fixed;
 }
 
