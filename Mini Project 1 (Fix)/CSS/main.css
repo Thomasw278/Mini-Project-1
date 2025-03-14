@@ -6,11 +6,17 @@
 }
 
 body{
-    background-color: #E5E4E2;
+    background-color: white;
 }
 
-#icon{
-    width: 26%;
+header a{
+    height: 70px;
+}
+
+.icon{
+    margin-left: 40%;
+    width: 70px;
+    height: 70px;
 }
 
 header{
@@ -18,7 +24,7 @@ header{
     height: 70px;
     width: 100%;
     position: fixed;
-    background-color: lightgray;
+    background-color: #F2F2F2;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content:space-between;
     align-items: center;
@@ -42,52 +48,57 @@ header div{
     height: 100%;
     padding-left: 10px;
     padding-right: 10px;
-    background: lightgrey;
+    background: #F2F2F2;
     color: black;
     text-decoration: none;
 }
 
 .head_nav:hover{
     color: white;
-    background: black;
+    background: #4285F4;
 }
-/* 
-body{
-    background-image: url("../Asset/coba.png");
-    background-size: 103%;
-    background-repeat: no-repeat;
-} */
 
-main {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main */
+#main_main{
     margin: 4%;
 }
 
-
-
-
-
-
-
 /* Getting Started */
-section{
+#getstart{
     min-height: 100vh;
     display: flex;
     align-items:self-start;
     justify-content:space-between;
 }
 
-section div{
-    /* color: #AEC6CF; */
+#getstart div{
     padding-left: 60px;
     padding-top: 90px;
 }
-
-/* .sec{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 200px;
-} */
 
 .title1{
     font-size: 56px;
@@ -98,7 +109,6 @@ section div{
     margin-bottom: 28px;
     padding-left: 5px;
     font-size: 27px;
-    /* color: wheat; */
 }
 
 .title3{
@@ -139,7 +149,6 @@ section div{
     align-items: center;
     background-color: black;
     height: 50px;
-    /* width: 100%; */
 }
 
 .serbar{
@@ -193,14 +202,6 @@ section div{
 .searchbar_magnify:hover{
     background-color: gray;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -264,24 +265,393 @@ section div{
     padding-top: 5px;
     margin-bottom: 3px;
     border-top: 2px solid grey;
-    /* border-bottom: 1px solid grey; */
 }
 .joblist{
     font-size: 13px;
     padding-left: 20px;
     max-height: 100%;
     list-style:circle;
-    /* height: 65%; */
 }
 
 .joblist li{
     max-height: 100%;
     max-width: 100%;
-    /* object-fit: contain; */
-    /* display: flex; */
-    /* margin-top: 10px; */
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Detail Pekerjaan */
+/* Halaman Utama */
+#main_detail {
+    margin-top: 5.5%;
+    display: flex;
+    width: 100%; 
+    margin-bottom: 9%;
+}
+/* Kotak kiri */
+#main_sec{
+    width: 66.5%;
+}
+
+#brief_desc {
+    padding: 2%;
+    width: 88%;
+    margin-right: 4%;
+    margin-left: 4%;
+    border: 1px solid darkgrey;
+    background-color: white;
+    height: fit-content;
+}
+
+#brief_desc h1{
+    font-size: 32px;
+}
+
+#brief_desc h1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.jobdes{
+    padding-top: 2.5%;
+    padding-left: 1.5%;
+    display: flex;
+}
+
+.jobdesc{
+    width: 33%;
+}
+
+.jobdesc_title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.jobdesc_title img{
+    width: 20px;
+    margin-right: 4%;
+    padding-bottom: 3px;
+}
+
+.jobdesc_desc{
+    padding-left: 14%;
+}
+
+#lamar{
+    text-align: center;
+    padding-top: 3%;
+}
+
+#lamar a{
+    text-decoration: none;
+    color: white;
+    background-color: #4285F4;
+    padding: 1.5% 4% 1.5% 4%;
+    box-shadow: 0vh 0vh 0.3vh #3367D6;
+}
+
+#lamar a:hover{
+    text-shadow: 0vh 0vh 0.2vh;
+    background-color: #3367D6;
+    padding: 1.5% 4% 1.5% 4%;
+    box-shadow: 0vh 0vh 0.7vh darkblue;
+}
+
+
+/* Section 2 */
+.job_description{
+    padding-top: 3%;
+    width: 92%;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+.job_description h2{
+    padding-bottom: 1.7%;
+}
+
+.job_description h3{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.job_description p{
+    text-align: justify;
+    line-height: 160%;
+}
+
+.job_description ul{
+    padding-left: 3%;
+}
+
+.job_description li{
+    line-height: 175%;
+}
+
+.job_description ul li::marker{
+    color: #3367D6;
+}
+
+
+
+/* Kanan PT..... */
+#detail_aside{
+    background-color: white;
+    width: 27%;
+    margin-right: 2.5%;
+    border: 1px solid darkgrey;
+    padding: 1.5% 2% 2% 2%;
+    height: fit-content;
+}
+
+#iconpt{
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    width: 18%;
+}
+
+#detail_aside div{
+    padding-top: 3%;
+}
+
+#detail_aside div h4{
+    padding-top: 4.5%;
+    padding-bottom: 1.5%;
+    display: flex;
+    align-items: center;
+}
+
+#detail_aside div h4 img{
+    padding-right: 2%;
+    width: 12px;
+    padding-bottom: 3px;
+}
+
+/* Icon ke 3 paling kecil jadi bikin ukuran sendiri */
+#detail_aside_icon3{
+    width: 23px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Form Lamaran */
+/* Halaman Utama */
+#main_form{
+    margin: 4%;
+}
+
+.form_daftar {
+    background: #e9e9e9de;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+.form_daftar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form_daftar h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+input[type="file"] {
+    border: none;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.row input {
+    flex: 1;
+}
+.subButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.subButton:hover {
+    background-color: #4285F4;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Sukses.html */
+#body_sukses{
+    margin-top: 13%;
+    background-color: #e9e9e9de;
+}
+
+.sukses {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    text-align: justify;
+    color: black;
+}
+
+.sukses h1{
+    padding-bottom: 2%;
+}
+
+.sukses h3{
+    padding-bottom: 1%;
+}
+
+.sukses h4{
+    line-height: 130%;
+}
+
+.subButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.subButton:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+/* Tombol Back */
+/* Halaman Detail Beda Posisi Tok */
+#back_detail{
+    float: left;
+    background-color: #4285F4;
+    width: fit-content;
+    padding: 0.8%;
+    border-radius: 5px;
+    margin: 1.25% 0 0 1.75%;
+}
+
+/* Halaman Form */
+#back_form{
+    float: left;
+    background-color: #4285F4;
+    width: fit-content;
+    padding: 0.8%;
+    border-radius: 5px;
+    margin: 1.25% 0 0 1.75%;
+    position: fixed;
+}
+
+/* Universal */
+.back a{
+    text-shadow: 0 0 0.8vh rgb(0, 0, 156);
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.back a img{
+    width: 19px;
+    margin-right: 5px;
+    height: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -370,13 +740,16 @@ footer{
     max-height: 100%;
     transition: none;
 }
-
+/* 
 .social-links a img:hover{
     max-width: 100%;
     max-height: 100%;
     background-color: white;
     border-radius: 12px;
-}
+} */
+ 
+
+
 
 
 
