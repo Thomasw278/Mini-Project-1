@@ -516,20 +516,17 @@ input[type="file"] {
     background-color: #4285F4;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Sukses.html */
 #body_sukses{
     margin-top: 13%;
     background-color: #e9e9e9de;
+    animation: fadeIn 1s ease-in-out;
+    
+}
+@keyframes bounce {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
 }
 
 .sukses {
@@ -539,17 +536,20 @@ input[type="file"] {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     max-width: 600px;
     width: 100%;
-    margin: auto;
+    margin-left: 35%;
     text-align: justify;
     color: black;
 }
 
 .sukses h1{
+    letter-spacing: 5px;
     padding-bottom: 2%;
+    color:green
 }
 
+
 .sukses h3{
-    padding-bottom: 1%;
+    padding-bottom: 2%;
 }
 
 .sukses h4{
@@ -566,17 +566,30 @@ input[type="file"] {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    
 }
 .subButton:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
-
-
-
-
-
-
-
+#berhasil {
+    width: 150px;
+    margin-left: 225px;
+    margin-bottom: 35px;
+    animation: fadeIn 1s ease-in-out 0.01s forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+        transform: translateX(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
 
 /* Tombol Back */
 /* Halaman Detail Beda Posisi Tok */
