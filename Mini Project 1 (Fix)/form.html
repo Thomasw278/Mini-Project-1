@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="CSS/form.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <title> | Formulir Pendaftaran Kerja JemKar</title>
     <link rel="icon" type="image/png" href="Asset/ICON.png">
 </head>
 <body>
     <header>
-        <a href="main.html"><img src="Asset/JEMKARV1.png" id = "icon"></a>
+        <a href="main.html"><img src="Asset/ICON.png" class = "icon"></a>
         <div>
-            <a href="#scroll" class = "head_nav">Cari Kerja</a>
             <a href="LoginUser.html" class = "head_nav">Registrasi / login</a>
         </div>
     </header>
     <div class = "headerbg"></div>
 
+    <div id = "back_form" class = "back">
+        <a href="detail.html"><img src="Asset/back.png">Kembali</a>
+    </div>
     
-    <main>
-        <div class="mboh">
+    <main id = "main_form">
+        <div class="form_daftar">
             <h2>Formulir Pendaftaran Kerja</h2>
             <h3>Jemput Karir</h3>
             <form action="sukses.html">
@@ -46,7 +48,7 @@
 
                 <div class="form">
                     <label>CV *</label>
-                    <input type="file" name="cv" id="" accept=".pdf" >
+                    <input type="file" name="cv" id="" accept=".pdf, .docx" >
                 </div>
 
                 <div class="form">
@@ -56,14 +58,14 @@
 
                 <div class="form">
                     <label>Surat Lamaran</label>
-                    <input type="file" name="surat_lamaran" id="" accept=".pdf">
+                    <input type="file" name="surat_lamaran" id="">
                 </div>
 
                 <button type="submit" class="subButton">Kirim Lamaran</button>
             </form>
         </div>
     </main>
-    <hr>
+    <br>
 
 
     <footer>

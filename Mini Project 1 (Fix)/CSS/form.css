@@ -1,3 +1,4 @@
+/* main yg seblmnya */
 /* Semua % Header */
 * {
     margin: 0px;
@@ -65,65 +66,220 @@ main {
 
 
 
-/* Halaman Lamaran */
-.mboh {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    max-width: 600px;
-    width: 100%;
-    margin: auto;
-}
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+
+
+
+/* Getting Started */
+section{
+    min-height: 100vh;
+    display: flex;
+    align-items:self-start;
+    justify-content:space-between;
 }
 
-h3 {
-    text-align: center;
-    margin-bottom: 20px;
+section div{
+    padding-left: 60px;
+    padding-top: 90px;
 }
-.form {
-    margin-bottom: 15px;
+
+.title1{
+    font-size: 56px;
 }
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+
+.title2{
+    margin-top: 17px;
+    margin-bottom: 28px;
+    padding-left: 5px;
+    font-size: 27px;
 }
-input[type="text"], input[type="email"], input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+
+.title3{
+    padding-left: 10px;
+    font-size: 30px;
+    border-bottom: 2px solid;
+}
+
+.orangKerja{
+    width: 400px;
+}
+
+.lokasi{
     box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 27px;
+    background-color: white;
+    margin-bottom: 25px;
+    width: 200px;
+    padding-left: 37px;
+    outline: none;
 }
-input[type="file"] {
-    border: none;
+
+.filter{
+    width: 40px;
+    padding-bottom: 20px;
 }
-.row {
+
+
+
+
+/* Search Bar */
+.sb{
+    justify-content: center;
     display: flex;
-    gap: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: black;
+    height: 50px;
+    /* width: 100%; */
 }
-.row input {
-    flex: 1;
+
+.serbar{
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 87%;
+    border-radius: 20px;
+    width: 60%;
 }
-.subButton {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+
+.serbar p{
+    width: 85%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px;
+    border-radius: 20px;
+    background-color: lightgrey;
+}
+
+.searchbar_input{
+    border-radius: 20px;
+    outline: none;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+    width: 96%;
+    height: 60%;
+    background-color: lightgray;
 }
-.subButton:hover {
-    background-color: #45a049;
+
+.searchbar_filter{
+    width: 17px;
+    border: 1px;
+    border-radius: 50%;
+    padding: 5px;
 }
+
+.searchbar_filter:hover{
+    background-color: grey;
+}
+
+.searchbar_magnify{
+    width: 25px;
+    border: 1px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.searchbar_magnify:hover{
+    background-color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Halaman Utama */
+.lowongansneakpeak{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lowongan{
+    height: 200px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 25px;
+    width: 29%;
+    box-shadow: 0vh 0vh 0.8vh 0 black;
+}
+
+.pt{
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.divpt{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerlinkpt{
+    padding-left: 4px;
+}
+
+.linkpt{
+    font-size: 17px;
+    text-decoration: none;
+    color: black;
+}
+
+.linkpt:hover{
+    text-decoration: underline;
+}
+
+.job{
+    max-height: 100px;
+}
+
+.jobtitle{
+    font-size: 15px;
+    margin-top: 3px;
+    padding-top: 5px;
+    margin-bottom: 3px;
+    border-top: 2px solid grey;
+    /* border-bottom: 1px solid grey; */
+}
+.joblist{
+    font-size: 13px;
+    padding-left: 20px;
+    max-height: 100%;
+    list-style:circle;
+    /* height: 65%; */
+}
+
+.joblist li{
+    max-height: 100%;
+    max-width: 100%;
+    /* object-fit: contain; */
+    /* display: flex; */
+    /* margin-top: 10px; */
+
+}
+
+
+
+
+
+
 
 
 
