@@ -1,6 +1,7 @@
 /* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+
 /* Buat Header Footer Main */
 * {
   margin: 0;
@@ -8,6 +9,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 
 /* Buat bagian body tapi didalam main */
 body{
@@ -18,6 +20,7 @@ body{
   background: url(../Asset/BGLOGIN.png);
   background-size: cover;
 }
+
 
 /* Buat Copyright */
 footer {
@@ -32,10 +35,12 @@ footer {
   margin-bottom: 2em;
 }
 
+
 .copy {
   color: white;
   font-size: 18px !important;
 }
+
 
 /* Buat Logo */
 header {
@@ -48,10 +53,14 @@ header {
   text-indent: 2em;
   margin-top: -1%;
 }
+
+
 .logo {
   width: 250px;
   height: 250px;
 }
+
+
 /* Buat bungkus input, tombol dll */
 .bungkus {
   width: 420px;
@@ -62,6 +71,7 @@ header {
   border: 2px solid rgba(185, 185, 185, 0.2);
   backdrop-filter: blur(20px);
 }
+
 
 /* Buat judul dari si bungkus "LOGIN"  */
 .bungkus h1 {
@@ -76,6 +86,8 @@ header {
   animation-fill-mode: both;
   text-align: center;
 }
+
+
 .bungkus h2 {
   font-size:15px;
   text-align: center;
@@ -85,6 +97,8 @@ header {
   color: black;
   text-align: center;
 }
+
+
 /* Buat isi kotak input  */
 .bungkus .inputbox {
   position: relative;
@@ -92,6 +106,7 @@ header {
   height: 50px;
   margin: 30px 0;
 }
+
 
 /* Kotak buat masukin nama dan pass */
 .inputbox input {
@@ -108,11 +123,13 @@ header {
   padding: 20px 45px 20px 20px;
 }
 
+
 /* Buat placeholder input nama dan pass */
 .inputbox input::placeholder {
   color: black;
   font-style: italic;
 }
+
 
 /* Buat foto user sama gembok yang diimport tadi */
 .inputbox i {
@@ -125,6 +142,7 @@ header {
   color:#2ECC71;
 }
 
+
 /* Kotak remember me */
 .bungkus .checkingat {
   display: flex;
@@ -134,11 +152,13 @@ header {
   text-indent: 1em;
 }
 
+
 /* Buat checkbox ketika sudah dicentang */
 .checkingat label input {
   accent-color: #2ECC71;
   margin-right: 3px;
 }
+
 
 /* Buat tulisan remember */
 .checkingat a {
@@ -147,10 +167,12 @@ header {
   font-weight: bold;
 }
 
+
 /* Buat tulisan lupa password */
 .checkingat a:hover{
   color: #2ECC71;
 }
+
 
 /* Buat submit login */
 .bungkus .tombol {
@@ -166,6 +188,7 @@ header {
   transition: color 0.3s ease-in-out;
 }
 
+
 .bungkus .tombol::after {
   content: ""; /* Biar muncul garisnya */
   position: absolute; /* Biar posisi bisa diatur atur */
@@ -177,14 +200,18 @@ header {
   transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
 }
 
+
 /* Efek hover ketika cursor udah diatasnya */
 .bungkus .tombol:hover{
   background-color:#2ECC71;
   color:white
 }
+
+
 .bungkus .tombol:hover::after{
   width: 100%;
 }
+
 
 /* Buat tulisan daftar akun */
 .bungkus .daftarakun {
@@ -193,6 +220,7 @@ header {
   margin: 20px;
 }
 
+
 /* Tulisan daftar disini */
 .daftarakun p a {
   color: white;
@@ -200,10 +228,12 @@ header {
   font-weight: bolder;
 }
 
+
 /* Efek hover ketika udah diatasnya */
 .daftarakun a:hover {
   color:#2ECC71;
 }
+
 
 /*  Efek tulisan login */
 @keyframes fadeIn {

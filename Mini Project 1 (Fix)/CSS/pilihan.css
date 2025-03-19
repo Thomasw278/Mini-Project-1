@@ -1,0 +1,51 @@
+/* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+
+/* Buat Header Footer Main */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* Buat bagian body tapi didalam main */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../Asset/Pilih\ LOG.png);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+
+.bungkus {
+    width: 650px;
+    background: transparent;
+    color:#fff;
+    border-radius: 25px;
+    padding: 30px 25px;
+    border: 2px solid rgba(185, 185, 185, 0.2);
+    backdrop-filter: blur(20px);
+  }
+
+  .bungkus h1 {
+    font-size:30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    font-style: italic;
+    color: black;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+
+button {
+    margin-left: 75px;
+    padding: 55px;
+}

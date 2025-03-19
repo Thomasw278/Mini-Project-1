@@ -1,6 +1,7 @@
 /* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+
 /* Buat Header Footer Main */
 * {
   margin: 0;
@@ -8,6 +9,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 
 /* Buat bagian body tapi didalam main */
 body{
@@ -19,6 +21,7 @@ body{
   background-size: cover;
   overflow-x: hidden;
 }
+
 
 /* Buat Copyright */
 footer {
@@ -32,11 +35,11 @@ footer {
   text-indent: 2em;
   margin-bottom: 2em;
 }
-
 .copy {
   color: white;
   font-size: 18px !important;
 }
+
 
 /* Buat Logo */
 header {
@@ -53,6 +56,8 @@ header {
   width: 250px;
   height: 250px;
 }
+
+
 /* Buat bungkus input, tombol dll */
 .bungkus {
   width: 620px;
@@ -64,6 +69,7 @@ header {
   border: 2px solid rgba(185, 185, 185, 0.2);
   backdrop-filter: blur(20px);
 }
+
 
 /* Buat judul dari si bungkus "LOGIN"  */
 .bungkus h1 {
@@ -78,6 +84,8 @@ header {
   animation-fill-mode: both;
   text-align: center;
 }
+
+
 /* Buat isi kotak input  */
 .bungkus .inputbox {
   position: relative;
@@ -86,6 +94,7 @@ header {
   margin: 30px 0;
   margin-left: 60px;
 }
+
 
 /* Kotak buat masukin nama dan pass */
 .inputbox input {
@@ -102,11 +111,13 @@ header {
   padding: 20px 45px 20px 20px;
 }
 
+
 /* Buat placeholder input nama dan pass */
 .inputbox input::placeholder {
   color: black;
   font-style: italic;
 }
+
 
 /* Buat foto user sama gembok yang diimport tadi */
 .inputbox i {
@@ -118,6 +129,8 @@ header {
   font-size: 18px;
   color:black;
 }
+
+
 /* Buat submit login */
 .bungkus .tombol {
   width: 90%;
@@ -133,10 +146,13 @@ header {
   transition: color 0.3s ease-in-out;
 }
 
+
 form h1 {
   margin-bottom: 10px !important;
   color: white !important;
 }
+
+
 .bungkus .tombol::after {
   content: ""; /* Biar muncul garisnya */
   position: absolute; /* Biar posisi bisa diatur atur */
@@ -148,14 +164,19 @@ form h1 {
   transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
 }
 
+
 /* Efek hover ketika cursor udah diatasnya */
 .bungkus .tombol:hover{
   background-color:black;
   color:white
 }
+
+
 .bungkus .tombol:hover::after{
   width: 100%;
 }
+
+
 /*  Efek tulisan login */
 @keyframes fadeIn {
   from {
