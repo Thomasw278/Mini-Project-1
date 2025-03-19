@@ -1,7 +1,6 @@
 /* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-
 /* Buat Header Footer Main */
 * {
   margin: 0;
@@ -9,7 +8,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 
 /* Buat bagian body tapi didalam main */
 body{
@@ -22,7 +20,6 @@ body{
   overflow-x: hidden;
 }
 
-
 .bungkus {
     width: 650px;
     background: transparent;
@@ -34,18 +31,57 @@ body{
   }
 
   .bungkus h1 {
-    font-size:30px;
+    font-size:35px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 15px;
     font-style: italic;
     color: black;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px black;
   }
 
+span[id="1"] {
+    color: red;
+}
+span[id="2"] {
+    color: orange;
+}
+span[id="3"] {
+    color: #4c86f8;
+}
+span[id="4"] {
+    color:#459846;
+}
+span[id="5"] {
+    color: orange;
+}
+span[id="6"] {
+    color: red;
+}
+span[id="7"] {
+    color: #4c86f8;
+}
+span[id="8"] {
+    color: #459846;
+}
+span[id="9"] {
+    color: orange;
+}
+span[id="10"] {
+    color: #4c86f8;
+}
 
 button {
     margin-left: 75px;
     padding: 55px;
+    margin-bottom: 25px;
+    border-radius: 25px;
+    background-color: white;
+}
+img {
+    width: 250px;
+    height: 250px;
+    margin-left: 25%;
 }
