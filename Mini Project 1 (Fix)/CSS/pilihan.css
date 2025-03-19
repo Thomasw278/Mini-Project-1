@@ -21,7 +21,7 @@ body{
 }
 
 .bungkus {
-    width: 650px;
+    width: 600px;
     background: transparent;
     color:#fff;
     border-radius: 25px;
@@ -40,48 +40,72 @@ body{
     text-align: center;
     margin-bottom: 15px;
     text-shadow: 1px 2px black;
+    animation: fadeIn 0.4s ease-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
   }
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-15px);
+      transform: translateX(-15px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+      transform: translateX(0);
+  }
+}
 
 span[id="1"] {
     color: red;
-}
-span[id="2"] {
+}span[id="2"] {
     color: orange;
-}
-span[id="3"] {
+}span[id="3"] {
     color: #4c86f8;
-}
-span[id="4"] {
+}span[id="4"] {
     color:#459846;
-}
-span[id="5"] {
+}span[id="5"] {
     color: orange;
-}
-span[id="6"] {
+}span[id="6"] {
     color: red;
-}
-span[id="7"] {
+}span[id="7"] {
     color: #4c86f8;
-}
-span[id="8"] {
+}span[id="8"] {
     color: #459846;
-}
-span[id="9"] {
+}span[id="9"] {
     color: orange;
-}
-span[id="10"] {
+}span[id="10"] {
     color: #4c86f8;
 }
 
 button {
-    margin-left: 75px;
-    padding: 55px;
+    padding: 45px;
     margin-bottom: 25px;
+    border:white;
     border-radius: 25px;
     background-color: white;
+}
+button.bt1 {
+    margin-left: 50px;
+    width: 200px;
+}
+
+button.bt2 {
+    margin-left: 50px;
+    width: 200px;
 }
 img {
     width: 250px;
     height: 250px;
     margin-left: 25%;
+}
+@keyframes zoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+img {
+    animation: zoom 1s infinite alternate;
 }
