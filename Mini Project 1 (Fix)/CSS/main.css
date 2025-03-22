@@ -57,6 +57,7 @@ header{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content:space-between;
     align-items: center;
+    z-index: 100;
 }
 
 .headerbg{
@@ -173,7 +174,7 @@ header div{
     display: flex;
     box-sizing: border-box;
     align-items: center;
-    background-color: #3367D6;
+    background: linear-gradient(90deg,#3367D6, #4c86f8);
     height: 50px;
 }
 
@@ -183,6 +184,7 @@ header div{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 0;
     margin-right: 5%;
     height: 87%;
     border-radius: 20px;
@@ -400,6 +402,8 @@ span[id="1"] {
 #lamar{
     text-align: center;
     padding-top: 3%;
+    position: relative;
+    overflow: hide;
 }
 
 #lamar a{
@@ -409,12 +413,11 @@ span[id="1"] {
     padding: 1.5% 4% 1.5% 4%;
     box-shadow: 0vh 0vh 0.3vh #3367D6;
 }
-
 #lamar a:hover{
     text-shadow: 0vh 0vh 0.2vh;
-    background-color: #3367D6;
     padding: 1.5% 4% 1.5% 4%;
-    box-shadow: 0vh 0vh 0.7vh darkblue;
+    background: linear-gradient(70deg, #1e4bd1, #4a90e2);
+    transform: scale(1.10);
 }
 
 
@@ -471,7 +474,7 @@ span[id="1"] {
     animation: transform 5s ease-in-out;
 }
 #iconpt:hover{
-    transform: scale(1.30);
+    transform: scale(1.20);
 }
 
 #detail_aside div{
@@ -566,9 +569,11 @@ input[type="file"] {
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
+    transition: color 0.3s ease-in-out;
 }
 .subButton:hover {
-    background-color: #4285F4;
+    background: linear-gradient(70deg, #4CAF50, lightgreen);
+    transform: scale(1.10);
 }
 
 
@@ -683,14 +688,16 @@ input[type="file"] {
     text-decoration: none;
     color: white;
 }
-
 .back a img{
+    margin-top: 4px;
     width: 19px;
     margin-right: 5px;
     height: 16px;
 }
-
-
+.back:hover {
+    background: linear-gradient(70deg, #1e4bd1, #4a90e2);
+    transform: scale(1.10);
+}
 /* Footer */
 .container{
     background:linear-gradient(deg, blueviolet, lightgreen);

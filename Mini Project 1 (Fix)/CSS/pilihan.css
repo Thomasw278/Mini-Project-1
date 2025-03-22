@@ -13,7 +13,7 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(../Asset/Pilih\ LOG.png);
+  background: url("../Asset/pixel.gif") no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
 }
@@ -21,10 +21,7 @@ body{
     width: 600px;
     background: transparent;
     color:#fff;
-    border-radius: 25px;
     padding: 30px 25px;
-    border: 2px solid rgba(185, 185, 185, 0.2);
-    backdrop-filter: blur(20px);
   }
   .bungkus h1 {
     font-size:35px;
