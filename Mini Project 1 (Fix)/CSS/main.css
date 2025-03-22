@@ -23,7 +23,7 @@ header a{
 }
 
 .icon{
-    width: 130%;
+    width: 125%;
     height: 135%;
 }
 
@@ -104,7 +104,7 @@ header div{
 .orangKerja{
     width: 400px;
 }
-
+/* 
 .lokasi{
     box-sizing: border-box;
     border: 1px solid black;
@@ -120,7 +120,7 @@ header div{
 .filter{
     width: 40px;
     padding-bottom: 20px;
-}
+} */
 
 
 
@@ -131,7 +131,7 @@ header div{
     display: flex;
     box-sizing: border-box;
     align-items: center;
-    background-color: black;
+    background-color: #3367D6;
     height: 50px;
 }
 
@@ -165,101 +165,107 @@ header div{
     background-color: lightgray;
 }
 
-.searchbar_filter{
+/* .searchbar_filter{
     width: 17px;
     border: 1px;
     border-radius: 50%;
     padding: 5px;
-}
+    margin-left: 10px;
+} */
 
-.searchbar_filter:hover{
-    background-color: grey;
-}
+/* .searchbar_filter:hover{
+    background-color: lightgray;
+} */
 
 .searchbar_magnify{
     width: 25px;
     border: 1px;
     border-radius: 50%;
     padding: 2px;
+    margin-left: 10px;
 }
 
 .searchbar_magnify:hover{
-    background-color: gray;
+    background-color: lightgray;
 }
 
 
 
 
 
-/* Halaman Utama */
-.lowongansneakpeak{
+/* Halaman Utama Main*/
+.container_loker{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    
 }
 
-.lowongan{
-    height: 200px;
-    border: 1px solid grey;
-    border-radius: 20px;
-    padding: 20px;
+.container_loker section{
     background-color: white;
-    margin-bottom: 25px;
-    width: 29%;
-    box-shadow: 0vh 0vh 0.8vh 0 black;
+    width: 42%;
+    margin: 1%;
+    border: 1px solid darkgray;
+    padding-bottom: 10px;
 }
 
 .pt{
-    max-height: 50px;
-    max-width: 50px;
+    width: 55px;
+}
+
+.jobdesc_cont{
+    padding-top: 1%;
+    padding-left: 5%;
+    display: flex; 
+}
+
+.jobdesc_detail{
+    padding-top: 7px;
+    width: 33%;
+}
+
+.jobdesc_detail_detail{
+    display: flex;
+    align-items: center;
+    height: 20px;
+    
+}
+
+.jobdesc_detail_detail img{
+    width: 20px;
+    margin-right: 4px;
+}
+
+.jobdesc_detail p {
+    padding-top: 4px;
+    padding-left: 24px;
 }
 
 .divpt{
     display: flex;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     padding: 10px;
-    border: 1px solid grey;
-    border-radius: 10px;
+    /* border: 1px solid grey; */
+    /* border-radius: 10px; */
     align-items: center;
     justify-content: center;
 }
 
-.containerlinkpt{
-    padding-left: 4px;
+.main_jobtitle{
+    display: flex;
+    align-items: center;
 }
 
-.linkpt{
-    font-size: 17px;
+.main_jobtitle h2 a{
     text-decoration: none;
     color: black;
 }
 
-.linkpt:hover{
-    text-decoration: underline;
-}
-
-.job{
-    max-height: 100px;
-}
-
-.jobtitle{
-    font-size: 15px;
-    margin-top: 3px;
-    padding-top: 5px;
-    margin-bottom: 3px;
-    border-top: 2px solid grey;
-}
-.joblist{
-    font-size: 13px;
-    padding-left: 20px;
-    max-height: 100%;
-    list-style:circle;
-}
-
-.joblist li{
-    max-height: 100%;
-    max-width: 100%;
+.main_jobdesc{
+    padding-left: 10px;
+    width: 100%;
 }
 
 
@@ -520,11 +526,15 @@ input[type="file"] {
 }
 
 /* Sukses.html */
+#main_sukses{
+    display: flex;
+    justify-content: center;
+}
+
 #body_sukses{
     margin-top: 13%;
     background-color: #e9e9e9de;
     animation: fadeIn 1s ease-in-out;
-    
 }
 @keyframes bounce {
     0% { transform: scale(0.5); opacity: 0; }
@@ -539,7 +549,6 @@ input[type="file"] {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     max-width: 600px;
     width: 100%;
-    margin-left: 35%;
     text-align: justify;
     color: black;
 }
@@ -737,13 +746,6 @@ footer{
     max-height: 100%;
     transition: none;
 }
-/* 
-.social-links a img:hover{
-    max-width: 100%;
-    max-height: 100%;
-    background-color: white;
-    border-radius: 12px;
-} */
  
 
 
@@ -754,13 +756,6 @@ footer{
 
 
 /* Sumber
-https://www.lokerjogja.id/lowongan/desk-collection-di-pt-colmitra-persada-indonesia/
-https://id.jobstreet.com/id/companies/sinar-mas-agribusiness-and-food-168552544616116/jobs
-
-https://www.loker.id/profile/institut-teknologi-dan-bisnis-nobel-indonesia
-https://www.loker.id/profile/pt-epsilon-global
-https://www.loker.id/profile/cv-fajar-lestari
-https://www.loker.id/profile/pt-indo-megah-abadi-3
-https://www.loker.id/profile/penyets-an-frozen
-https://www.loker.id/profile/breeze-resto-cafe-2
+https://id.jobstreet.com
+https://www.loker.id
  */
