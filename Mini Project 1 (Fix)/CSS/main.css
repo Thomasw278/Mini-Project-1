@@ -122,12 +122,33 @@ header div{
     padding-bottom: 20px;
 } */
 
+/* filter */
+.filter{
+    display: flex;
+    gap: 5px;
+    margin-right: 25%;
+}
 
+.filter select {
+    border: 1px solid #3367D6;
+    padding: 8px;
+    border-radius: 5px; 
+    outline: none;
+    cursor: pointer;
+    background-color: #3367D6;
+    color: white;
+    text-align: center;
+    
+}
 
+.filter select option {
+    background-color: white;
+    color: black;
+}
 
 /* Search Bar */
 .sb{
-    justify-content: center;
+    justify-content: right;
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -135,14 +156,16 @@ header div{
     height: 50px;
 }
 
+
 .serbar{
     background-color: beige;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 5%;
     height: 87%;
     border-radius: 20px;
-    width: 60%;
+    width: 45%;
 }
 
 .serbar p{
