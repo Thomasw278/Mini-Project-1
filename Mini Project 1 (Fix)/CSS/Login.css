@@ -1,0 +1,541 @@
+/* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* Efek Transisi Biar halus ke semua halaman */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+body {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Buat Header Footer Main */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Buat bagian body tapi didalam main */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../Asset/BGLOGIN.png);
+  background-size: cover;
+}
+
+/* Buat Copyright */
+footer {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-indent: 2em;
+  margin-bottom: 2em;
+}
+
+.copy {
+  color: white;
+  font-size: 18px !important;
+}
+
+/* Buat Logo */
+header {
+  width: 100%;
+  text-align: right;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 2em;
+  margin-top: -1%;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+}
+
+/* Buat bungkus input, tombol dll */
+.bungkus {
+  width: 420px;
+  background: transparent;
+  color:#fff;
+  border-radius: 25px;
+  padding: 30px 25px;
+  border: 2px solid rgba(185, 185, 185, 0.2);
+  backdrop-filter: blur(20px);
+}
+.bungkusregis {
+  width: 620px;
+  background: transparent;
+  color:#fff;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  padding: 40px 40px;
+  border: 2px solid rgba(185, 185, 185, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+/* Buat judul dari si bungkus "LOGIN"  */
+.bungkus h1 {
+  font-size:36px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 30px;
+  font-style: italic;
+  color: black;
+  animation: fadeIn 0.8s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  text-align: center;
+}
+
+.bungkusregis h1 {
+  font-size:30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 25px;
+  font-style: italic;
+  color: white !important;
+  margin-bottom: 15px;
+  animation: fadeIn 0.8s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  text-align: center;
+}
+
+.bungkus h2 {
+  font-size:15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 5px;
+  color: black;
+  text-align: center;
+}
+
+/* Buat isi kotak input  */
+.bungkus .inputbox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.bungkus .inputbox1 {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.bungkusregis .inputboxregis {
+  position: relative;
+  width: 75%;
+  height: 50px;
+  margin: 30px 0;
+  margin-left: 60px;
+}
+
+/* Kotak buat masukin nama dan pass */
+.inputbox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 40px;
+  font-size: 15px;
+  color:#2ECC71;
+  font-weight: bold;
+  padding: 20px 45px 20px 20px;
+}
+
+.inputbox1 input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 40px;
+  font-size: 15px;
+  color:red;
+  font-weight: bold;
+  padding: 20px 45px 20px 20px;
+}
+
+.inputboxregis input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 40px;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  padding: 20px 45px 20px 20px;
+}
+
+/* Buat placeholder input nama dan pass */
+.inputbox input::placeholder {
+  color: black;
+  font-style: italic;
+}
+
+.inputbox1 input::placeholder {
+  color: black;
+  font-style: italic;
+}
+
+.inputboxregis input::placeholder {
+  color: black;
+  font-style: italic;
+}
+
+/* Buat foto user sama gembok yang diimport tadi */
+.inputbox i {
+  position: absolute;
+  right:20px;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  font-size: 18px;
+  color:#2ECC71;
+}
+
+.inputbox1 i {
+  position: absolute;
+  right:20px;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  font-size: 18px;
+  color:red;
+}
+
+.inputboxregis i {
+  position: absolute;
+  right:20px;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  font-size: 18px;
+  color:black;
+}
+
+/* Kotak remember me */
+.bungkus .checkingat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: -15px 0 15px;
+  text-indent: 1em;
+}
+
+.bungkus .checkingat1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: -15px 0 15px;
+  text-indent: 1em;
+}
+
+/* Buat checkbox ketika sudah dicentang */
+.checkingat label input {
+  accent-color: #2ECC71;
+  margin-right: 3px;
+}
+
+.checkingat1 label input {
+  accent-color: red;
+  margin-right: 3px;
+}
+
+/* Buat tulisan remember */
+.checkingat a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.checkingat1 a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Buat tulisan lupa password */
+.checkingat a:hover{
+  color: #2ECC71;
+}
+
+.checkingat1 a:hover{
+  color: red;
+}
+
+/* Buat submit login */
+.bungkus .tombol {
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border:none;
+  border-radius: 65px;
+  cursor: pointer;
+  font-size: 15px;
+  color:#333;
+  font-weight: bolder;
+  transition: color 0.3s ease-in-out;
+}
+
+.bungkus .tombol1 {
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border:none;
+  border-radius: 65px;
+  cursor: pointer;
+  font-size: 15px;
+  color:#333;
+  font-weight: bolder;
+  transition: color 0.3s ease-in-out;
+}
+
+.bungkusregis .tombol {
+  width: 90%;
+  margin-left: 25px;
+  height: 40px;
+  background: #fff;
+  border:none;
+  border-radius: 65px;
+  cursor: pointer;
+  font-size: 15px;
+  color:#333;
+  font-weight: bolder;
+  transition: color 0.3s ease-in-out;
+}
+
+
+
+.bungkus .tombol::after {
+  content: ""; /* Biar muncul garisnya */
+  position: absolute; /* Biar posisi bisa diatur atur */
+  left: 0; /* posisi garis mulai dari kiri */
+  bottom: -10px; /* Jarak dari password/text biar gak nabrak */
+  width: 0%; /* posisi awal garis biar gak kelihatan */
+  height: 5px; /* Tebal garis efek */
+  background-color:#2ECC71; /* Warna garisnya */
+  transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
+}
+
+.bungkus .tombol1::after {
+  content: ""; /* Biar muncul garisnya */
+  position: absolute; /* Biar posisi bisa diatur atur */
+  left: 0; /* posisi garis mulai dari kiri */
+  bottom: -10px; /* Jarak dari password/text biar gak nabrak */
+  width: 0%; /* posisi awal garis biar gak kelihatan */
+  height: 5px; /* Tebal garis efek */
+  background-color: red; /* Warna garisnya */
+  transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
+}
+
+.bungkusregis .tombol::after {
+  content: ""; /* Biar muncul garisnya */
+  position: absolute; /* Biar posisi bisa diatur atur */
+  left: 0; /* posisi garis mulai dari kiri */
+  bottom: 0px; /* Jarak dari password/text biar gak nabrak */
+  width: 0%; /* posisi awal garis biar gak kelihatan */
+  height: 5px; /* Tebal garis efek */
+  background-color:black; /* Warna garisnya */
+  transition: width 0.4s ease-in-out; /* Efek dan durasi animasi */
+}
+
+/* Efek hover ketika cursor udah diatasnya */
+.bungkus .tombol:hover{
+  background-color:#2ECC71;
+  color:white
+}
+
+.bungkus .tombol1:hover{
+  background-color: red;
+  color:white
+}
+
+.bungkusregis .tombol:hover{
+  background-color:black;
+  color:white
+}
+
+.bungkus .tombol:hover::after{
+  width: 100%;
+}
+
+.bungkus .tombol1:hover::after{
+  width: 100%;
+}
+
+/* Buat tulisan daftar akun */
+.bungkus .daftarakun {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px;
+}
+
+.bungkus .daftarakun1 {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Tulisan daftar disini */
+.daftarakun p a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.daftarakun1 p a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+/* Efek hover ketika udah diatasnya */
+.daftarakun a:hover {
+  color:#2ECC71;
+}
+
+.daftarakun1 a:hover {
+  color: red;
+}
+
+.bungkusregis .tombol:hover::after{
+  width: 100%;
+}
+
+/*  Efek tulisan login */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-25px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+/* Buat Pilihan */
+body.pilihan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../Asset/pixel.gif") no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+.bungkuspilihan {
+    width: 600px;
+    background: transparent;
+    color:#fff;
+    padding: 30px 25px;
+  }
+.bungkuspilihan h1 {
+    font-size:35px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    font-style: italic;
+    color: black;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px black;
+    animation: pilihan 0.4s ease-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+@keyframes pilihan {
+  from {
+      opacity: 0;
+      transform: translateY(-15px);
+      transform: translateX(-15px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+      transform: translateX(0);
+  }
+}
+
+span[id="1"] {
+    color: red;
+}span[id="2"] {
+    color: orange;
+}span[id="3"] {
+    color: #4c86f8;
+}span[id="4"] {
+    color:#459846;
+}span[id="5"] {
+    color: orange;
+}span[id="6"] {
+    color: red;
+}span[id="7"] {
+    color: #4c86f8;
+}span[id="8"] {
+    color: #459846;
+}span[id="9"] {
+    color: orange;
+}span[id="10"] {
+    color: #4c86f8;
+}
+
+.pilihan button {
+    padding: 45px;
+    margin-bottom: 25px;
+    border:white;
+    border-radius: 25px;
+    background-color: white;
+}
+button.bt1pilihan {
+    margin-left: 50px;
+    width: 200px;
+}
+
+.pilihan button:hover {
+    background-color: red;
+    color:white;
+    cursor: pointer;
+}
+button.bt2pilihan {
+    margin-left: 50px;
+    width: 200px;
+}
+.pilihan img {
+    width: 250px;
+    height: 250px;
+    margin-left: 25%;
+}
+@keyframes zoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+.pilihan img {
+    animation: zoom 2s infinite alternate;
+}
