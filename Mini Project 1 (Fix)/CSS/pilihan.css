@@ -1,6 +1,5 @@
 /* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 /* Buat Header Footer Main */
 * {
   margin: 0;
@@ -8,7 +7,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 /* Buat bagian body tapi didalam main */
 body{
   display: flex;
@@ -19,7 +17,6 @@ body{
   background-size: cover;
   overflow-x: hidden;
 }
-
 .bungkus {
     width: 600px;
     background: transparent;
@@ -29,7 +26,6 @@ body{
     border: 2px solid rgba(185, 185, 185, 0.2);
     backdrop-filter: blur(20px);
   }
-
   .bungkus h1 {
     font-size:35px;
     text-align: center;
@@ -44,7 +40,6 @@ body{
     animation-delay: 0.2s;
     animation-fill-mode: both;
   }
-
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -57,7 +52,6 @@ body{
       transform: translateX(0);
   }
 }
-
 span[id="1"] {
     color: red;
 }span[id="2"] {
@@ -92,6 +86,11 @@ button.bt1 {
     width: 200px;
 }
 
+button:hover {
+    background-color: red;
+    color:white;
+    cursor: pointer;
+}
 button.bt2 {
     margin-left: 50px;
     width: 200px;
@@ -105,7 +104,6 @@ img {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
 }
-
 img {
-    animation: zoom 1s infinite alternate;
+    animation: zoom 2s infinite alternate;
 }

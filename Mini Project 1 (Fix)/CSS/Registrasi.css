@@ -1,7 +1,30 @@
 /* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+/* Efek Transisi Biar halus ke semua halaman */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
 
+body {
+  animation: fadeIn 0.5s ease-in-out;
+}@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+body {
+  animation: fadeIn 0.4s ease-in-out;
+}
 /* Buat Header Footer Main */
 * {
   margin: 0;

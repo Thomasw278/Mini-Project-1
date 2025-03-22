@@ -1,3 +1,24 @@
+/* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Efek Transisi Biar halus ke semua halaman */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+/* Biar Transisi Scroll halus*/
+html {
+    scroll-behavior: smooth;
+}
+
 /* Semua % Header */
 * {
     margin: 0px;
@@ -23,7 +44,7 @@ header a{
 }
 
 .icon{
-    width: 130%;
+    width: 125%;
     height: 135%;
 }
 
@@ -104,7 +125,7 @@ header div{
 .orangKerja{
     width: 400px;
 }
-
+/* 
 .lokasi{
     box-sizing: border-box;
     border: 1px solid black;
@@ -120,29 +141,52 @@ header div{
 .filter{
     width: 40px;
     padding-bottom: 20px;
+} */
+
+/* filter */
+.filter{
+    display: flex;
+    gap: 5px;
+    margin-right: 25%;
 }
 
+.filter select {
+    border: 1px solid #3367D6;
+    padding: 8px;
+    border-radius: 5px; 
+    outline: none;
+    cursor: pointer;
+    background-color: #3367D6;
+    color: white;
+    text-align: center;
+    
+}
 
-
+.filter select option {
+    background-color: white;
+    color: black;
+}
 
 /* Search Bar */
 .sb{
-    justify-content: center;
+    justify-content: right;
     display: flex;
     box-sizing: border-box;
     align-items: center;
-    background-color: black;
+    background-color: #3367D6;
     height: 50px;
 }
+
 
 .serbar{
     background-color: beige;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 5%;
     height: 87%;
     border-radius: 20px;
-    width: 60%;
+    width: 45%;
 }
 
 .serbar p{
@@ -165,27 +209,30 @@ header div{
     background-color: lightgray;
 }
 
-.searchbar_filter{
+/* .searchbar_filter{
     width: 17px;
     border: 1px;
     border-radius: 50%;
     padding: 5px;
-}
+    margin-left: 10px;
+} */
 
-.searchbar_filter:hover{
-    background-color: grey;
-}
+/* .searchbar_filter:hover{
+    background-color: lightgray;
+} */
 
 .searchbar_magnify{
     width: 25px;
     border: 1px;
     border-radius: 50%;
     padding: 2px;
+    margin-left: 10px;
 }
 
 .searchbar_magnify:hover{
-    background-color: gray;
+    background-color: lightgray;
 }
+
 
 
 
@@ -199,19 +246,29 @@ header div{
 }
 
 .lowongan{
-    height: 200px;
+    height: 250px;
     border: 1px solid grey;
     border-radius: 20px;
     padding: 20px;
     background-color: white;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     width: 29%;
     box-shadow: 0vh 0vh 0.8vh 0 black;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+.lowongan:hover{
+    transform: scale(1.03);
 }
 
 .pt{
     max-height: 50px;
     max-width: 50px;
+    transition: transform 0.3s ease-in-out;
+    cursor:default;
+}
+.pt:hover{
+    transform: scale(1.2);
 }
 
 .divpt{
@@ -262,35 +319,26 @@ header div{
     max-width: 100%;
 }
 
+/* RGB Buat Tulisan Form*/
+span[id="1"] {
+    color: red;}span[id="2"] {
+    color: orange;}span[id="3"] {
+    color: #4c86f8;}span[id="4"] {color:#459846;}span[id="5"] {color: orange;}
+    span[id="6"] {color: red;}span[id="7"] {color: #4c86f8;}span[id="8"] {color: #459846;}span[id="9"] 
+    {color: orange;}span[id="10"] {color: #4c86f8;}span[id="11"] {color: #459846;}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.form_daftar h3 {
+    letter-spacing: 15px;
+}
+.form_daftar h2 {
+    margin-bottom: 0;
+}.form_daftar h3 {
+    letter-spacing: 15px;
+}
+.form_daftar h2 {
+    margin-bottom: 0;
+}
 /* Detail Pekerjaan */
 /* Halaman Utama */
 #main_detail {
@@ -420,6 +468,10 @@ header div{
     border-radius: 50%;
     border: 1px solid lightgray;
     width: 18%;
+    animation: transform 5s ease-in-out;
+}
+#iconpt:hover{
+    transform: scale(1.30);
 }
 
 #detail_aside div{
@@ -464,7 +516,7 @@ header div{
     background: #e9e9e9de;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 3px 8px 16px 5px rgb(90, 90, 90);
     max-width: 600px;
     width: 100%;
     margin: auto;
@@ -519,12 +571,16 @@ input[type="file"] {
     background-color: #4285F4;
 }
 
+
+
+
 /* Sukses.html */
 #body_sukses{
     margin-top: 13%;
     background-color: #e9e9e9de;
     animation: fadeIn 1s ease-in-out;
-    
+    display: grid;
+    place-items: center;
 }
 @keyframes bounce {
     0% { transform: scale(0.5); opacity: 0; }
@@ -539,7 +595,6 @@ input[type="file"] {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     max-width: 600px;
     width: 100%;
-    margin-left: 35%;
     text-align: justify;
     color: black;
 }
@@ -594,6 +649,10 @@ input[type="file"] {
     }
  }
 
+
+
+
+
 /* Tombol Back */
 /* Halaman Detail Beda Posisi Tok */
 #back_detail{
@@ -616,6 +675,7 @@ input[type="file"] {
     position: fixed;
 }
 
+
 /* Universal */
 .back a{
     text-shadow: 0 0 0.8vh rgb(0, 0, 156);
@@ -629,34 +689,6 @@ input[type="file"] {
     margin-right: 5px;
     height: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Footer */
@@ -737,6 +769,10 @@ footer{
     max-height: 100%;
     transition: none;
 }
+
+.job_description p span {
+    margin-left: 10px;
+}
 /* 
 .social-links a img:hover{
     max-width: 100%;
@@ -745,13 +781,6 @@ footer{
     border-radius: 12px;
 } */
  
-
-
-
-
-
-
-
 
 /* Sumber
 https://www.lokerjogja.id/lowongan/desk-collection-di-pt-colmitra-persada-indonesia/
