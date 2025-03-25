@@ -330,8 +330,6 @@ header {
   transition: color 0.3s ease-in-out;
 }
 
-
-
 .bungkus .tombol::after {
   content: ""; /* Biar muncul garisnya */
   position: absolute; /* Biar posisi bisa diatur atur */
@@ -442,15 +440,6 @@ header {
 
 
 /* Buat Pilihan */
-body.pilihan{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: url("../Asset/pixel.gif") no-repeat center center fixed;
-  background-size: cover;
-  overflow-x: hidden;
-}
 .bungkuspilihan {
     width: 600px;
     background: transparent;

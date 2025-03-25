@@ -126,23 +126,6 @@ header div{
 .orangKerja{
     width: 400px;
 }
-/* 
-.lokasi{
-    box-sizing: border-box;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 27px;
-    background-color: white;
-    margin-bottom: 25px;
-    width: 200px;
-    padding-left: 37px;
-    outline: none;
-}
-
-.filter{
-    width: 40px;
-    padding-bottom: 20px;
-} */
 
 /* filter */
 .filter{
@@ -213,18 +196,6 @@ header div{
     background-color: lightgray;
 }
 
-/* .searchbar_filter{
-    width: 17px;
-    border: 1px;
-    border-radius: 50%;
-    padding: 5px;
-    margin-left: 10px;
-} */
-
-/* .searchbar_filter:hover{
-    background-color: lightgray;
-} */
-
 .searchbar_magnify{
     width: 25px;
     border: 1px;
@@ -237,11 +208,6 @@ header div{
 .searchbar_magnify:hover{
     background-color: lightgray;
 }
-
-
-
-
-
 
 /* Halaman Utama */
 .lowongansneakpeak{
@@ -503,15 +469,6 @@ span[id="1"] {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* Form Lamaran */
 /* Halaman Utama */
 #main_form{
@@ -578,9 +535,6 @@ input[type="file"] {
     background: linear-gradient(70deg, #4CAF50, lightgreen);
     transform: scale(1.10);
 }
-
-
-
 
 /* Sukses.html */
 #body_sukses{
@@ -656,10 +610,6 @@ input[type="file"] {
         transform: translateY(0);
     }
  }
-
-
-
-
 
 /* Tombol Back */
 /* Halaman Detail Beda Posisi Tok */
@@ -783,14 +733,6 @@ footer{
 .job_description p span {
     margin-left: 10px;
 }
-/* 
-.social-links a img:hover{
-    max-width: 100%;
-    max-height: 100%;
-    background-color: white;
-    border-radius: 12px;
-} */
- 
 
 /* Sumber
 https://www.lokerjogja.id/lowongan/desk-collection-di-pt-colmitra-persada-indonesia/
