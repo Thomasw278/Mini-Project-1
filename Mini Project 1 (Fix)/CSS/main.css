@@ -310,6 +310,11 @@ span[id="1"] {
 .form_daftar h2 {
     margin-bottom: 0;
 }
+
+body.form {
+    background-image: url(../Asset/BGKeren.jpg);
+    background-size: cover;
+}
 /* Detail Pekerjaan */
 /* Halaman Utama */
 #main_detail {
