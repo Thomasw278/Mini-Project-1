@@ -209,6 +209,10 @@ header div{
     background-color: lightgray;
 }
 
+.social-linksa:hover {
+    transform: scale(1.35);
+}
+
 /* Halaman Utama */
 .lowongansneakpeak{
     display: flex;
