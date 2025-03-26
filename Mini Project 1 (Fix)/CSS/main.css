@@ -60,6 +60,10 @@ header{
     z-index: 100;
 }
 
+.icon_cont:hover {
+    transform: scale(1.02);
+}
+
 .headerbg{
     height: 70px;
 }
@@ -324,6 +328,7 @@ span[id="1"] {
     color: #4c86f8;}span[id="4"] {color:#459846;}span[id="5"] {color: orange;}
     span[id="6"] {color: red;}span[id="7"] {color: #4c86f8;}span[id="8"] {color: #459846;}span[id="9"] 
     {color: orange;}span[id="10"] {color: #4c86f8;}span[id="11"] {color: #459846;}
+    span[id="12"] {color:red};
 
 
 .form_daftar h3 {
