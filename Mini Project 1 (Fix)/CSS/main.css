@@ -133,6 +133,7 @@ header div{
     gap: 5px;
     margin-right: 25%;
     padding: 5px;
+    width: fit-content;
 }
 
 .filter select {
@@ -154,7 +155,7 @@ header div{
 
 /* Search Bar */
 .sb{
-    justify-content: right;
+    justify-content:space-between;
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -170,7 +171,7 @@ header div{
     align-items: center;
     justify-content: center;
     margin-left: 0;
-    margin-right: 5%;
+    margin-right: 2%;
     height: 87%;
     border-radius: 20px;
     width: 45%;
@@ -213,85 +214,79 @@ header div{
     transform: scale(1.35);
 }
 
-/* Halaman Utama */
-.lowongansneakpeak{
+/* Halaman Utama Main*/
+.container_loker{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    
 }
 
-.lowongan{
-    height: 250px;
-    border: 1px solid grey;
-    border-radius: 20px;
-    padding: 20px;
+.container_loker section{
     background-color: white;
-    margin-bottom: 50px;
-    width: 29%;
-    box-shadow: 0vh 0vh 0.8vh 0 black;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1;
-}
-.lowongan:hover{
-    transform: scale(1.03);
+    width: 42%;
+    margin: 1%;
+    border: 1px solid darkgray;
+    padding-bottom: 10px;
 }
 
 .pt{
-    max-height: 50px;
-    max-width: 50px;
-    transition: transform 0.3s ease-in-out;
-    cursor:default;
+    width: 55px;
 }
-.pt:hover{
-    transform: scale(1.2);
+
+.jobdesc_cont{
+    padding-top: 1%;
+    padding-left: 5%;
+    display: flex; 
+}
+
+.jobdesc_detail{
+    padding-top: 7px;
+    width: 33%;
+}
+
+.jobdesc_detail_detail{
+    display: flex;
+    align-items: center;
+    height: 20px;
+    
+}
+
+.jobdesc_detail_detail img{
+    width: 20px;
+    margin-right: 4px;
+}
+
+.jobdesc_detail p {
+    padding-top: 4px;
+    padding-left: 24px;
 }
 
 .divpt{
     display: flex;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     padding: 10px;
-    border: 1px solid grey;
-    border-radius: 10px;
+    /* border: 1px solid grey; */
+    /* border-radius: 10px; */
     align-items: center;
     justify-content: center;
 }
 
-.containerlinkpt{
-    padding-left: 4px;
+.main_jobtitle{
+    display: flex;
+    align-items: center;
 }
 
-.linkpt{
-    font-size: 17px;
+.main_jobtitle h2 a{
     text-decoration: none;
     color: black;
 }
 
-.linkpt:hover{
-    text-decoration: underline;
-}
-
-.job{
-    max-height: 100px;
-}
-
-.jobtitle{
-    font-size: 15px;
-    margin-top: 3px;
-    padding-top: 5px;
-    margin-bottom: 3px;
-    border-top: 2px solid grey;
-}
-.joblist{
-    font-size: 13px;
-    padding-left: 20px;
-    max-height: 100%;
-    list-style:circle;
-}
-
-.joblist li{
-    max-height: 100%;
-    max-width: 100%;
+.main_jobdesc{
+    padding-left: 10px;
+    width: 100%;
 }
 
 /* RGB Buat Tulisan Form*/
