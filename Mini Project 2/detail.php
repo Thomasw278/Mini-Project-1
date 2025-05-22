@@ -1,0 +1,135 @@
+<?php
+require "connection.php"
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="CSS/main.css">
+    <title> | Jemput Karir</title>
+    <link rel="icon" type="image/png" href="Asset/ICON.png">
+</head>
+<body class="form">
+    <header>
+        <div class = "icon_cont">
+            <a href="main.html"><img src="Asset/JEMKAR.png" class = "icon"></a>
+        </div>
+        <div>
+            <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
+        </div>
+    </header>
+    <div class = "headerbg"></div>
+
+    <div id = "back_detail" class="back">
+        <a href="main.html"><img src="Asset/back.png">Kembali</a>
+    </div>
+
+    <main id = "main_detail">
+        <section id = "main_sec">
+            <?php 
+            
+            ?>
+            <section id = "brief_desc"> 
+                <h1>Desk Collection</h1>
+                <div class = "jobdes">
+                    <div class = "jobdesc">                    
+                        <h4 class = "jobdesc_title"><img src="Asset/kategori.png">Kategori</h4>
+                        <p class = "jobdesc_desc">Kredit</p>
+                    </div>
+                    <div class = "jobdesc">
+                        <h4 class = "jobdesc_title"><img src="Asset/jam.png">Jenis Pekerjaan</h4>
+                        <p class = "jobdesc_desc">Full Time</p>
+                    </div>
+                    <div class = "jobdesc">                    
+                        <h4 class = "jobdesc_title"><img src="Asset/gaji.png" id="jobdesc_icon4">Gaji</h4>
+                        <p class = "jobdesc_desc">Rp. 2.000.000 - 3.000.000 Juta</p>
+                    </div>
+                </div>
+                <p id="lamar"><a href="form.html">Lamar Pekerjaan</a></p>
+                <br>
+            </section>
+            <section class = "job_description">
+                <h2>Deskripsi Pekerjaan</h2>
+                <p>Hai, Teman! Mari bergabung dan sukses bersama PT.Colmitra Persada Indonesia dengan menjadi salah satu bagian dari kami. PT Colmitra Persada Indonesia adalah perusahaan yang bergerak di bidang Jasa Keuangan. Perusahaan Agency yang bekerja sama dengan beberapa perusahaan Fintech ternama di Indonesia. Saat Ini Kami sedang Membutuhkan Desk Collection ( Penagihan via telpon ) berpengalaman / Freshgraduate.</p>
+                <h3>Tugas</h3>
+                <ul>
+                    <li>Melakukan Penagihan Kepada Nasabah yang telah jatuh tempo by Call sesuai SOP PT.Colmitra Persada Indonesia</li>
+                    <li>Menginformasikan pembayaran yang telah jatuh tempo kepada Nasabah dari Client PT. Colmitra Persada Indonesia</li>
+                    <li>Membantu Nasabah melakukan pembayaran sesuai prosedur PT.Colmitra Persada Indonesia</li>
+                </ul>
+            </section>
+            <section class = "job_description">
+                <h2>Syarat & Kualifikasi </h2>
+                <ul>
+                    <li>Usia 18 - 35 tahun</li>
+                    <li>Pendidikan min SMA / SMK / Paket C sederajat (Tidak Sedang Kuliah )</li>
+                    <li>Kuliah Semester akhir Dipersilahkan</li>
+                    <li>Kuliah Univ Terbuka Dipersilahkan</li>
+                    <li>Berpengalaman / Fresh Graduate Dipersilahkan</li>
+                    <li>Ramah, Tegas, Komunikatif & Proaktif</li>
+                    <li>Dapat Berkomunikasi dengan baik Serta Intonasi, aksen yang jelas dan tidak berlogat</li>
+                    <li>Siap Bekerja Dibawah Tekanan Dan Target.</li>
+                    <li>Mampu mengoperasikan komputer dengan baik (Microsoft Words & Excel)</li>
+                </ul>
+            </section>
+            <section class = "job_description">
+                <h2>Tanggal Batas Lamaran</h2>
+                <p><span>31 Maret 2025</span></p>
+            </section>
+        </section>
+        <aside id = "detail_aside">
+            <img src="https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg" id = "iconpt">
+            <div>
+                <h3>PT. Colmitra Persada Indonesia</h2>
+                <h4><img src="Asset/lokasi.png">Lokasi</h3>
+                <p>The Great Saladdin Square, Jl. Margonda Raya No.39, Depok</p>
+                <h4><img src="Asset/industri.png">Industri</h3>
+                <p>Kredit</p>
+                <h4><img src="Asset/karyawan.png" id="detail_aside_icon3">Ukuran Perusahaan</h3>
+                <p>501-1000 Karyawan</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Layanan</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Layanan Pengaduan</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#"></a></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="#">Call Center</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-linksa"><img src="Asset/ig.png" class="social-links-follow"></a>
+                        <a href="#" class="social-linksa"><img src="Asset/Facebook.png"class="social-links-follow"></a>
+                        <a href="#" class="social-linksa"><img src="Asset/Linkedin.png"class="social-links-follow"></a>
+                        <a href="#" class="social-linksa"><img src="Asset/Tele.png"class="social-links-follow"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

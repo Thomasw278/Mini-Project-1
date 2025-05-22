@@ -12,69 +12,70 @@ require "connection.php"
 <body>
     <header>
         <div class = "icon_cont">
-            <a href="main.html"><img src="Asset/JEMKAR.png" class = "icon"></a>
+            <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
             <a href="#scroll" class = "head_nav">Cari Kerja</a>
             <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
         </div>
     </header>
-    <div class = "headerbg"></div>
+    <div id = "headerbg"></div>
+
+    <form action = "main.php" method = "GET">
         <div class="sb">
-            <div class="filter">
-                <select name="kategori" class="scrollfilt">
-                    <option value="0">Kategori</option>
-                    <?php
-                    $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan from pekerjaan natural join perusahaan";
-                    $result = mysqli_query($conn, $sql);
-                    $i = 0;
-                    $list = array();
-                    while ($row = mysqli_fetch_assoc($result)){
-                        if (!in_array($row['kategoriPekerjaan'], $list)){
-                            array_push($list, $row['kategoriPekerjaan']);
-                            echo "<option value=".$i++.">".$row['kategoriPekerjaan']."</option>";
-                        }
+            <select name="kategoriPekerjaan">
+                <option value="">Semua Kategori</option>
+                <?php
+                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan from pekerjaan natural join perusahaan";
+                $result = mysqli_query($conn, $sql);
+                $i = 0;
+                $list = array();
+                while ($row = mysqli_fetch_assoc($result)){
+                    if (!in_array($row['kategoriPekerjaan'], $list)){
+                        array_push($list, $row['kategoriPekerjaan']);
+                        echo "<option value='".$row['kategoriPekerjaan']."'>".$row['kategoriPekerjaan']."</option>";
                     }
-                    ?>
-                </select>
-                                
-                <select name="jenisPekerjaan" class="scrollfilt">
-                    <option value="0">Jenis Pekerjaan</option>
-                    <?php
-                    $result = mysqli_query($conn, $sql);
-                    $i = 0;
-                    $list = array();
-                    while ($row = mysqli_fetch_assoc($result)){
-                        if (!in_array($row['jenisPekerjaan'], $list)){
-                            array_push($list, $row['jenisPekerjaan']);
-                            echo "<option value=".$i++.">".$row['jenisPekerjaan']."</option>";
-                        }
+                }
+                ?>
+            </select>
+                            
+            <select name="jenisPekerjaan">
+                <option value="">Semua Jenis Pekerjaan</option>
+                <?php
+                $result = mysqli_query($conn, $sql);
+                $i = 0;
+                $list = array();
+                while ($row = mysqli_fetch_assoc($result)){
+                    if (!in_array($row['jenisPekerjaan'], $list)){
+                        array_push($list, $row['jenisPekerjaan']);
+                        echo "<option value='".$row['jenisPekerjaan']."'>".$row['jenisPekerjaan']."</option>";
                     }
-                    ?>
-                </select>
-                    
-                <select name="gaji" class="scrollfilt">
-                    <option value="0">Gaji</option>
-                    <?php
-                    $result = mysqli_query($conn, $sql);
-                    $i = 0;
-                    $list = array();
-                    while ($row = mysqli_fetch_assoc($result)){
-                        if (!in_array($row['gaji'], $list)){
-                            array_push($list, $row['gaji']);
-                            echo "<option value=".$i++.">".$row['gaji']."</option>";
-                        }
+                }
+                ?>
+            </select>
+                
+            <select name="gaji">
+                <option value="">Semua Gaji</option>
+                <?php
+                $result = mysqli_query($conn, $sql);
+                $i = 0;
+                $list = array();
+                while ($row = mysqli_fetch_assoc($result)){
+                    if (!in_array($row['gaji'], $list)){
+                        array_push($list, $row['gaji']);
+                        echo "<option value='".$row['gaji']."'>".$row['gaji']."</option>";
                     }
-                    ?>
-                </select>
-            </div>
+                }
+                ?>
+            </select>
+        
             
-            <div class="serbar" name = "searchbar">
-                <p><input type="text" class = "searchbar_input" name = "searchbar" placeholder="Cari..."></p>
-                <a href="#"><img src="Asset/search-removebg-preview.png" class="searchbar_magnify"></a>
+            <div id="serbar" name = "searchbar">
+                <p><input type="text" id = "searchbar_input" name = "searchbar" placeholder="Cari..."></p>
+                <button type = "submit"><img src="Asset/search-removebg-preview.png" id="searchbar_magnify"></button>
             </div>  
-        </div>         
-    </div>  
+        </div>  
+    </form>      
     
         
     <main id = "main_main">
@@ -88,21 +89,54 @@ require "connection.php"
         </section>
 
         <div class = "container_loker" id="scroll">
-            
                 <?php 
-                // $sql = "SELECT * FROM pekerjaan";
-                // $result = mysqli_query($conn, $sql);
-                $sql = "SELECT namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
-                namaPerusahaan FROM pekerjaan natural join perusahaan";
-                $result = mysqli_query($conn, $sql);
+                $tambah = "";
+                if (!empty($_GET['kategoriPekerjaan'])){
+                    $tambah .= "kategoriPekerjaan = '".$_GET['kategoriPekerjaan']."'";
+                }
 
+                if (!empty($_GET['jenisPekerjaan'])){
+                    if (!empty($tambah)){
+                        $tambah .= " AND jenisPekerjaan = '".$_GET['jenisPekerjaan']."'";
+                    }
+                    else{
+                        $tambah .= "jenisPekerjaan = '".$_GET['jenisPekerjaan']."'";
+                    }
+                }
+
+                if (!empty($_GET['gaji'])){
+                    if (!empty($tambah)){
+                        $tambah .= " AND gaji = '".$_GET['gaji']."'";
+                    }
+                    else{
+                        $tambah .= "gaji = '".$_GET['gaji']."'";
+                    }
+                }
+
+                if (!empty($_GET['searchbar'])){
+                    if (!empty($tambah)){
+                        $tambah .= " AND namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
+                    }
+                    else{
+                        $tambah .= "namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
+                    }
+                }
+
+                $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
+                namaPerusahaan FROM pekerjaan natural join perusahaan";
+                
+                if (!empty($tambah)){
+                    $sql .= " WHERE ".$tambah."";
+                }
+                
+                $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)){
                     echo "<section>";
                         echo "<div class = 'main_jobtitle'>";
                             echo "<div class = 'divpt'>";
                                 echo "<img src='https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg' class='pt'>";
                             echo "</div>";
-                            echo "<h2><a href='detail.html'>".$row['namaPekerjaan']."</a></h2>";
+                            echo "<h2><a href='detail.php?id=".$row['idPekerjaan']."'>".$row['namaPekerjaan']."</a></h2>";
                         echo "</div>";
                         echo "<div class = 'main_jobdesc'>";
                             echo "<p>".$row['namaPerusahaan']."</p>";
@@ -123,12 +157,10 @@ require "connection.php"
                         echo "</div>";
                     echo "</section>";
                 }
-
-                
-                
+                $tambah = "";
                 ?>
             
-            <section>
+            <!-- <section>
                 <div class = "main_jobtitle">
                     <div class = "divpt">
                         <img src="https://asset.loker.id/img/2023/02/images-1-150x150.png" class="pt">
@@ -252,7 +284,7 @@ require "connection.php"
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
     
     </main>
 
