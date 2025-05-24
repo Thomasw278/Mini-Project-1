@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require "connection.php" ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,18 +14,18 @@
     <div class="bungkuspilihan">
         <h1><span id="1">p</span><span id="2">i</span><span id="3">l</span><span id="4">i</span><span id="5">h</span> 
             <span id="6">l</span><span id="7">o</span><span id="8">g</span><span id="9">i</span><span id="10">n</span></h1>
-            <a href="main.html">
+            <a href="main.php">
                 <img src="Asset/JemkarFontHitam.png">
             </a>
             <table>
         <tr>
             <td>
-                <a href="LoginUser.html">
+                <a href="Loginuser.php">
                 <button type="button" class="bt1pilihan">PENGGUNA</button>
                 </a>
             </td>
             <td>
-                <a href="LoginAdmin.html">
+                <a href="Loginadmin.php">
                 <button type="button" class="bt2pilihan">ADMIN</button>
                 </a>
             </td>

@@ -28,7 +28,6 @@
         }
     }    
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +36,7 @@
     <link rel="icon" type="image/png" href="Asset/ICON.png">
 </head>
 <body class="form">
-    <header>
+    <header id="header_form">
         <div class = "icon_cont">
             <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
@@ -45,17 +44,17 @@
             <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
         </div>
     </header>
-    <div class = "headerbg"></div>
+    <div class = "headerbg_form"></div>
 
     <div id = "back_form" class = "back">
-        <a href="detail.html"><img src="Asset/back.png">Kembali</a>
+        <a href="detail.php"><img src="Asset/back.png">Kembali</a>
     </div>
     
     <main id = "main_form">
         <div class="form_daftar">
             <h2>Formulir Pendaftaran Kerja</h2>
             <h3><span id="1">J</span><span id="2">e</span><span id="3">m</span><span id="4">p</span><span id="5">u</span><span id="6">t</span> <span id="7">K</span><span id="8">a</span><span id="9">r</span></span><span id="10">i</span><span id="12">e</span><span id="11">r</span></h3>
-            <form method="POST" action="form.php" enctype="multipart/form-data">
+            <form action="sukses.html">
                 <div class="form">
                     <label>Nama Lengkap *</label>
                     <div class="baris">
@@ -81,7 +80,7 @@
 
                 <div class="form">
                     <label>CV *</label>
-                    <input type="file" name="cv" id="" accept=".pdf, .docx" required >
+                    <input type="file" name="cv" id="" accept=".pdf, .docx" >
                 </div>
 
                 <div class="form">
@@ -95,13 +94,10 @@
                 </div>
 
                 <button type="submit" class="subButton">Kirim Lamaran</button>
-
             </form>
         </div>
     </main>
     <br>
-
-
     <footer>
         <div class="container">
             <div class="row">

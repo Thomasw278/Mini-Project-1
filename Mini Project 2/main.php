@@ -16,7 +16,7 @@ require "connection.php"
         </div>
         <div>
             <a href="#scroll" class = "head_nav">Cari Kerja</a>
-            <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
+            <a href="PilihanLogin.php" class = "head_nav">Registrasi / login</a>
         </div>
     </header>
     <div id = "headerbg"></div>

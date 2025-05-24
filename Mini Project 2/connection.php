@@ -19,8 +19,9 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
     <!-- 
     create table pengguna (
         idPengguna int AUTO_INCREMENT PRIMARY KEY,
+        emailPengguna varchar(70) not null,
         namaPengguna varchar(40) not null,
-        email varchar(70) not null
+        passwordPengguna varchar(40) not null
         );	
     -->
 
