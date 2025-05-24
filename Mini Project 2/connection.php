@@ -67,6 +67,20 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
         );
     -->  
 
+    <!-- TABEL FORM ISI BUAT LAMAR PEKERJAAN --> 
+    <!--
+    create table formPelamar (
+        idPelamar int AUTO_INCREMENT PRIMARY KEY,
+        namaDepan varchar(50) NOT null,
+        namaBelakang varchar(50),
+        tglLahir date NOT null,
+        email varchar(50) not null,
+        nomorHP int(13) not null,
+        cv varchar(50) not null,
+        portofolio varchar(50),
+        suratLamaran varchar(50),
+        );
+    -->
 
 
 <!-- COBA DATA -->

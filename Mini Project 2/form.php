@@ -1,3 +1,34 @@
+<?php 
+    require "connection.php";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        // $idPerusahaan = $_POST['id_perusahaan'];
+        $namaDepan = $_POST['nama_depan'];
+        $namaBelakang = $_POST['nama_belakang'];
+        $tglLahir = $_POST['tanggal_lahir'];
+        $email = $_POST['email'];
+        $noHP = $_POST['nomor_hp'];
+        function upFile($file, $tujuan){
+            if(isset($_FILES[$file]) && $_FILES[$file]['error']===0){
+                $fileName = basename($_FILES[$file]['name']);
+                $targetPath = $tujuan . $fileName;
+                return $fileName;
+            }
+            return null;
+        }
+        $cv = upFile('cv', 'uploads/');
+        $portofolio = upFile('Portofolio', 'uploads/');
+        $suratLamaran = upFile('surat_lamaran', 'uploads/');
+        $sql = "INSERT INTO formpelamar (namaDepan, namaBelakang, tglLahir, email, nomorHP, cv, portofolio, suratLamaran)
+                VALUES ('$namaDepan', '$namaBelakang', '$tglLahir', '$email', '$noHP', '$cv', '$portofolio', '$suratLamaran')";
+        if(mysqli_query($conn, $sql)){
+            header("Location: sukses.html");
+        } else {
+            echo "Gagal melamar pekerjaan";
+        }
+    }    
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +39,7 @@
 <body class="form">
     <header>
         <div class = "icon_cont">
-            <a href="main.html"><img src="Asset/JEMKAR.png" class = "icon"></a>
+            <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
             <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
@@ -24,7 +55,7 @@
         <div class="form_daftar">
             <h2>Formulir Pendaftaran Kerja</h2>
             <h3><span id="1">J</span><span id="2">e</span><span id="3">m</span><span id="4">p</span><span id="5">u</span><span id="6">t</span> <span id="7">K</span><span id="8">a</span><span id="9">r</span></span><span id="10">i</span><span id="12">e</span><span id="11">r</span></h3>
-            <form action="sukses.html">
+            <form method="POST" action="form.php" enctype="multipart/form-data">
                 <div class="form">
                     <label>Nama Lengkap *</label>
                     <div class="baris">
@@ -50,7 +81,7 @@
 
                 <div class="form">
                     <label>CV *</label>
-                    <input type="file" name="cv" id="" accept=".pdf, .docx" >
+                    <input type="file" name="cv" id="" accept=".pdf, .docx" required >
                 </div>
 
                 <div class="form">
@@ -64,6 +95,7 @@
                 </div>
 
                 <button type="submit" class="subButton">Kirim Lamaran</button>
+
             </form>
         </div>
     </main>
