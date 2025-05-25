@@ -25,8 +25,8 @@
                 </a>
             </td>
             <td>
-                <a href="Loginadmin.php">
-                <button type="button" class="bt2pilihan">ADMIN</button>
+                <a href="LoginPerusahaan.php">
+                <button type="button" class="bt2pilihan">PERUSAHAAN</button>
                 </a>
             </td>
         </tr>

@@ -7,11 +7,13 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
     <!-- 
     create table perusahaan (
         idPerusahaan int AUTO_INCREMENT PRIMARY KEY,
+        emailPerusahaan varchar(255) not null,
         namaPerusahaan varchar(60) not null,
+        password varchar(60) not null,
         alamatPerusahaan varchar(60) not null, 
         industri varchar(20) not null,
         ukuranPerusahaan varchar(20) not null,
-        logoPerusahaan BLOB
+        logoPerusahaan varchar(100) not null
         );
     -->
 

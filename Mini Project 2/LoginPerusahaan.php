@@ -1,5 +1,9 @@
 <?php 
-    require "connection.php"
+    require "connection.php";
+    $pesan = "";
+    if($_GET){
+        $pesan = $_GET["pesan"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +27,7 @@
     <div class="bungkus">
         <form action="Loginadmin.php" method="POST">
             <h1>Login</h1>
-            <h2>FOR ADMIN</h2>
+            <h2>FOR Company</h2>
             <div class="inputbox">
                 <input type="text" placeholder="Masukkan Nama" required>
                 <i class='bx bxs-user'></i>
@@ -36,16 +40,16 @@
             <div class="checkingat">
                 <a href="Lupapassword.php">Lupa Password</a>
             </div>
-
            <button type="submit" class="tombol">Login</button>
-           
             <div class="daftarakun">
                 <p>Gak punya akun?? 
-                    <a href="#">Daftar Disini</a>
+                    <a href="RegistrasiPerusahaan.php">Daftar Disini</a>
                 </p>
             </div>
         </form>
     </div>
+    <br><br>
+    <h4 class="pesan"><?= $pesan ?></h4>
     </main>
     <footer>
         <h2 class="copy">&copy; 2025 Jemput Karier</h2>

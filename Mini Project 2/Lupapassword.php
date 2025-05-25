@@ -4,18 +4,30 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $emailpengguna = $_POST["email"];
         $password = $_POST["password"];
-        $check = "SELECT * FROM pengguna where emailPengguna = '".$emailpengguna."'";
-        $result = mysqli_query($conn,$check);
+        $checkv1 = "SELECT * FROM pengguna where emailPengguna = '".$emailpengguna."'";
+        $result = mysqli_query($conn,$checkv1);
         if(mysqli_num_rows($result) > 0){
-            $query = "UPDATE pengguna SET passwordPengguna = '".$password."' WHERE emailPengguna = '".$emailpengguna."'";
-            if(mysqli_query($conn,$query)){
-                header("location: Loginuser.php");
-                exit();
+            $queryv1 = "UPDATE pengguna SET passwordPengguna = '".$password."' WHERE emailPengguna = '".$emailpengguna."'";
+            if(mysqli_query($conn,$queryv1)){
+                $pesan = "Berhasil Mengganti Password User";
+                header("location: Loginuser.php?pesan=".$pesan);
             } else {
-                $pesan = "Terjadi Kesalahan Penggantian Password";
+                $pesan = "Gagal Mengganti Password User";
             }
         } else {
-            $pesan = "Email Tidak Terdaftar";
+            $checkv2 = "SELECT * FROM perusahaan where emailPerusahaan = '".$emailpengguna."'";
+            $results = mysqli_query($conn,$checkv2);
+            if(mysqli_num_rows($results) > 0){
+                $queryv2 = "UPDATE perusahaan SET password = '".$password."' WHERE emailPerusahaan = '".$emailpengguna."'";
+                if(mysqli_query($conn,$queryv2)){
+                    $pesan = "Berhasil Mengganti Password Perusahaan";
+                    header("location: LoginPerusahaan.php?pesan=".$pesan);
+                } else {
+                    $pesan = "Gagal Mengganti Password User";
+                }
+            }else {
+                $pesan = "Email Tidak Ditemukan";
+            }
         }
     }
 ?>

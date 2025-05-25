@@ -1,5 +1,5 @@
 function LiatPW(logo){
-    const input = document.getElementById("password")
+    const input = document.getElementById("password");
     console.log(input)
     if(input.type == "password"){
         input.type = "text";
@@ -19,6 +19,17 @@ function Validasi(){
         return false;
     } else if (pass !== pass1){
         pesan.textContent = "Password dan Konfirmasi Salah";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function ValidasiCompany(){
+    const pass = document.getElementById("password").value.trim();
+    const pesan  = document.getElementById("pesan");
+    if(pass.length < 8){
+        pesan.textContent = "Panjang Minimal Password adalah 8";
         return false;
     } else {
         return true;

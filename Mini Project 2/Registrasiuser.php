@@ -12,14 +12,15 @@
         } else {
             $query = "INSERT INTO pengguna (emailPengguna,namaPengguna,passwordPengguna) VALUES ('".$emailuser."', '".$namauser."', '".$passuser."')";
             if(mysqli_query($conn,$query)){
-                header("location: Loginuser.php");
+                $pesan = "Berhasil Membuat Akun Pengguna";
+                header("location: Loginuser.php?pesan=".$pesan);
                 exit();
             } else {
                 $pesan = "Terjadi Kesalahan Register";
             }
         }
     } else {
-        $pesan = "Gagal Request Cinta Kamu";
+        $pesan = "";
     }
 ?>
 <!DOCTYPE html>

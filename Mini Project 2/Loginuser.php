@@ -1,5 +1,9 @@
 <?php 
-    require "connection.php"
+    require "connection.php";
+    $pesan = "";
+    if($_GET){
+        $pesan = $_GET["pesan"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +41,6 @@
             <div class="checkingat1">
                 <a href="Lupapassword.php">Lupa Password</a>
             </div>
-
            <button type="submit" class="tombol1">Login</button>
 
             <div class="daftarakun1">
@@ -47,6 +50,8 @@
             </div>
         </form>
     </div>
+     <br><br>
+    <h4 class="pesan"><?= $pesan ?></h4>
     </main>
     <footer>
         <h2 class="copy">&copy; 2025 Jemput Karier</h2>
