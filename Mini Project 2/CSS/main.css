@@ -98,6 +98,40 @@ header div{
     background: #4285F4;
 }
 
+.head_nav:hover {
+  color: white;
+  background: #4285F4;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+
 /* Main */
 #main_main{
     margin: 4%;

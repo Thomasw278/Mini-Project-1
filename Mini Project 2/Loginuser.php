@@ -1,9 +1,43 @@
 <?php 
+    session_start();
     require "connection.php";
     $pesan = "";
     if($_GET){
         $pesan = $_GET["pesan"];
     }
+
+    if (isset($_SESSION['emailPengguna'])){
+    header("Location: hbsLogin.php");
+    exit();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['emailPengguna'] ?? '';
+    $password = trim($_POST['passwordPengguna']) ?? '';
+
+    $email = mysqli_real_escape_string($conn, $email);
+    // Ambil email dan password pengguna
+    $sql = "SELECT * FROM pengguna WHERE emailPengguna = '{$email}'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+    $user = mysqli_fetch_assoc($result);
+    
+    // Ganti verifikasi password langsung
+    if ($password === $user['passwordPengguna']) {
+        $_SESSION['emailPengguna'] = $user['emailPengguna'];
+        $_SESSION['passwordPengguna'] = $user['passwordPengguna'];
+        $_SESSION['namaPengguna'] = $user['namaPengguna'];
+        $_SESSION['idPengguna'] = $user['idPengguna'];
+        setcookie("idPengguna", $user['idPengguna'], time()+300);
+        header("Location: hbsLogin.php");
+        exit();
+        } else {
+            $pesan = "❌ Password salah.";
+        }
+    } else {
+        $pesan = "❌ Email tidak ditemukan.";
+    }
+}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
