@@ -2,8 +2,6 @@
     session_start();
     session_unset();
     session_destroy();
-
-    setcookie("idPengguna", "", time()-3600);
     header("Location: main.php");
     exit();
 ?>

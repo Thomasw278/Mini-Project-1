@@ -1,16 +1,11 @@
 <?php 
 session_start();
 require "connection.php";
-if (!isset($_SESSION['emailPengguna'])) {
-    header("Location: Loginuser.php");
+if (!isset($_SESSION['username'])) {
+    $pesan = "Kamu Belum Login";
+    header("Location: Loginuser.php?pesan=".$pesan);
     exit();
 }
-
-$nama = $_SESSION['namaPengguna'];
-$email = $_SESSION['emailPengguna'];
-$password = $_SESSION['passwordPengguna'];
-$idPengguna = $_SESSION['idPengguna'];
-setcookie('idPengguna', $idPengguna, time()+300);
 ?>
 
 <!DOCTYPE html>
@@ -22,38 +17,22 @@ setcookie('idPengguna', $idPengguna, time()+300);
 </head>
 <body>
     <header>
-        <div class="icon_cont">
-            <a href="hbsLogin.php"><img src="Asset/JEMKAR.png" class="icon"></a>
+        <div class = "icon_cont">
+            <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
-        <div class="right_nav">
-            <a href="#scroll" class="head_nav">Cari Kerja</a>
-            <?php if (isset($_SESSION['emailPengguna'])): ?>
-                <div class="dropdown">
-                    <button class="head_nav dropdown-toggle" onclick="toggleDropdown()"> <?= htmlspecialchars($_SESSION['namaPengguna']) ?> </button>
-                        <div id="dropdownContent" class="dropdown-content">
-                            <a href="PilihanLogin.php">Ganti Akun</a>
-                            <a href="logout.php">Logout</a>
-                        </div>
-                </div>
-            <?php else: ?>
-            <a href="PilihanLogin.php" class="head_nav">Registrasi / login</a>
-            <?php endif; ?>
-        </div>
-        <script>
-            function toggleDropdown() {
-                const dropdown = document.getElementById("dropdownContent");
-                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-            }
-
-            // Menutup dropdown jika klik di luar
-            window.onclick = function(e) {
-                if (!e.target.matches('.dropdown-toggle')) {
-                const dropdown = document.getElementById("dropdownContent");
-                if (dropdown) dropdown.style.display = "none";
+        <div>
+            <?php
+                if(isset($_SESSION["username"])){
+                    echo "<b><p class='head_nav'>Hello | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
+                    echo "<a href='logOut.php' class='head_nav'>Logout</a>";
+                } else {
+                    echo "<b><p class='head_nav'>Hello | Guest</p></b>";
+                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
+                    echo "<a href='PilihanLogin.php' class='head_nav'>Registrasi / Login</a>";
                 }
-            }
-        </script>
-
+            ?>
+        </div>
     </header>
     <div id = "headerbg"></div>
 
@@ -115,8 +94,7 @@ setcookie('idPengguna', $idPengguna, time()+300);
     
         
     <main id = "main_main">
-        <h1>Selamat datang, <?= htmlspecialchars($_SESSION['namaPengguna']) ?></h1>
-        <section id = getstart>
+            <section id = getstart>
                 <div>
                     <h1 class="title1">Langkah Mudah Menuju Pekerjaan Impian Anda</h1> 
                     <h2 class="title2">Bersama Jemput Karier</h1>    

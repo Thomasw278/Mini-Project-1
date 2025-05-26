@@ -49,7 +49,7 @@
         </form>
     </div>
     <br><br>
-    <h4 class="pesan"><?= $pesan ?></h4>
+    <h4 id="pesan1"><?= $pesan ?></h4>
     </main>
     <footer>
         <h2 class="copy">&copy; 2025 Jemput Karier</h2>

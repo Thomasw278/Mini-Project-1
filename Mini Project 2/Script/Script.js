@@ -35,3 +35,16 @@ function ValidasiCompany(){
         return true;
     }
 }
+
+
+function ValidasiLogin(){
+    const pass = document.getElementById("password").value.trim();
+    const pesan  = document.getElementById("pesan1");
+    console.log(pesan);
+    if(pass.length < 8){
+        pesan.textContent = "Panjang Minimal Password adalah 8";
+        return false;
+    } else {
+        return true;
+    }
+}

@@ -9,35 +9,26 @@
     if (isset($_SESSION['emailPengguna'])){
     header("Location: hbsLogin.php");
     exit();
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['emailPengguna'] ?? '';
-    $password = trim($_POST['passwordPengguna']) ?? '';
-
-    $email = mysqli_real_escape_string($conn, $email);
-    // Ambil email dan password pengguna
-    $sql = "SELECT * FROM pengguna WHERE emailPengguna = '{$email}'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    
-    // Ganti verifikasi password langsung
-    if ($password === $user['passwordPengguna']) {
-        $_SESSION['emailPengguna'] = $user['emailPengguna'];
-        $_SESSION['passwordPengguna'] = $user['passwordPengguna'];
-        $_SESSION['namaPengguna'] = $user['namaPengguna'];
-        $_SESSION['idPengguna'] = $user['idPengguna'];
-        setcookie("idPengguna", $user['idPengguna'], time()+300);
-        header("Location: hbsLogin.php");
-        exit();
-        } else {
-            $pesan = "❌ Password salah.";
-        }
-    } else {
-        $pesan = "❌ Email tidak ditemukan.";
     }
-}
-}
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $nama = $_POST["username"];
+        $pass = $_POST["password"];
+        $sql = "SELECT * FROM pengguna WHERE namaPengguna = '".$nama."'";
+        $result = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result) > 0){
+            $user = mysqli_fetch_assoc($result);
+            if($pass == $user["passwordPengguna"]){
+                $_SESSION["id"] = $user["idPengguna"];
+                $_SESSION["username"] = $user["namaPengguna"];
+                header("Location: hbsLogin.php");
+            } else {
+                $pesan = "❌ Password Salah";
+            }
+        }else {
+            $pesan = "❌ Username Tidak Terdaftar";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,15 +51,15 @@
     </header>
     <main>
     <div class="bungkus">
-        <form action="Loginuser.php" method="POST">
+        <form action="Loginuser.php" method="POST" onsubmit="return ValidasiLogin()">
             <h1>Login</h1>
             <h2>FOR USER</h2>
             <div class="inputbox1">
-                <input type="text" placeholder="Masukkan Nama" required>
+                <input type="text" placeholder="Masukkan Nama" name="username" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="inputbox1">
-                <input type="password" placeholder="Masukkan Password" id="password" required>
+                <input type="password" placeholder="Masukkan Password" name="password" id="password" required>
                 <i class='bx  bx-lock' onclick="LiatPW(this)"></i>
             </div>
 
@@ -78,14 +69,14 @@
            <button type="submit" class="tombol1">Login</button>
 
             <div class="daftarakun1">
-                <p>Gak punya akun?? 
+                <p>Gak punya akun??
                     <a href="Registrasiuser.php">Daftar Disini</a>
                 </p>
             </div>
         </form>
     </div>
      <br><br>
-    <h4 class="pesan"><?= $pesan ?></h4>
+    <h4 id="pesan1"><?= $pesan ?></h4>
     </main>
     <footer>
         <h2 class="copy">&copy; 2025 Jemput Karier</h2>
