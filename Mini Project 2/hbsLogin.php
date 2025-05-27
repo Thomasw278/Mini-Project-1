@@ -3,7 +3,7 @@ session_start();
 require "connection.php";
 if (!isset($_SESSION['username'])) {
     $pesan = "Kamu Belum Login";
-    header("Location: Loginuser.php?pesan=".$pesan);
+    header("Location: PilihanLogin.php?pesan=".$pesan);
     exit();
 }
 ?>
@@ -23,11 +23,11 @@ if (!isset($_SESSION['username'])) {
         <div>
             <?php
                 if(isset($_SESSION["username"])){
-                    echo "<b><p class='head_nav'>Hello | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+                    echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
                     echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
                     echo "<a href='logOut.php' class='head_nav'>Logout</a>";
                 } else {
-                    echo "<b><p class='head_nav'>Hello | Guest</p></b>";
+                    echo "<b><p class='head_nav'>Halo | Guest</p></b>";
                     echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
                     echo "<a href='PilihanLogin.php' class='head_nav'>Registrasi / Login</a>";
                 }
@@ -97,11 +97,12 @@ if (!isset($_SESSION['username'])) {
             <section id = getstart>
                 <div>
                     <h1 class="title1">Langkah Mudah Menuju Pekerjaan Impian Anda</h1> 
-                    <h2 class="title2">Bersama Jemput Karier</h1>    
+                    <h2 class="title2">Bersama <span id="1">J</span><span id="2">E</span><span id="3">M</span><span id="4">P</span><span id="5">U</span><span id="6">T</span>
+                    <span id="7">K</span><span id="8">A</span><span id="9">R</span><span id="10">I</span><span id="11">E</span>R</h1>    
                     <h3 class="title3">Temukan, Lamar, Sukses!</h3>
                 </div>
                     <img src="Asset/kerja.png" class = "orangKerja">
-        </section>
+            </section>
 
         <div class = "container_loker" id="scroll">
                 <?php 
