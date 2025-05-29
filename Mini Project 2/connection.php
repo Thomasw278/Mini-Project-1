@@ -76,6 +76,7 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
     create table formPelamar (
         idPelamar int AUTO_INCREMENT PRIMARY KEY,
         idPengguna int,
+        idPerusahaan int,
         namaDepan varchar(50) NOT null,
         namaBelakang varchar(50),
         tglLahir date NOT null,
@@ -85,6 +86,8 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
         portofolio varchar(50),
         suratLamaran varchar(50),
         FOREIGN KEY (idPengguna) REFERENCES idPengguna (Pengguna)
+        FOREIGN KEY (idPekerjaan) REFERENCES idPekerjaan (Pekerjaan)
+        FOREIGN KEY (idPerusahaan) REFERENCES idPerusahaan (Perusahaan)
         );
     -->
 
