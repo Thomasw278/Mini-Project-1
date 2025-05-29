@@ -46,7 +46,8 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
     create table detailPekerjaan(
         idDetailPekerjaan int AUTO_INCREMENT PRIMARY KEY,
         idPekerjaan int,
-        batasLamararan varchar(30)
+        batasLamararan varchar(30),
+        FOREIGN KEY (idPekerjaan) REFERENCES pekerjaan (idPekerjaan)
         );
     -->
 
@@ -74,6 +75,7 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
     <!--
     create table formPelamar (
         idPelamar int AUTO_INCREMENT PRIMARY KEY,
+        idPengguna int,
         namaDepan varchar(50) NOT null,
         namaBelakang varchar(50),
         tglLahir date NOT null,
@@ -82,6 +84,7 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
         cv varchar(50) not null,
         portofolio varchar(50),
         suratLamaran varchar(50),
+        FOREIGN KEY (idPengguna) REFERENCES idPengguna (Pengguna)
         );
     -->
 

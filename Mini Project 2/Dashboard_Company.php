@@ -1,42 +1,39 @@
-<?php 
-session_start();
-require "connection.php";
-if (!isset($_SESSION['username'])) {
-    $pesan = "Kamu Belum Login";
-    header("Location: PilihanLogin.php?pesan=".$pesan);
-    exit();
-}
+<?php
+    session_start();
+    require "connection.php";
+    if (!isset($_SESSION['usernamePerusahaan'])) {
+        $pesan = "Kamu Belum Login";
+        header("Location: PilihanLogin.php?pesan=".$pesan);
+        exit();
+    } 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="CSS/main.css">
-    <title> | Jemput Karir</title>
+    <title> | Dashboard Company Jemput Karir</title>
     <link rel="icon" type="image/png" href="Asset/ICON.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class = "icon_cont">
-            <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
+            <a href="Dashboard_Company.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
             <?php
-                if(isset($_SESSION["username"])){
-                    echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
-                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
+                if(isset($_SESSION["usernamePerusahaan"])){
+                    echo "<b><p class='head_nav'>" . htmlspecialchars($_SESSION['usernamePerusahaan']) . "</p></b>";
                     echo "<a href='logOut.php' class='head_nav'>Logout</a>";
                 } else {
                     echo "<b><p class='head_nav'>Halo | Guest</p></b>";
-                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
                     echo "<a href='PilihanLogin.php' class='head_nav'>Registrasi / Login</a>";
-                }
+                }   
             ?>
         </div>
     </header>
     <div id = "headerbg"></div>
-
-    <form action = "hbsLogin.php" method = "GET">
+    <form action = "Dashboard_Company.php" method = "GET">
         <div class="sb">
             <select name="kategoriPekerjaan">
                 <option value="">Semua Kategori</option>
@@ -53,7 +50,6 @@ if (!isset($_SESSION['username'])) {
                 }
                 ?>
             </select>
-                            
             <select name="jenisPekerjaan">
                 <option value="">Semua Jenis Pekerjaan</option>
                 <?php
@@ -94,14 +90,17 @@ if (!isset($_SESSION['username'])) {
     
         
     <main id = "main_main">
-            <section id = getstart>
-                <div>
-                    <h1 class="title1">Langkah Mudah Menuju Pekerjaan Impian Anda</h1> 
-                    <h2 class="title2">Bersama <span id="1">J</span><span id="2">E</span><span id="3">M</span><span id="4">P</span><span id="5">U</span><span id="6">T</span>
-                    <span id="7">K</span><span id="8">A</span><span id="9">R</span><span id="10">I</span><span id="11">E</span>R</h1>    
-                    <h3 class="title3">Temukan, Lamar, Sukses!</h3>
+            <section id="getstartdas">
+                <div class="welcome-text">
+                  <h1 class="title1p"><i class="fas fa-building"></i> &nbsp Selamat Datang Perusahaan</h1>
+                  <h2 class="title2p"><?php echo $_SESSION["usernamePerusahaan"]; ?></h2>
+
+                  <a href="tambah-lowongan.php" class="btn-lowongan">Tambah Lowongan</a>
                 </div>
-                    <img src="Asset/kerja.png" class = "orangKerja">
+
+                <?php 
+                  echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "' class='perusahaan'>";
+                ?>
             </section>
 
         <div class = "container_loker" id="scroll">
@@ -137,24 +136,22 @@ if (!isset($_SESSION['username'])) {
                         $tambah .= "namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
                     }
                 }
-
-                $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
-                namaPerusahaan FROM pekerjaan natural join perusahaan";
+                $query = "SELECT * FROM pekerjaan INNER JOIN perusahaan ON pekerjaan.idPerusahaan = perusahaan.idPerusahaan WHERE pekerjaan.idPerusahaan = '".$_SESSION["idPerusahaan"]."'";
                 if (!empty($tambah)){
-                    $sql .= " WHERE ".$tambah."";
+                    $query .= " AND ".$tambah;
                 }
-                
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_assoc($result)){
                     echo "<section>";
                         echo "<div class = 'main_jobtitle'>";
                             echo "<div class = 'divpt'>";
-                                echo "<img src='https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg' class='pt'>";
+                                echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "' class='pt'>";
                             echo "</div>";
                             echo "<h2><a href='detail.php?id=".$row['idPekerjaan']."'>".$row['namaPekerjaan']."</a></h2>";
                         echo "</div>";
                         echo "<div class = 'main_jobdesc'>";
                             echo "<p>".$row['namaPerusahaan']."</p>";
+                            echo "<p>"."Jumlah Pelamar Adalah : <b>9</b>"."</p>";
                             echo "<div class = 'jobdesc_cont'>";
                                 echo "<div class='jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/kategori.png'>Kategori</span>";
@@ -168,7 +165,11 @@ if (!isset($_SESSION['username'])) {
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/gaji.png'>Gaji</span>";
                                     echo "<p>".$row['gaji']."</p>";
                                 echo "</div>";
-                            echo "</div>";
+                                echo "</div>";
+                                echo "<div class='job-actions'>";
+                                    echo "<a href='edit-lowongan.php?id=".$row['idPekerjaan']."' class='btn-edit'>Edit</a>";
+                                    echo "<a href='hapus-lowongan.php?id=".$row['idPekerjaan']."' onclick=\"return confirm('Yakin ingin menghapus lowongan ini?')\" class='btn-delete'>Hapus</a>";
+                                echo "</div>";
                         echo "</div>";
                     echo "</section>";
                 }

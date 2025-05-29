@@ -1,8 +1,34 @@
-<?php 
+<?php
+    session_start();
     require "connection.php";
     $pesan = "";
     if($_GET){
         $pesan = $_GET["pesan"];
+    }
+
+    if (isset($_SESSION['usernamePerusahaan'])){
+    header("Location: Dashboard_Company.php");
+    exit();
+    }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $nama = $_POST["username"];
+        $pass = $_POST["password"];
+        $sql = "SELECT * FROM perusahaan WHERE namaPerusahaan = '".$nama."'";
+        $result = mysqli_query($conn,$sql);
+        if(mysqli_num_rows($result) > 0){
+            $user = mysqli_fetch_assoc($result);
+            if($pass == $user["password"]){
+                $_SESSION["idPerusahaan"] = $user["idPerusahaan"];
+                $_SESSION["usernamePerusahaan"] = $user["namaPerusahaan"];
+                $_SESSION["logo"] = $user["logoPerusahaan"];
+                header("Location: Dashboard_Company.php");
+            } else {
+                $pesan = "❌ Password Salah";
+            }
+        }else {
+            $pesan = "❌ Username Tidak Terdaftar";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -25,15 +51,15 @@
     </header>
     <main>
     <div class="bungkus">
-        <form action="Loginadmin.php" method="POST">
+        <form action="LoginPerusahaan.php" method="POST" onsubmit=" return ValidasiLogin() ">
             <h1>Login</h1>
             <h2>FOR Company</h2>
             <div class="inputbox">
-                <input type="text" placeholder="Masukkan Nama" required>
+                <input type="text" placeholder="Masukkan Nama" required id="username" name="username">
                 <i class='bx bxs-user'></i>
             </div>
             <div class="inputbox">
-                <input type="password" placeholder="Masukkan Password" id="password" required>
+                <input type="password" placeholder="Masukkan Password" id="password" required name="password">
                 <i class='bx  bx-lock' onclick="LiatPW(this)"></i>
             </div>
 

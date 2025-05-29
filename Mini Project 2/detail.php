@@ -1,5 +1,9 @@
 <?php
-require "connection.php"
+require "connection.php";
+if(isset($_SESSION['username'])) {
+    $nama = $_SESSION["username"];
+    echo $nama;
+}
 ?>
 <!DOCTYPE html>
 <html>

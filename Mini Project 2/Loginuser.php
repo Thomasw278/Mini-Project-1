@@ -6,7 +6,7 @@
         $pesan = $_GET["pesan"];
     }
 
-    if (isset($_SESSION['emailPengguna'])){
+    if (isset($_SESSION['username'])){
     header("Location: hbsLogin.php");
     exit();
     }
