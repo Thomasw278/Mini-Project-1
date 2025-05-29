@@ -298,6 +298,88 @@ h2 a {
     margin-top: 25px;
 }
 
+/* Reset dasar */
+* {
+    box-sizing: border-box;
+}
+
+.formtambah-body {
+    margin: 0;
+    background: url(../Asset/FormPerusahaan.png);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container form */
+.form-container {
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 480px;
+    padding: 30px 35px 40px;
+}
+
+form.formtambah label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+form.formtambah input[type="text"],
+form.formtambah input[type="date"],
+form.formtambah select,
+form.formtambah textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 22px;
+    border: 1.8px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+    background-color: transparent;
+}
+
+form.formtambah input[type="text"]:focus,
+form.formtambah input[type="date"]:focus,
+form.formtambah select:focus,
+form.formtambah textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+    background-color: transparent;
+}
+
+form.formtambah textarea {
+    min-height: 100px;
+}
+
+form.formtambah button {
+    width: 100%;
+    padding: 14px 0;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+    user-select: none;
+}
+
+form.formtambah button:hover {
+    background-color: orange;
+}
+
 .job-actions a {
     padding: 6px 12px;
     border-radius: 4px;

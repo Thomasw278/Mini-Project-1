@@ -95,7 +95,7 @@
                   <h1 class="title1p"><i class="fas fa-building"></i> &nbsp Selamat Datang Perusahaan</h1>
                   <h2 class="title2p"><?php echo $_SESSION["usernamePerusahaan"]; ?></h2>
 
-                  <a href="tambah-lowongan.php" class="btn-lowongan">Tambah Lowongan</a>
+                  <a href="tambah_lowongan.php" class="btn-lowongan">Tambah Lowongan</a>
                 </div>
 
                 <?php 
