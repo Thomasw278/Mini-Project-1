@@ -1,8 +1,49 @@
 <?php
+session_start();
 require "connection.php";
 if(isset($_SESSION['username'])) {
     $nama = $_SESSION["username"];
-    echo $nama;
+    if($_GET){
+        $idpekerjaan = $_GET["id"];
+        $query = "SELECT * FROM pekerjaan WHERE idPekerjaan = '".$idpekerjaan."'";
+        $hasil = mysqli_query($conn,$query);
+        while($row = mysqli_fetch_assoc($hasil)){
+            $judul = $row["namaPekerjaan"];
+            $kategori = $row["kategoriPekerjaan"];
+            $jenis = $row["jenisPekerjaan"];
+            $gaji = $row["gaji"];
+        }
+        $querydetail = "SELECT * FROM detailpekerjaan WHERE idPekerjaan = '".$idpekerjaan."'";
+        $hasil1 = mysqli_query($conn,$querydetail);
+        while($row1 = mysqli_fetch_assoc($hasil1)){
+            // print_r($row1);
+            $iddetailpekerjaan = $row1["idDetailPekerjaan"];
+            $deskripsi = $row1["deskripsiPekerjaan"];
+            $tanggal = $row1["batasLamaran"];
+        }
+        $querytugas = "SELECT * FROM tugas WHERE idDetailPekerjaan = '".$iddetailpekerjaan."'";
+        $hasil2 = mysqli_query($conn,$querytugas);
+        $daftartugas = array();
+        while($row2 = mysqli_fetch_assoc($hasil2)){
+            // print_r($row2);
+            array_push($daftartugas, $row2["tugas"]);
+        }
+        $querykualifikasi = "SELECT * FROM syaratkualifikasi WHERE idDetailPekerjaan = '".$iddetailpekerjaan."'";
+        $hasil3 = mysqli_query($conn,$querykualifikasi);
+        $daftarsyarat = array();
+        while($row3 = mysqli_fetch_assoc($hasil3)){
+            array_push($daftarsyarat, $row3["kualifikasi"]);
+        }
+        $ambildataperusahaan = "SELECT * FROM perusahaan natural join pekerjaan";
+        $hasil4 = mysqli_query($conn,$ambildataperusahaan);
+        while($row4 = mysqli_fetch_assoc($hasil4)){
+            $pt = $row4["namaPerusahaan"];
+            $logo = $row4["logoPerusahaan"];
+            $lokasi = $row4["alamatPerusahaan"];
+            $tipeindustri = $row4["industri"];
+            $ukuran = $row4["ukuranPerusahaan"];
+    }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -18,7 +59,9 @@ if(isset($_SESSION['username'])) {
             <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
-            <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
+            <?php
+            echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+            ?>
         </div>
     </header>
     <div class = "headerbg"></div>
@@ -33,63 +76,71 @@ if(isset($_SESSION['username'])) {
             
             ?>
             <section id = "brief_desc"> 
-                <h1>Desk Collection</h1>
+                <h1><?php echo $judul; ?></h1>
                 <div class = "jobdes">
                     <div class = "jobdesc">                    
                         <h4 class = "jobdesc_title"><img src="Asset/kategori.png">Kategori</h4>
-                        <p class = "jobdesc_desc">Kredit</p>
+                        <p class = "jobdesc_desc"><?php echo $kategori ?></p>
                     </div>
                     <div class = "jobdesc">
                         <h4 class = "jobdesc_title"><img src="Asset/jam.png">Jenis Pekerjaan</h4>
-                        <p class = "jobdesc_desc">Full Time</p>
+                        <p class = "jobdesc_desc"><?php echo $jenis ?></p>
                     </div>
                     <div class = "jobdesc">                    
                         <h4 class = "jobdesc_title"><img src="Asset/gaji.png" id="jobdesc_icon4">Gaji</h4>
-                        <p class = "jobdesc_desc">Rp. 2.000.000 - 3.000.000 Juta</p>
+                        <p class = "jobdesc_desc"><?php echo $gaji ?></p>
                     </div>
                 </div>
-                <p id="lamar"><a href="form.php">Lamar Pekerjaan</a></p>
+                <p id="lamar">
+                    <?php
+                        echo "<a href='form.php?id=" .$idpekerjaan. "'>Lamar Pekerjaan</a></p>";
+                    ?>
                 <br>
             </section>
             <section class = "job_description">
                 <h2>Deskripsi Pekerjaan</h2>
-                <p>Hai, Teman! Mari bergabung dan sukses bersama PT.Colmitra Persada Indonesia dengan menjadi salah satu bagian dari kami. PT Colmitra Persada Indonesia adalah perusahaan yang bergerak di bidang Jasa Keuangan. Perusahaan Agency yang bekerja sama dengan beberapa perusahaan Fintech ternama di Indonesia. Saat Ini Kami sedang Membutuhkan Desk Collection ( Penagihan via telpon ) berpengalaman / Freshgraduate.</p>
+                <p><?php echo $deskripsi; ?></p>
                 <h3>Tugas</h3>
                 <ul>
-                    <li>Melakukan Penagihan Kepada Nasabah yang telah jatuh tempo by Call sesuai SOP PT.Colmitra Persada Indonesia</li>
-                    <li>Menginformasikan pembayaran yang telah jatuh tempo kepada Nasabah dari Client PT. Colmitra Persada Indonesia</li>
-                    <li>Membantu Nasabah melakukan pembayaran sesuai prosedur PT.Colmitra Persada Indonesia</li>
+                    <?php
+                    foreach($daftartugas as $tugas){
+                        echo "<li>".htmlspecialchars($tugas)."</li>";
+                    }
+                    ?>
                 </ul>
             </section>
             <section class = "job_description">
                 <h2>Syarat & Kualifikasi </h2>
                 <ul>
-                    <li>Usia 18 - 35 tahun</li>
-                    <li>Pendidikan min SMA / SMK / Paket C sederajat (Tidak Sedang Kuliah )</li>
-                    <li>Kuliah Semester akhir Dipersilahkan</li>
-                    <li>Kuliah Univ Terbuka Dipersilahkan</li>
-                    <li>Berpengalaman / Fresh Graduate Dipersilahkan</li>
-                    <li>Ramah, Tegas, Komunikatif & Proaktif</li>
-                    <li>Dapat Berkomunikasi dengan baik Serta Intonasi, aksen yang jelas dan tidak berlogat</li>
-                    <li>Siap Bekerja Dibawah Tekanan Dan Target.</li>
-                    <li>Mampu mengoperasikan komputer dengan baik (Microsoft Words & Excel)</li>
+                    <?php 
+                    foreach($daftarsyarat as $syarat){
+                        echo "<li>".htmlspecialchars($syarat)."</li>";
+                    }
+                    ?>
                 </ul>
             </section>
             <section class = "job_description">
                 <h2>Tanggal Batas Lamaran</h2>
-                <p><span>31 Maret 2025</span></p>
+                <p><span>
+                    <?php 
+                        $Format = date("j F Y", strtotime($tanggal));
+                        echo $Format; 
+                    ?>
+                </span></p>
             </section>
         </section>
         <aside id = "detail_aside">
-            <img src="https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg" id = "iconpt">
+            <?php 
+                echo "<img src='".htmlspecialchars($logo)."' id='iconpt'>";
+            ?>
             <div>
-                <h3>PT. Colmitra Persada Indonesia</h2>
-                <h4><img src="Asset/lokasi.png">Lokasi</h3>
-                <p>The Great Saladdin Square, Jl. Margonda Raya No.39, Depok</p>
-                <h4><img src="Asset/industri.png">Industri</h3>
-                <p>Kredit</p>
+                <h3><?php echo $pt; ?></h2>
+                <h4><img src="Asset/lokasi.png" id="detail_aside_icon3">Lokasi</h3>
+                <p><?php echo $lokasi; ?></p>
+                <h4><img src="Asset/industri.png" id="detail_aside_icon3">Industri</h3>
+                <p><?php echo $tipeindustri; ?></p>
                 <h4><img src="Asset/karyawan.png" id="detail_aside_icon3">Ukuran Perusahaan</h3>
-                <p>501-1000 Karyawan</p>
+                <p><?php echo $ukuran; ?></p>
             </div>
         </aside>
     </main>

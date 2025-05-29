@@ -2,6 +2,6 @@
     session_start();
     session_unset();
     session_destroy();
-    header("Location: hbsLogin.php");
+    header("Location: PilihanLogin.php");
     exit();
 ?>

@@ -602,8 +602,8 @@ form.formtambah button:hover {
 
 .divpt{
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding: 10px;
     padding-left: 25px;
     margin-right: 25px;

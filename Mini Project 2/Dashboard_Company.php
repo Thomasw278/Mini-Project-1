@@ -147,7 +147,7 @@
                             echo "<div class = 'divpt'>";
                                 echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "' class='pt'>";
                             echo "</div>";
-                            echo "<h2><a href='detail.php?id=".$row['idPekerjaan']."'>".$row['namaPekerjaan']."</a></h2>";
+                            echo "<h2>".$row['namaPekerjaan']."</a></h2>";
                         echo "</div>";
                         echo "<div class = 'main_jobdesc'>";
                             echo "<p>".$row['namaPerusahaan']."</p>";

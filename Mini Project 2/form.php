@@ -1,5 +1,9 @@
-<?php 
+<?php
+    session_start();
     require "connection.php";
+    if($_GET){
+        $idPekerjaan = $_GET["id"];
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // $idPerusahaan = $_POST['id_perusahaan'];
@@ -41,13 +45,17 @@
             <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
-            <a href="PilihanLogin.html" class = "head_nav">Registrasi / login</a>
+            <?php
+                echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+            ?>
         </div>
     </header>
     <div class = "headerbg_form"></div>
 
     <div id = "back_form" class = "back">
-        <a href="detail.php"><img src="Asset/back.png">Kembali</a>
+        <?php
+            echo "<a href='detail.php?id=" . $idPekerjaan . "'><img src='Asset/back.png'>Kembali</a>";
+        ?>
     </div>
     
     <main id = "main_form">

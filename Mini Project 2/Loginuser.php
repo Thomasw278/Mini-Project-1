@@ -7,7 +7,7 @@
     }
 
     if (isset($_SESSION['username'])){
-    header("Location: hbsLogin.php");
+    header("Location: main.php");
     exit();
     }
 
@@ -21,7 +21,7 @@
             if($pass == $user["passwordPengguna"]){
                 $_SESSION["id"] = $user["idPengguna"];
                 $_SESSION["username"] = $user["namaPengguna"];
-                header("Location: hbsLogin.php");
+                header("Location: main.php");
             } else {
                 $pesan = "❌ Password Salah";
             }

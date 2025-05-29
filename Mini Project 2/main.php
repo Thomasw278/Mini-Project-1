@@ -1,5 +1,11 @@
 <?php 
-require "connection.php"
+session_start();
+require "connection.php";
+if (!isset($_SESSION['username'])) {
+    $pesan = "Kamu Belum Login";
+    header("Location: PilihanLogin.php?pesan=".$pesan);
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +21,17 @@ require "connection.php"
             <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
-            <a href="#scroll" class = "head_nav">Cari Kerja</a>
-            <a href="PilihanLogin.php" class = "head_nav">Registrasi / login</a>
+            <?php
+                if(isset($_SESSION["username"])){
+                    echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
+                    echo "<a href='logOut.php' class='head_nav'>Logout</a>";
+                } else {
+                    echo "<b><p class='head_nav'>Halo | Guest</p></b>";
+                    echo "<a href='#scroll' class='head_nav'>Cari Kerja</a>";
+                    echo "<a href='PilihanLogin.php' class='head_nav'>Registrasi / Login</a>";
+                }
+            ?>
         </div>
     </header>
     <div id = "headerbg"></div>
@@ -82,11 +97,12 @@ require "connection.php"
             <section id = getstart>
                 <div>
                     <h1 class="title1">Langkah Mudah Menuju Pekerjaan Impian Anda</h1> 
-                    <h2 class="title2">Bersama Jemput Karier</h1>    
+                    <h2 class="title2">Bersama <span id="1">J</span><span id="2">E</span><span id="3">M</span><span id="4">P</span><span id="5">U</span><span id="6">T</span>
+                    <span id="7">K</span><span id="8">A</span><span id="9">R</span><span id="10">I</span><span id="11">E</span>R</h1>    
                     <h3 class="title3">Temukan, Lamar, Sukses!</h3>
                 </div>
                     <img src="Asset/kerja.png" class = "orangKerja">
-        </section>
+            </section>
 
         <div class = "container_loker" id="scroll">
                 <?php 
@@ -123,18 +139,16 @@ require "connection.php"
                 }
 
                 $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
-                namaPerusahaan FROM pekerjaan natural join perusahaan";
-                
+                namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan";
                 if (!empty($tambah)){
                     $sql .= " WHERE ".$tambah."";
                 }
-                
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)){
                     echo "<section>";
                         echo "<div class = 'main_jobtitle'>";
                             echo "<div class = 'divpt'>";
-                                echo "<img src='https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg' class='pt'>";
+                                echo "<img src='".$row["logoPerusahaan"]."' class='pt'>";
                             echo "</div>";
                             echo "<h2><a href='detail.php?id=".$row['idPekerjaan']."'>".$row['namaPekerjaan']."</a></h2>";
                         echo "</div>";
@@ -159,133 +173,6 @@ require "connection.php"
                 }
                 $tambah = "";
                 ?>
-            
-            <!-- <section>
-                <div class = "main_jobtitle">
-                    <div class = "divpt">
-                        <img src="https://asset.loker.id/img/2023/02/images-1-150x150.png" class="pt">
-                    </div>
-                    <h2><a href="detail.html">Dosen Teknik Industri</a></h2>
-                </div>
-                <div class = "main_jobdesc">
-                    <p>Institut Teknologi dan Bisnis Nobel Indonesia</p>
-                    <div class = "jobdesc_cont">
-                        <div class="jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/kategori.png">Kategori</span>
-                            <p>Pendidikan</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/jam.png">Jenis Pekerjaan</span>
-                            <p>Full Time</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/gaji.png">Gaji</span>
-                            <p>Negosiasi</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class = "main_jobtitle">
-                    <div class = "divpt">
-                        <img src="https://www.smart-tbk.com/wp-content/themes/gar-mdi/assets/img/smart-logo.svg" class="pt">
-                    </div>
-                    <h2><a href="detail.html">Accounting Officer</a></h2>
-                </div>
-                <div class = "main_jobdesc">
-                    <p>PT SMART, Tbk</p>
-                    <div class = "jobdesc_cont">
-                        <div class="jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/kategori.png">Kategori</span>
-                            <p>Akuntansi</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/jam.png">Jenis Pekerjaan</span>
-                            <p>Full Time</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/gaji.png">Gaji</span>
-                            <p>Negosiasi</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class = "main_jobtitle">
-                    <div class = "divpt">
-                        <img src="https://asset.loker.id/img/2016/10/LOGO-RLS-150x150.jpg" class="pt">
-                    </div>
-                    <h2><a href="detail.html">IT Support</a></h2>
-                </div>
-                <div class = "main_jobdesc">
-                    <p>PT. RAJAWALI LINTAS SAMUDERA</p>
-                    <div class = "jobdesc_cont">
-                        <div class="jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/kategori.png">Kategori</span>
-                            <p>Teknologi Informasi</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/jam.png">Jenis Pekerjaan</span>
-                            <p>Full Time</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/gaji.png">Gaji</span>
-                            <p>Rp. 5-6 Juta</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class = "main_jobtitle">
-                    <div class = "divpt">
-                        <img src="https://asset.loker.id/img/2021/08/059CD4B3-63C1-4AF9-AB3E-811F88992DF9-150x150.jpeg" class="pt">
-                    </div>
-                    <h2><a href="detail.html">Junior Baker</a></h2>
-                </div>
-                <div class = "main_jobdesc">
-                    <p>Scones Alley</p>
-                    <div class = "jobdesc_cont">
-                        <div class="jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/kategori.png">Kategori</span>
-                            <p>Pastry</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/jam.png">Jenis Pekerjaan</span>
-                            <p>Part Time</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/gaji.png">Gaji</span>
-                            <p>Rp. 2-3 Juta</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class = "main_jobtitle">
-                    <div class = "divpt">
-                        <img src="https://asset.loker.id/img/2022/06/JKN-150x150.jpg" class="pt">
-                    </div>
-                    <h2><a href="detail.html">Perawat</a></h2>
-                </div>
-                <div class = "main_jobdesc">
-                    <p>Klinik Kurnia Mega Mas</p>
-                    <div class = "jobdesc_cont">
-                        <div class="jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/kategori.png">Kategori</span>
-                            <p>Kesehatan</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/jam.png">Jenis Pekerjaan</span>
-                            <p>Part Time</p>
-                        </div>
-                        <div class = "jobdesc_detail">
-                            <span class = "jobdesc_detail_detail"><img src="Asset/gaji.png">Gaji</span>
-                            <p>Negosiasi</p>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-    
     </main>
 
     <footer>
