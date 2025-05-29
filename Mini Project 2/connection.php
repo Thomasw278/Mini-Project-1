@@ -1,5 +1,5 @@
 <?php 
-$conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal");
+$conn = mysqli_connect("localhost", "root", "", "jemkar") or die ("Koneksi gagal");
 ?>
 
 <!-- TABEL -->
@@ -47,7 +47,7 @@ $conn = mysqli_connect("localhost", "root", "", "coba") or die ("Koneksi gagal")
         idDetailPekerjaan int AUTO_INCREMENT PRIMARY KEY,
         idPekerjaan int,
         deskripsiPekerjaan text,
-        batasLamararan date,
+        batasLamaran date,
         FOREIGN KEY (idPekerjaan) REFERENCES pekerjaan (idPekerjaan)
         );
     -->

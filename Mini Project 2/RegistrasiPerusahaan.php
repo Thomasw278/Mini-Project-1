@@ -15,7 +15,7 @@
                         $pesan = "Email Sudah Terdaftar";
                     } else {
                     $uploadfile = "LogoPerusahaan/".$_POST["nama"].'.'.$filetype;
-                    $query = "INSERT INTO perusahaan (emailPerusahaan,namaPerusahaan,password,alamatPerusahaan,industri,ukuranPerusahaan,logoPerusahaan) VALUES ('".$_POST["email"]."','".$_POST["nama"]."','".$_POST["password"]."','".$_POST["alamat"]."','".$_POST["kategori"]."','".$_POST["jumlah_karyawan"]."','".$uploadfile."')";
+                    $query = "INSERT INTO perusahaan (emailPerusahaan,namaPerusahaan,password,alamatPerusahaan,industri,ukuranPerusahaan,logoPerusahaan) VALUES ('".$_POST["email"]."','".$_POST["nama"]."','".$_POST["password"]."','".$_POST["alamat"]."','".$_POST["kategori"]."','".$_POST["jumlah_karyawan"]." karyawan','".$uploadfile."')";
                     $simpan = move_uploaded_file($_FILES["logo"]["tmp_name"], $uploadfile);
                     if(mysqli_query($conn,$query)){
                         $pesan = "Berhasil Membuat Akun Perusahaan";

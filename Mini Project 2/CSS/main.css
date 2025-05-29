@@ -296,6 +296,7 @@ h2 a {
 
 .job-actions {
     margin-top: 25px;
+    text-align: center;
 }
 
 /* Reset dasar */
@@ -345,6 +346,22 @@ form.formtambah textarea {
     font-family: inherit;
     resize: vertical;
     background-color: transparent;
+    color:black;
+    font-weight: bold;
+}
+
+input[type="date"] {
+    color:white;
+}
+
+form.formtambah ::placeholder {
+    color:white;
+    font-weight: bold;
+}
+
+form.formtambah input[type="date"] :: ::placeholder{
+    color: white;
+    font-weight: bold;
 }
 
 form.formtambah input[type="text"]:focus,
@@ -588,8 +605,8 @@ form.formtambah button:hover {
     height: 60px;
     width: 60px;
     padding: 10px;
-    /* border: 1px solid grey; */
-    /* border-radius: 10px; */
+    padding-left: 25px;
+    margin-right: 25px;
     align-items: center;
     justify-content: center;
 }

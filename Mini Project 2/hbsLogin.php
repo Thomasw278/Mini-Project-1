@@ -139,17 +139,16 @@ if (!isset($_SESSION['username'])) {
                 }
 
                 $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
-                namaPerusahaan FROM pekerjaan natural join perusahaan";
+                namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan";
                 if (!empty($tambah)){
                     $sql .= " WHERE ".$tambah."";
                 }
-                
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)){
                     echo "<section>";
                         echo "<div class = 'main_jobtitle'>";
                             echo "<div class = 'divpt'>";
-                                echo "<img src='https://colmitra.com/wp-content/uploads/2023/09/logo-colmitra-persada-indonesia.jpg' class='pt'>";
+                                echo "<img src='".$row["logoPerusahaan"]."' class='pt'>";
                             echo "</div>";
                             echo "<h2><a href='detail.php?id=".$row['idPekerjaan']."'>".$row['namaPekerjaan']."</a></h2>";
                         echo "</div>";
