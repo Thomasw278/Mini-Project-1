@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])) {
         while($row3 = mysqli_fetch_assoc($hasil3)){
             array_push($daftarsyarat, $row3["kualifikasi"]);
         }
-        $ambildataperusahaan = "SELECT * FROM perusahaan natural join pekerjaan";
+        $ambildataperusahaan = "SELECT * FROM perusahaan natural join pekerjaan WHERE pekerjaan.idPekerjaan = '".$idpekerjaan."'";
         $hasil4 = mysqli_query($conn,$ambildataperusahaan);
         while($row4 = mysqli_fetch_assoc($hasil4)){
             $pt = $row4["namaPerusahaan"];
