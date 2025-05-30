@@ -1,0 +1,1098 @@
+/* Opsional Import Font Family soalnya kalau gak diimport ada beberapa font yang gak kedetect */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Efek Transisi Biar halus ke semua halaman */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+/* Biar Transisi Scroll halus*/
+html {
+    scroll-behavior: smooth;
+}
+
+/* Semua % Header */
+* {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    transition: .2s linear;
+}
+
+body.form{
+    background-color: white;
+    margin: 0%;
+    padding: 0%;
+}
+
+header a{
+    height: 70px;
+}
+
+.icon_cont{
+    width: 20%;
+    height: 100px;
+    position: relative;
+    top: -21%;
+    display: flex;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+.icon{
+    width: 125%;
+    height: 135%;
+}
+
+header{
+    display: flex;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    background-color: #F2F2F2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.icon_cont:hover {
+    transform: scale(1.10);
+}
+
+#headerbg{
+    height: 70px;
+}
+
+.headerbg{
+    height: 70px;
+}
+
+header div{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.head_nav{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #F2F2F2;
+    color: black;
+    text-decoration: none;
+}
+
+.head_nav:hover{
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #4285F4;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+
+/* Main */
+#main_main{
+    margin: 4%;
+}
+
+.container_loker section{
+    background-image: url(../Asset/BGKeren.jpg);
+    border-radius:20px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px lightslategray;
+    transition: all 0.3s ease-in-out;
+}
+
+h2 a {
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.container_loker section:hover{
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px black;
+}
+
+.main_jobdesc > p {
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px white;
+}
+
+/* Getting Started */
+#getstart{
+    min-height: 100vh;
+    display: flex;
+    align-items:self-start;
+    justify-content:space-between;
+}
+
+#getstartdas {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #f9f9f9, #e0eaff);
+    border-radius: 30px;
+    padding: 30px 70px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+}
+
+#getstartdas div {
+    flex: 1;
+}
+
+#getstartdas h1.title1p {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#getstartdas h2.title2p {
+    font-size: 1.5em;
+    color: #2980b9;
+}
+
+.perusahaan {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.3s ease;
+}
+.perusahaan:hover {
+    transform: scale(1.05);
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 73, 2, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    }
+}
+
+
+#getstart div{
+    padding-left: 60px;
+    padding-top: 90px;
+}
+
+.title1{
+    font-size: 56px;
+}
+
+.title2{
+    margin-top: 17px;
+    margin-bottom: 28px;
+    padding-left: 5px;
+    font-size: 27px;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title1p {
+    font-size: 36px;
+    font-weight: bold;
+    animation: fadeSlide 1.5s ease-out forwards;
+    opacity: 0;
+    color: #333;
+}
+
+
+.title2p {
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(270deg, #ff004c, #00f7ff, #00ff6a, #ffdd00, #ff004c);
+    background-size: 800% 800%;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rgbText 6s ease infinite;
+    margin-top: 10px;
+}
+
+@keyframes rgbText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.title3{
+    padding-left: 10px;
+    font-size: 30px;
+    border-bottom: 2px solid;
+}
+
+.orangKerja{
+    width: 400px;
+}
+
+.job-actions {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* Reset dasar */
+* {
+    box-sizing: border-box;
+}
+
+.formtambah-body {
+    margin: 0;
+    background: url(../Asset/FormPerusahaan.png);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container form */
+.form-container {
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 480px;
+    padding: 30px 35px 40px;
+}
+
+form.formtambah label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+form.formtambah input[type="text"],
+form.formtambah input[type="date"],
+form.formtambah select,
+form.formtambah textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 22px;
+    border: 1.8px solid black;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+    background-color: transparent;
+    color:black;
+    font-weight: bold;
+}
+
+input[type="date"] {
+    color:white;
+}
+
+form.formtambah ::placeholder {
+    color:white;
+    font-weight: bold;
+}
+
+form.formtambah input[type="date"] :: ::placeholder{
+    color: white;
+    font-weight: bold;
+}
+
+form.formtambah input[type="text"]:focus,
+form.formtambah input[type="date"]:focus,
+form.formtambah select:focus,
+form.formtambah textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+    background-color: transparent;
+}
+
+form.formtambah textarea {
+    min-height: 100px;
+}
+
+form.formtambah button {
+    width: 100%;
+    padding: 14px 0;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+    user-select: none;
+}
+
+form.formtambah button:hover {
+    background-color: orange;
+}
+
+.job-actions a {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.btn-edit:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: 1px solid #f44336;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.btn-lowongan {
+  display: inline-block;
+  background: orange;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px #f39c12;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 25px;
+  font-size: 1.1rem;
+}
+
+.btn-lowongan:hover {
+  background: #e67e22;
+  box-shadow: 0 0 20px #e67e22;
+}
+
+
+
+/* filter */
+/* .filter{
+    display: flex;
+    gap: 5px;
+    margin-right: 25%;
+    padding: 5px;
+    width: fit-content;
+} */
+
+.sb select{
+    border: 1px solid #3367D6;
+    padding: 8px;
+    border-radius: 5px; 
+    outline: none;
+    cursor: pointer;
+    background-color: #3367D6;
+    color: white;
+    text-align: center;
+    
+}
+
+.sb select option {
+    background-color: #F2F2F2;
+    color: black;
+}
+
+/* Search Bar */
+.sb{
+    justify-content:space-between;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    background: linear-gradient(90deg,#3367D6, #4c86f8);
+    height: 50px;
+    padding: 5px;
+}
+
+
+#serbar{
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 2%;
+    height: 92%;
+    border-radius: 20px;
+    width: 65%;
+}
+
+#serbar button {
+    background: none;
+    border: none;
+}
+
+#serbar p{
+    width: 85%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px;
+    border-radius: 20px;
+    background-color: lightgrey;
+}
+
+#searchbar_input{
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 96%;
+    height: 60%;
+    background-color: lightgray;
+}
+
+#searchbar_input::placeholder{
+    font-style: italic;
+}
+
+#searchbar_magnify{
+    width: 25px;
+    border: 1px;
+    border-radius: 50%;
+    padding: 2px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#searchbar_magnify:hover{
+    background-color: lightgray;
+}
+
+.social-linksa:hover {
+    transform: scale(1.35);
+}
+
+/* Halaman Utama Main*/
+.container_loker{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+}
+
+.divpt:hover {
+    transform: scale(1.10);
+}
+
+.container_loker section{
+    background-color: white;
+    width: 42%;
+    margin: 1%;
+    border: 1px solid darkgray;
+    padding-bottom: 10px;
+}
+
+.pt{
+    width: 55px;
+}
+
+.jobdesc_cont{
+    padding-top: 1%;
+    padding-left: 5%;
+    display: flex; 
+}
+
+.jobdesc_detail{
+    padding-top: 7px;
+    width: 33%;
+}
+
+.jobdesc_detail_detail{
+    display: flex;
+    align-items: center;
+    height: 20px;
+    
+}
+
+.jobdesc_detail_detail img{
+    width: 20px;
+    margin-right: 4px;
+}
+
+.jobdesc_detail p {
+    padding-top: 4px;
+    padding-left: 24px;
+}
+
+.divpt{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    padding-left: 25px;
+    margin-right: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_jobtitle{
+    display: flex;
+    align-items: center;
+}
+
+.main_jobtitle h2 a{
+    text-decoration: none;
+    color: black;
+}
+
+.main_jobdesc{
+    padding-left: 10px;
+    width: 100%;
+}
+
+/* RGB Buat Tulisan Form*/
+span[id="1"] {
+    color: red;}span[id="2"] {
+    color: orange;}span[id="3"] {
+    color: #4c86f8;}span[id="4"] {color:#459846;}span[id="5"] {color: orange;}
+    span[id="6"] {color: red;}span[id="7"] {color: #4c86f8;}span[id="8"] {color: #459846;}span[id="9"] 
+    {color: orange;}span[id="10"] {color: #4c86f8;}span[id="11"] {color: #459846;}
+    span[id="12"] {color:red};
+
+.form_daftar h3 {
+    letter-spacing: 15px;
+}
+.form_daftar h2 {
+    margin-bottom: 0;
+}.form_daftar h3 {
+    letter-spacing: 15px;
+}
+.form_daftar h2 {
+    margin-bottom: 0;
+}
+
+body.form {
+    background-image: url(../Asset/BGKeren.jpg);
+    background-size: cover;
+}
+/* Detail Pekerjaan */
+/* Halaman Utama */
+#main_detail {
+    margin-top: 5.5%;
+    display: flex;
+    width: 100%; 
+    margin-bottom: 9%;
+}
+/* Kotak kiri */
+#main_sec{
+    width: 66.5%;
+}
+
+main#main_form {
+    margin-bottom: 0%;
+}
+
+
+#brief_desc {
+    padding: 2%;
+    width: 88%;
+    margin-right: 4%;
+    margin-left: 4%;
+    border: 1px solid darkgrey;
+    background-color: white;
+    height: fit-content;
+}
+
+#brief_desc h1{
+    font-size: 32px;
+}
+
+#brief_desc h1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.jobdes{
+    padding-top: 2.5%;
+    padding-left: 1.5%;
+    display: flex;
+}
+
+.jobdesc{
+    width: 33%;
+}
+
+.jobdesc_title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.jobdesc_title img{
+    width: 20px;
+    margin-right: 4%;
+    padding-bottom: 3px;
+}
+
+.jobdesc_desc{
+    padding-left: 14%;
+}
+
+#lamar{
+    text-align: center;
+    padding-top: 3%;
+    position: relative;
+    overflow: hide;
+}
+
+#lamar a{
+    text-decoration: none;
+    color: white;
+    background-color: #4285F4;
+    padding: 1.5% 4% 1.5% 4%;
+    box-shadow: 0vh 0vh 0.3vh #3367D6;
+}
+#lamar a:hover{
+    text-shadow: 0vh 0vh 0.2vh;
+    padding: 1.5% 4% 1.5% 4%;
+    background: linear-gradient(70deg, #1e4bd1, #4a90e2);
+    transform: scale(1.10);
+}
+
+
+/* Section 2 */
+.job_description{
+    padding-top: 3%;
+    width: 92%;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+.job_description h2{
+    padding-bottom: 1.7%;
+}
+
+.job_description h3{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.job_description p{
+    text-align: justify;
+    line-height: 160%;
+}
+
+.job_description ul{
+    padding-left: 3%;
+}
+
+.job_description li{
+    line-height: 175%;
+}
+
+.job_description ul li::marker{
+    color: #3367D6;
+}
+
+
+
+/* Kanan PT..... */
+#detail_aside{
+    background-color: white;
+    width: 27%;
+    margin-right: 2.5%;
+    border: 1px solid darkgrey;
+    padding: 1.5% 2% 2% 2%;
+    height: fit-content;
+}
+
+#iconpt{
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    width: 18%;
+    animation: transform 5s ease-in-out;
+}
+#iconpt:hover{
+    transform: scale(1.20);
+}
+
+#detail_aside div{
+    padding-top: 3%;
+}
+
+#detail_aside div h4{
+    padding-top: 4.5%;
+    padding-bottom: 1.5%;
+    display: flex;
+    align-items: center;
+}
+
+#detail_aside div h4 img{
+    padding-right: 2%;
+    width: 12px;
+    padding-bottom: 3px;
+}
+
+/* Icon ke 3 paling kecil jadi bikin ukuran sendiri */
+#detail_aside_icon3{
+    width: 23px !important;
+}
+
+
+/* Form Lamaran */
+/* Halaman Utama */
+#main_form{
+    margin: 0 4% 4% 4%;
+}
+
+.form_daftar {
+    background: #e9e9e9de;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 3px 8px 16px 5px rgb(90, 90, 90);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+.form_daftar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form_daftar h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+input[type="file"] {
+    border: none;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.row input {
+    flex: 1;
+}
+.subButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color 0.3s ease-in-out;
+}
+.subButton:hover {
+    background: linear-gradient(70deg, #4CAF50, lightgreen);
+    transform: scale(1.10);
+}
+
+/* Sukses.html */
+#body_sukses{
+    margin-top: 13%;
+    background-color: #e9e9e9de;
+    animation: fadeIn 1s ease-in-out;
+    display: grid;
+    place-items: center;
+}
+@keyframes bounce {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.sukses {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: justify;
+    color: black;
+}
+
+.sukses h1{
+    letter-spacing: 5px;
+    padding-bottom: 2%;
+    color:green
+}
+
+
+.sukses h3{
+    padding-bottom: 2%;
+}
+
+.sukses h4{
+    line-height: 130%;
+}
+
+.subButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    
+}
+.subButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+#berhasil {
+    width: 150px;
+    margin-left: 225px;
+    margin-bottom: 35px;
+    animation: fadeIn 1s ease-in-out 0.01s forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+        transform: translateX(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+ }
+
+/* Tombol Back */
+/* Halaman Detail Beda Posisi Tok */
+#back_detail{
+    float: left;
+    background-color: #4285F4;
+    width: fit-content;
+    padding: 0.8%;
+    border-radius: 5px;
+    margin: 1.75% 0% 1.5% 2.5%;
+}
+
+/* Halaman Form */
+#back_form{
+    float: left;
+    background-color: #4285F4;
+    width: fit-content;
+    padding: 0.8%;
+    border-radius: 5px;
+    margin: 1% 0% 1.5% 2.5%;
+    position: fixed;
+}
+
+
+.headerbg_form {
+    height: 100px;
+}
+
+/* Universal */
+.back a{
+    text-shadow: 0 0 0.8vh rgb(0, 0, 156);
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+.back a img{
+    margin-top: 4px;
+    width: 19px;
+    margin-right: 5px;
+    height: 16px;
+}
+.back:hover {
+    background: linear-gradient(70deg, #1e4bd1, #4a90e2);
+    transform: scale(1.10);
+}
+/* Footer */
+.container{
+    background:linear-gradient(deg, blueviolet, lightgreen);
+    padding:15px 9%;
+    padding-bottom: 50px;
+}
+
+.row{
+	display: flex;
+    
+}
+.footer-col ul{
+	list-style: none;
+    padding: 0px;
+}
+
+footer{
+	background-color: #24262b;
+    padding: 70px 0;
+    margin-left: -100px;
+    margin-top: 50px;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 12px;
+	color: #ffffff;
+	
+}
+
+.social-links a img{
+    max-width: 100%;
+    max-height: 100%;
+    transition: none;
+}
+
+.job_description p span {
+    margin-left: 10px;
+}
+
+/* Sumber
+https://www.lokerjogja.id/lowongan/desk-collection-di-pt-colmitra-persada-indonesia/
+https://id.jobstreet.com/id/companies/sinar-mas-agribusiness-and-food-168552544616116/jobs
+
+https://www.loker.id/profile/institut-teknologi-dan-bisnis-nobel-indonesia
+https://www.loker.id/profile/pt-epsilon-global
+https://www.loker.id/profile/cv-fajar-lestari
+https://www.loker.id/profile/pt-indo-megah-abadi-3
+https://www.loker.id/profile/penyets-an-frozen
+https://www.loker.id/profile/breeze-resto-cafe-2
+ */
