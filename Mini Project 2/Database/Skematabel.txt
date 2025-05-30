@@ -90,6 +90,21 @@
     -->
 
 
+    ALTER TABLE detailpekerjaan
+    ADD CONSTRAINT fkdetailpekerjaan
+    FOREIGN KEY (idPekerjaan) REFERENCES pekerjaan(idPekerjaan)
+    ON DELETE CASCADE;
+    
+    ALTER TABLE syaratkualifikasi
+    ADD CONSTRAINT fksyaratdetail
+    FOREIGN KEY (idDetailPekerjaan) REFERENCES detailpekerjaan(idDetailPekerjaan)
+    ON DELETE CASCADE;
+    
+    ALTER TABLE tugas
+    ADD CONSTRAINT fkdetailtugas
+    FOREIGN KEY (idDetailPekerjaan) REFERENCES detailpekerjaan (idDetailPekerjaan)
+    ON DELETE CASCADE;
+
 <!-- COBA DATA -->
     <!-- 
     INSERT INTO `perusahaan` (`idPerusahaan`, `namaPerusahaan`, `alamatPerusahaan`, `industri`, `ukuranPerusahaan`, `logoPerusahaan`) VALUES (NULL, 'PT Colmitra Persada Indonesia', 'The Great Saladdin Square, Jl. Margonda Raya No.39, Depok', 'Kredit', '501-1000 Karyawan', NULL);

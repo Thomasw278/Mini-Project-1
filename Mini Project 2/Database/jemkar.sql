@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Bulan Mei 2025 pada 17.55
+-- Waktu pembuatan: 30 Bulan Mei 2025 pada 18.48
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -39,7 +39,6 @@ CREATE TABLE `detailpekerjaan` (
 --
 
 INSERT INTO `detailpekerjaan` (`idDetailPekerjaan`, `idPekerjaan`, `deskripsiPekerjaan`, `batasLamaran`) VALUES
-(1, 1, 'Perusahaan dengan Resiko Besar , Anda Berani Langsung Melamar', '2025-05-29'),
 (2, 2, 'Beresiko dan Harus Virgin', '2025-06-06'),
 (3, 3, 'UKDW, sebagai salah satu perguruan tinggi Kristen terkemuka di Indonesia yang telah berdiri sejak 1962, dikenal dengan komitmennya pada pendidikan yang berlandaskan kasih, keadilan, dan transformasi sosial. Sementara itu, PPPK Petra, yang menaungi lebih dari 38 unit sekolah dari tingkat TK hingga SMA sejak 1951 di Surabaya, telah menjadi rujukan pendidikan Kristen berkualitas di Indonesia Timur dan telah melahirkan ribuan lulusan berprestasi yang menghidupi iman dalam karya mereka.\r\nDalam acara ini, UKDW dipimpin oleh Rektor, Dr.-Ing. Wiyatiningsih, S.T., M.T., didampingi oleh Kepala Marketing Veronica Tiara, S.Kom., CPS, Staf Kerjasama Dalam Negeri Christina Angelina, S.I.Kom, dan Staf Promosi Hugo Christ, S.M.', '2025-05-30'),
 (4, 4, 'Bersama tumbuh dan berkembang dengan UKDW', '2025-06-07'),
@@ -95,7 +94,6 @@ CREATE TABLE `pekerjaan` (
 --
 
 INSERT INTO `pekerjaan` (`idPekerjaan`, `idPerusahaan`, `namaPekerjaan`, `kategoriPekerjaan`, `lokasi`, `jenisPekerjaan`, `gaji`) VALUES
-(1, 2, 'Merawat Biawak', 'Beresiko', 'Magelang', 'Part Time', '100 Juta'),
 (2, 2, 'Ternak Komodo Terbang', 'Pelayanan', 'Kyai Langeng', 'Full Time', '1 Miliyar'),
 (3, 3, 'Dosen Bioteknologi', 'Pengajaran', 'Yogyakarta', 'Full TIme', '8 - 10 Juta'),
 (4, 3, 'Dosen Fakultas Teknologi Informasi', 'Pengajaran', 'Yogyakarta', 'Full Time', '15-20 Juta'),
@@ -164,8 +162,6 @@ CREATE TABLE `syaratkualifikasi` (
 --
 
 INSERT INTO `syaratkualifikasi` (`idSyaratKualifikasi`, `idDetailPekerjaan`, `kualifikasi`) VALUES
-(1, 1, 'Usia 18 - 35 Tahun'),
-(2, 1, 'Diutamakan Virgin'),
 (3, 2, 'Virgin'),
 (4, 2, '18 - 35 Tahun'),
 (5, 3, 'Usia 18 - 35 Tahun'),
@@ -193,9 +189,6 @@ CREATE TABLE `tugas` (
 --
 
 INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
-(1, 1, 'Merawat Biawak'),
-(2, 1, 'Mencuci Biawak'),
-(3, 1, 'Memberi Makan Biawak'),
 (4, 2, 'Merawat Komodo'),
 (5, 2, 'Membelikan makanan bos Thom'),
 (6, 3, 'Praktikum Memperkosa'),
@@ -215,7 +208,7 @@ INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
 --
 ALTER TABLE `detailpekerjaan`
   ADD PRIMARY KEY (`idDetailPekerjaan`),
-  ADD KEY `idPekerjaan` (`idPekerjaan`);
+  ADD KEY `fkdetailpekerjaan` (`idPekerjaan`);
 
 --
 -- Indeks untuk tabel `formpelamar`
@@ -250,14 +243,14 @@ ALTER TABLE `perusahaan`
 --
 ALTER TABLE `syaratkualifikasi`
   ADD PRIMARY KEY (`idSyaratKualifikasi`),
-  ADD KEY `idDetailPekerjaan` (`idDetailPekerjaan`);
+  ADD KEY `fksyaratdetail` (`idDetailPekerjaan`);
 
 --
 -- Indeks untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
   ADD PRIMARY KEY (`idTugas`),
-  ADD KEY `idDetailPekerjaan` (`idDetailPekerjaan`);
+  ADD KEY `fkdetailtugas` (`idDetailPekerjaan`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -313,7 +306,7 @@ ALTER TABLE `tugas`
 -- Ketidakleluasaan untuk tabel `detailpekerjaan`
 --
 ALTER TABLE `detailpekerjaan`
-  ADD CONSTRAINT `detailpekerjaan_ibfk_1` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`);
+  ADD CONSTRAINT `fkdetailpekerjaan` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `formpelamar`
@@ -333,13 +326,13 @@ ALTER TABLE `pekerjaan`
 -- Ketidakleluasaan untuk tabel `syaratkualifikasi`
 --
 ALTER TABLE `syaratkualifikasi`
-  ADD CONSTRAINT `syaratkualifikasi_ibfk_1` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`);
+  ADD CONSTRAINT `fksyaratdetail` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
-  ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`);
+  ADD CONSTRAINT `fkdetailtugas` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

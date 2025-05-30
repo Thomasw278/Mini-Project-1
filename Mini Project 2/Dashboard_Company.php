@@ -5,7 +5,12 @@
         $pesan = "Kamu Belum Login";
         header("Location: PilihanLogin.php?pesan=".$pesan);
         exit();
-    } 
+    }
+    if($_GET){
+        $pesan = $_GET["pesan"];
+    } else {
+        $pesan = "";
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,8 +114,8 @@
                 <div class="welcome-text">
                   <h1 class="title1p"><i class="fas fa-building"></i> &nbsp Selamat Datang Perusahaan</h1>
                   <h2 class="title2p"><?php echo $_SESSION["usernamePerusahaan"]; ?></h2>
-
                   <a href="tambah_lowongan.php" class="btn-lowongan">Tambah Lowongan</a>
+                  <p id="pesandasbor"><?php echo $pesan; ?></p>
                 </div>
 
                 <?php 
