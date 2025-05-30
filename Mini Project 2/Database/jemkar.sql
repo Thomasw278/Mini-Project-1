@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Bulan Mei 2025 pada 17.01
+-- Waktu pembuatan: 30 Bulan Mei 2025 pada 17.55
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -41,7 +41,38 @@ CREATE TABLE `detailpekerjaan` (
 INSERT INTO `detailpekerjaan` (`idDetailPekerjaan`, `idPekerjaan`, `deskripsiPekerjaan`, `batasLamaran`) VALUES
 (1, 1, 'Perusahaan dengan Resiko Besar , Anda Berani Langsung Melamar', '2025-05-29'),
 (2, 2, 'Beresiko dan Harus Virgin', '2025-06-06'),
-(3, 3, 'UKDW, sebagai salah satu perguruan tinggi Kristen terkemuka di Indonesia yang telah berdiri sejak 1962, dikenal dengan komitmennya pada pendidikan yang berlandaskan kasih, keadilan, dan transformasi sosial. Sementara itu, PPPK Petra, yang menaungi lebih dari 38 unit sekolah dari tingkat TK hingga SMA sejak 1951 di Surabaya, telah menjadi rujukan pendidikan Kristen berkualitas di Indonesia Timur dan telah melahirkan ribuan lulusan berprestasi yang menghidupi iman dalam karya mereka.\r\nDalam acara ini, UKDW dipimpin oleh Rektor, Dr.-Ing. Wiyatiningsih, S.T., M.T., didampingi oleh Kepala Marketing Veronica Tiara, S.Kom., CPS, Staf Kerjasama Dalam Negeri Christina Angelina, S.I.Kom, dan Staf Promosi Hugo Christ, S.M.', '2025-05-30');
+(3, 3, 'UKDW, sebagai salah satu perguruan tinggi Kristen terkemuka di Indonesia yang telah berdiri sejak 1962, dikenal dengan komitmennya pada pendidikan yang berlandaskan kasih, keadilan, dan transformasi sosial. Sementara itu, PPPK Petra, yang menaungi lebih dari 38 unit sekolah dari tingkat TK hingga SMA sejak 1951 di Surabaya, telah menjadi rujukan pendidikan Kristen berkualitas di Indonesia Timur dan telah melahirkan ribuan lulusan berprestasi yang menghidupi iman dalam karya mereka.\r\nDalam acara ini, UKDW dipimpin oleh Rektor, Dr.-Ing. Wiyatiningsih, S.T., M.T., didampingi oleh Kepala Marketing Veronica Tiara, S.Kom., CPS, Staf Kerjasama Dalam Negeri Christina Angelina, S.I.Kom, dan Staf Promosi Hugo Christ, S.M.', '2025-05-30'),
+(4, 4, 'Bersama tumbuh dan berkembang dengan UKDW', '2025-06-07'),
+(5, 5, 'Perusahaan Sederhana dengan Gaji yang Fantastis tapi dengan resiko Organ dalammu akan hilang', '2025-05-30');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `formpelamar`
+--
+
+CREATE TABLE `formpelamar` (
+  `idPelamar` int(11) NOT NULL,
+  `idPengguna` int(11) NOT NULL,
+  `idPekerjaan` int(11) NOT NULL,
+  `idPerusahaan` int(11) NOT NULL,
+  `namaDepan` varchar(50) NOT NULL,
+  `namaBelakang` varchar(50) NOT NULL,
+  `tglLahir` date NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `nomorHP` varchar(20) NOT NULL,
+  `cv` varchar(50) NOT NULL,
+  `portofolio` varchar(50) NOT NULL,
+  `suratLamaran` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `formpelamar`
+--
+
+INSERT INTO `formpelamar` (`idPelamar`, `idPengguna`, `idPekerjaan`, `idPerusahaan`, `namaDepan`, `namaBelakang`, `tglLahir`, `email`, `nomorHP`, `cv`, `portofolio`, `suratLamaran`) VALUES
+(1, 1, 2, 2, 'Briggita Aprillia', 'Kuntari', '2025-05-31', 'aprilkuntari@gmail.com', '085747201855', 'bab14.pdf', '', ''),
+(2, 2, 4, 3, 'Sugeng', 'Manalu', '2025-06-06', 'Sugeng@gmail.com', '07124124', 'Aktivitas Kelas JS2 (1).pdf', '', '');
 
 -- --------------------------------------------------------
 
@@ -66,7 +97,9 @@ CREATE TABLE `pekerjaan` (
 INSERT INTO `pekerjaan` (`idPekerjaan`, `idPerusahaan`, `namaPekerjaan`, `kategoriPekerjaan`, `lokasi`, `jenisPekerjaan`, `gaji`) VALUES
 (1, 2, 'Merawat Biawak', 'Beresiko', 'Magelang', 'Part Time', '100 Juta'),
 (2, 2, 'Ternak Komodo Terbang', 'Pelayanan', 'Kyai Langeng', 'Full Time', '1 Miliyar'),
-(3, 3, 'Dosen Bioteknologi', 'Pengajaran', 'Yogyakarta', 'Full TIme', '8 - 10 Juta');
+(3, 3, 'Dosen Bioteknologi', 'Pengajaran', 'Yogyakarta', 'Full TIme', '8 - 10 Juta'),
+(4, 3, 'Dosen Fakultas Teknologi Informasi', 'Pengajaran', 'Yogyakarta', 'Full Time', '15-20 Juta'),
+(5, 2, 'Ternak Kelelawar', 'Beresiko', 'PGRI', 'Full Time', '10 Trilliun');
 
 -- --------------------------------------------------------
 
@@ -86,7 +119,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`idPengguna`, `emailPengguna`, `namaPengguna`, `passwordPengguna`) VALUES
-(1, 'aprilkuntari@gmail.com', 'April Kuntari', 'cantik123');
+(1, 'aprilkuntari@gmail.com', 'April Kuntari', 'cantik123'),
+(2, 'Sugeng@gmail.com', 'Sugeng Manalu', 'halohalo');
 
 -- --------------------------------------------------------
 
@@ -136,7 +170,11 @@ INSERT INTO `syaratkualifikasi` (`idSyaratKualifikasi`, `idDetailPekerjaan`, `ku
 (4, 2, '18 - 35 Tahun'),
 (5, 3, 'Usia 18 - 35 Tahun'),
 (6, 3, 'Bersedia Mengajar anak-anak soleh'),
-(7, 3, 'berani tampil beda');
+(7, 3, 'berani tampil beda'),
+(8, 4, 'usia 18 -25 Tahun'),
+(9, 4, 'Bersedia hidup dalam tekanan'),
+(10, 5, 'Usia 18 - 35 Tahun'),
+(11, 5, 'Diusahakan Wanita');
 
 -- --------------------------------------------------------
 
@@ -162,7 +200,11 @@ INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
 (5, 2, 'Membelikan makanan bos Thom'),
 (6, 3, 'Praktikum Memperkosa'),
 (7, 3, 'Praktikum Membedah Manusia dan Binatang'),
-(8, 3, 'Praktikum dan Mengajar dikelas Bitoteknologi');
+(8, 3, 'Praktikum dan Mengajar dikelas Bitoteknologi'),
+(9, 4, 'Mengelola Database'),
+(10, 4, 'Mengajar Pemrograman'),
+(11, 5, 'Mengelola Kelelawar'),
+(12, 5, 'Memberi Makan Kelelawar Terbang dan Jalan');
 
 --
 -- Indexes for dumped tables
@@ -174,6 +216,15 @@ INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
 ALTER TABLE `detailpekerjaan`
   ADD PRIMARY KEY (`idDetailPekerjaan`),
   ADD KEY `idPekerjaan` (`idPekerjaan`);
+
+--
+-- Indeks untuk tabel `formpelamar`
+--
+ALTER TABLE `formpelamar`
+  ADD PRIMARY KEY (`idPelamar`),
+  ADD KEY `idPengguna` (`idPengguna`),
+  ADD KEY `idPekerjaan` (`idPekerjaan`),
+  ADD KEY `idPerusahaan` (`idPerusahaan`);
 
 --
 -- Indeks untuk tabel `pekerjaan`
@@ -216,19 +267,25 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT untuk tabel `detailpekerjaan`
 --
 ALTER TABLE `detailpekerjaan`
-  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `formpelamar`
+--
+ALTER TABLE `formpelamar`
+  MODIFY `idPelamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `idPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `perusahaan`
@@ -240,13 +297,13 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT untuk tabel `syaratkualifikasi`
 --
 ALTER TABLE `syaratkualifikasi`
-  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -257,6 +314,14 @@ ALTER TABLE `tugas`
 --
 ALTER TABLE `detailpekerjaan`
   ADD CONSTRAINT `detailpekerjaan_ibfk_1` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`);
+
+--
+-- Ketidakleluasaan untuk tabel `formpelamar`
+--
+ALTER TABLE `formpelamar`
+  ADD CONSTRAINT `formpelamar_ibfk_1` FOREIGN KEY (`idPengguna`) REFERENCES `pengguna` (`idPengguna`),
+  ADD CONSTRAINT `formpelamar_ibfk_2` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`),
+  ADD CONSTRAINT `formpelamar_ibfk_3` FOREIGN KEY (`idPerusahaan`) REFERENCES `perusahaan` (`idPerusahaan`);
 
 --
 -- Ketidakleluasaan untuk tabel `pekerjaan`

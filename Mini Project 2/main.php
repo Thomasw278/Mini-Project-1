@@ -6,8 +6,7 @@ if (!isset($_SESSION['username'])) {
     header("Location: PilihanLogin.php?pesan=".$pesan);
     exit();
 }
-?>
-
+?>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +40,7 @@ if (!isset($_SESSION['username'])) {
             <select name="kategoriPekerjaan">
                 <option value="">Semua Kategori</option>
                 <?php
-                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan from pekerjaan natural join perusahaan";
+                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan, lokasi from pekerjaan natural join perusahaan";
                 $result = mysqli_query($conn, $sql);
                 $i = 0;
                 $list = array();
@@ -83,7 +82,21 @@ if (!isset($_SESSION['username'])) {
                 }
                 ?>
             </select>
-        
+
+            <select name="lokasi">
+                <option value="">Lokasi</option>
+                <?php
+                $result = mysqli_query($conn, $sql);
+                $i = 0;
+                $list = array();
+                while ($row = mysqli_fetch_assoc($result)){
+                    if (!in_array($row['lokasi'], $list)){
+                        array_push($list, $row['lokasi']);
+                        echo "<option value='".$row['lokasi']."'>".$row['lokasi']."</option>";
+                    }
+                }
+                ?>
+            </select>
             
             <div id="serbar" name = "searchbar">
                 <p><input type="text" id = "searchbar_input" name = "searchbar" placeholder="Cari..."></p>
@@ -129,6 +142,15 @@ if (!isset($_SESSION['username'])) {
                     }
                 }
 
+                if (!empty($_GET['lokasi'])){
+                        if (!empty($tambah)){
+                            $tambah .= " AND lokasi = '".$_GET['lokasi']."'";
+                        }
+                        else{
+                            $tambah .= "lokasi = '".$_GET['lokasi']."'";
+                        }
+                    }
+
                 if (!empty($_GET['searchbar'])){
                     if (!empty($tambah)){
                         $tambah .= " AND namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
@@ -138,7 +160,7 @@ if (!isset($_SESSION['username'])) {
                     }
                 }
 
-                $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,
+                $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,pekerjaan.lokasi,
                 namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan";
                 if (!empty($tambah)){
                     $sql .= " WHERE ".$tambah."";
@@ -162,6 +184,10 @@ if (!isset($_SESSION['username'])) {
                                 echo "<div class = 'jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/jam.png'>Jenis Pekerjaan</span>";
                                     echo "<p>".$row['jenisPekerjaan']."</p>";
+                                echo "</div>";
+                                echo "<div class = 'jobdesc_detail'>";
+                                    echo "<span class = 'jobdesc_detail_detail'><img src='Asset/jam.png'>Lokasi</span>";
+                                    echo "<p>".$row['lokasi']."</p>";
                                 echo "</div>";
                                 echo "<div class = 'jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/gaji.png'>Gaji</span>";

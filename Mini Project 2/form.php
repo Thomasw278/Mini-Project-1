@@ -1,8 +1,38 @@
 <?php
     session_start();
     require "connection.php";
+
+    if (!isset($_SESSION["username"]) || !isset($_SESSION["emailuser"])) {
+    header("Location: login.php");
+    exit();
+    }elseif ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idPekerjaan"])) {
+    $idPekerjaan = $_POST["idPekerjaan"];
+    }
+
     if($_GET){
         $idPekerjaan = $_GET["id"];
+    }
+
+    //BUat Ambil IDPENGGUNA : 
+    $ambildata = "SELECT * FROM pengguna WHERE namaPengguna = '".$_SESSION["username"]."'";
+    $hasilambil = mysqli_query($conn,$ambildata);
+    while($row = mysqli_fetch_assoc($hasilambil)){
+        $idPengguna = $row["idPengguna"];
+    }
+
+    //Buat Ambil Perusahaan dan Pekerja  ( Nama Perusahaan dan Nama Pekerjaaan ):
+    $ambilpekerjaan = "SELECT * FROM pekerjaan WHERE idPekerjaan = '".$idPekerjaan."'";
+    $hasilambilpekerjaan = mysqli_query($conn,$ambilpekerjaan);
+    while($row1 = mysqli_fetch_assoc($hasilambilpekerjaan)){
+        $Perusahaan = $row1["idPerusahaan"];
+        $perkerjaanygdipilih = $row1["namaPekerjaan"];
+    }
+
+    //Buat Ambil Nama Perusahaan 
+    $ambilnamaperusahaan = "SELECT * FROM perusahaan WHERE idPerusahaan = '".$Perusahaan."'";
+    $hasilambilperusahaan = mysqli_query($conn,$ambilnamaperusahaan);
+    while($row2 = mysqli_fetch_assoc($hasilambilperusahaan)){
+        $namaperusahaan = $row2["namaPerusahaan"];
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -14,19 +44,23 @@
         $noHP = $_POST['nomor_hp'];
         function upFile($file, $tujuan){
             if(isset($_FILES[$file]) && $_FILES[$file]['error']===0){
+                if($_FILES[$file]["size"] > 5 * 1024 * 1024) {
+
+                    exit();
+                }
                 $fileName = basename($_FILES[$file]['name']);
                 $targetPath = $tujuan . $fileName;
+                move_uploaded_file($_FILES[$file]["tmp_name"], $targetPath);
                 return $fileName;
             }
             return null;
         }
-        $cv = upFile('cv', 'uploads/');
-        $portofolio = upFile('Portofolio', 'uploads/');
-        $suratLamaran = upFile('surat_lamaran', 'uploads/');
-        $sql = "INSERT INTO formpelamar (namaDepan, namaBelakang, tglLahir, email, nomorHP, cv, portofolio, suratLamaran)
-                VALUES ('$namaDepan', '$namaBelakang', '$tglLahir', '$email', '$noHP', '$cv', '$portofolio', '$suratLamaran')";
+        $cv = upFile('cv', 'CV/');
+        $portofolio = upFile('Portofolio', 'Portofolio/');
+        $suratLamaran = upFile('surat_lamaran', 'SuratLamaran/');
+        $sql = "INSERT INTO formpelamar (idPengguna,idPekerjaan,idPerusahaan,namaDepan,namaBelakang,tglLahir,email,nomorHP,cv,portofolio,suratLamaran) VALUES ('".$idPengguna."','".$idPekerjaan."','".$Perusahaan."','$namaDepan', '$namaBelakang', '$tglLahir', '$email', '$noHP', '$cv', '$portofolio', '$suratLamaran')";
         if(mysqli_query($conn, $sql)){
-            header("Location: sukses.html");
+            header("Location: sukses.php");
         } else {
             echo "Gagal melamar pekerjaan";
         }
@@ -38,6 +72,7 @@
     <link rel="stylesheet" href="CSS/main.css">
     <title> | Formulir Pendaftaran Kerja JemKar</title>
     <link rel="icon" type="image/png" href="Asset/ICON.png">
+    <script src="Script/Script.js"></script>
 </head>
 <body class="form">
     <header id="header_form">
@@ -62,43 +97,47 @@
         <div class="form_daftar">
             <h2>Formulir Pendaftaran Kerja</h2>
             <h3><span id="1">J</span><span id="2">e</span><span id="3">m</span><span id="4">p</span><span id="5">u</span><span id="6">t</span> <span id="7">K</span><span id="8">a</span><span id="9">r</span></span><span id="10">i</span><span id="12">e</span><span id="11">r</span></h3>
-            <form action="sukses.html">
+            <h5  id="kamumelamar"><?php echo "Kamu Melamar di Perusahaan <span class='red'>".$namaperusahaan."</span> Sebagai <span class='red'>".$perkerjaanygdipilih."</span>";?></h5>
+            <form action="form.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="form">
-                    <label>Nama Lengkap *</label>
+                    <label for="nama">Nama Lengkap *</label>
                     <div class="baris">
-                        <input type="text" name="nama_depan" id="" placeholder="Nama Depan" required>
-                        <input type="text" name="nama_belakang" id="" placeholder="Nama Belakang">
+                        <input type="text" name="nama_depan" id="nama" placeholder="Nama Depan" required>
+                        <input type="text" name="nama_belakang" id="nama" placeholder="Nama Belakang" required>
                     </div>
                 </div>
-
                 <div class="form">
-                    <label>Tanggal Lahir *</label>
-                    <input type="date" name="tanggal_lahir" id="" required>
+                    <input type="hidden" name="idPekerjaan" value="<?php echo htmlspecialchars($idPekerjaan); ?>">
+                    <input type="hidden" name="idPerusahaan" value="<?php echo htmlspecialchars($Perusahaan); ?>">
+                </div>
+                <div class="form">
+                    <label for="tgllahir">Tanggal Lahir *</label>
+                    <input type="date" name="tanggal_lahir" id="tgllahir" required>
                 </div>
 
                 <div class="form">
-                    <label>E-mail *</label>
-                    <input type="email" name="email" id="" placeholder="Masukkan email yang valid" required>
+                    <label for="email">E-mail *</label>
+                    <input type="email" name="email" id="email" placeholder="Masukkan email yang valid" value="<?php echo $_SESSION["emailuser"]; ?>">
                 </div>
 
                 <div class="form">
-                    <label>Nomor HP *</label>
-                    <input type="text" name="nomor_hp" id="" placeholder="contoh: 0812345678989" maxlength="13" required>
+                    <label for="nohp">Nomor HP *</label>
+                    <input type="text" name="nomor_hp" id="nohp" placeholder="contoh: 0812345678989" maxlength="13" required>
                 </div>
 
                 <div class="form">
-                    <label>CV *</label>
-                    <input type="file" name="cv" id="" accept=".pdf, .docx" >
+                    <label for="cv">CV *</label>
+                    <input type="file" name="cv" id="cv" accept=".pdf, .docx" required>
                 </div>
 
                 <div class="form">
-                    <label>Portofolio</label>
-                    <input type="file" name="Portofolio" id="" accept=".pdf">
+                    <label for="portofolio">Portofolio</label>
+                    <input type="file" name="Portofolio" id="Portofolio" accept=".pdf">
                 </div>
 
                 <div class="form">
-                    <label>Surat Lamaran</label>
-                    <input type="file" name="surat_lamaran" id="">
+                    <label for="lamaran" >Surat Lamaran</label>
+                    <input type="file" name="surat_lamaran" id="lamaran">
                 </div>
 
                 <button type="submit" class="subButton">Kirim Lamaran</button>

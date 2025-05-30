@@ -38,7 +38,7 @@
             <select name="kategoriPekerjaan">
                 <option value="">Semua Kategori</option>
                 <?php
-                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan from pekerjaan natural join perusahaan";
+                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan,lokasi from pekerjaan natural join perusahaan";
                 $result = mysqli_query($conn, $sql);
                 $i = 0;
                 $list = array();
@@ -75,6 +75,21 @@
                     if (!in_array($row['gaji'], $list)){
                         array_push($list, $row['gaji']);
                         echo "<option value='".$row['gaji']."'>".$row['gaji']."</option>";
+                    }
+                }
+                ?>
+            </select>
+
+            <select name="lokasi">
+                <option value="">Lokasi</option>
+                <?php
+                $result = mysqli_query($conn, $sql);
+                $i = 0;
+                $list = array();
+                while ($row = mysqli_fetch_assoc($result)){
+                    if (!in_array($row['lokasi'], $list)){
+                        array_push($list, $row['lokasi']);
+                        echo "<option value='".$row['lokasi']."'>".$row['lokasi']."</option>";
                     }
                 }
                 ?>
@@ -128,6 +143,15 @@
                     }
                 }
 
+                if (!empty($_GET['lokasi'])){
+                    if (!empty($tambah)){
+                        $tambah .= " AND lokasi = '".$_GET['lokasi']."'";
+                    }
+                    else{
+                        $tambah .= "lokasi = '".$_GET['lokasi']."'";
+                    }
+                }
+
                 if (!empty($_GET['searchbar'])){
                     if (!empty($tambah)){
                         $tambah .= " AND namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
@@ -151,7 +175,13 @@
                         echo "</div>";
                         echo "<div class = 'main_jobdesc'>";
                             echo "<p>".$row['namaPerusahaan']."</p>";
-                            echo "<p>"."Jumlah Pelamar Adalah : <b>9</b>"."</p>";
+                            //Hitung Total Pelamar Pekerjaan
+                            $sqlcount = "SELECT COUNT(*) as total from formpelamar WHERE idPekerjaan = '".$row['idPekerjaan']."' and idPerusahaan = '".$_SESSION["idPerusahaan"]."'";
+                            $hasilcount = mysqli_query($conn,$sqlcount);
+                            while($row1 = mysqli_fetch_assoc($hasilcount)){
+                                $total = $row1["total"];
+                            }
+                            echo "<p>Jumlah Pelamar Adalah : <b>".$total."</b></p>";
                             echo "<div class = 'jobdesc_cont'>";
                                 echo "<div class='jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/kategori.png'>Kategori</span>";
@@ -160,6 +190,10 @@
                                 echo "<div class = 'jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/jam.png'>Jenis Pekerjaan</span>";
                                     echo "<p>".$row['jenisPekerjaan']."</p>";
+                                echo "</div>";
+                                echo "<div class = 'jobdesc_detail'>";
+                                    echo "<span class = 'jobdesc_detail_detail'><img src='Asset/jam.png'>Lokasi</span>";
+                                    echo "<p>".$row['lokasi']."</p>";
                                 echo "</div>";
                                 echo "<div class = 'jobdesc_detail'>";
                                     echo "<span class = 'jobdesc_detail_detail'><img src='Asset/gaji.png'>Gaji</span>";

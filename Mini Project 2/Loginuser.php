@@ -21,6 +21,7 @@
             if($pass == $user["passwordPengguna"]){
                 $_SESSION["id"] = $user["idPengguna"];
                 $_SESSION["username"] = $user["namaPengguna"];
+                $_SESSION["emailuser"] = $user["emailPengguna"];
                 header("Location: main.php");
             } else {
                 $pesan = "❌ Password Salah";

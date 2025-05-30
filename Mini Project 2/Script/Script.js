@@ -48,3 +48,21 @@ function ValidasiLogin(){
         return true;
     }
 }
+
+function validateUkuran(idokumen, maximalsize, namafile) {
+    const fileInput = document.getElementById(idokumen);
+    const file = fileInput.files[0];
+    if (file && file.size > maximalsize * 1024 * 1024) {
+        alert("Ukuran file " + namafile + " tidak boleh lebih dari " + maximalsize + "MB.");
+        return false;
+    }
+    return true;
+}
+
+function validateForm() {
+    const validCV = validateUkuran("cv", 5, "CV");
+    const validPortofolio = validateUkuran("Portofolio", 5, "Portofolio");
+    const validLamaran = validateUkuran("lamaran", 5, "Surat Lamaran");
+
+    return validCV && validPortofolio && validLamaran;
+}
