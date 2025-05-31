@@ -6,11 +6,7 @@
         header("Location: PilihanLogin.php?pesan=".$pesan);
         exit();
     }
-    if($_GET){
-        $pesan = $_GET["pesan"];
-    } else {
-        $pesan = "";
-    }
+    $pesan = $_GET["pesan"] ?? "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -207,7 +203,8 @@
                                 echo "</div>";
                                 echo "<div class='job-actions'>";
                                     echo "<a href='edit-lowongan.php?id=".$row['idPekerjaan']."' class='btn-edit'>Edit</a>";
-                                    echo "<a href='hapus-lowongan.php?id=".$row['idPekerjaan']."' onclick=\"return confirm('Yakin ingin menghapus lowongan ini?')\" class='btn-delete'>Hapus</a>";
+                                    echo "<a href='hapus-lowongan.php?id=".$row['idPekerjaan']."' onclick=\"return confirm('Apakah Anda yakin ingin menghapus lowongan ini?')\" class='btn-delete'>Hapus</a>";
+                                    echo "<a href='detail-lowongan.php?id=".$row['idPekerjaan']."'class='btn-detail'>Detail</a>";
                                 echo "</div>";
                         echo "</div>";
                     echo "</section>";

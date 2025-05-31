@@ -431,6 +431,18 @@ form.formtambah button:hover {
     border-color: #d32f2f;
 }
 
+.btn-detail {
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+}
+
+.btn-detail:hover {
+    background-color: yellow;
+    border-color: yellow;
+    color: black;
+}
+
 .btn-lowongan {
   display: inline-block;
   background: orange;

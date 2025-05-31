@@ -45,7 +45,6 @@
         function upFile($file, $tujuan){
             if(isset($_FILES[$file]) && $_FILES[$file]['error']===0){
                 if($_FILES[$file]["size"] > 5 * 1024 * 1024) {
-
                     exit();
                 }
                 $fileName = basename($_FILES[$file]['name']);
