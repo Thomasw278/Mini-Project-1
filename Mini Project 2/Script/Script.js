@@ -66,3 +66,87 @@ function validateForm() {
 
     return validCV && validPortofolio && validLamaran;
 }
+
+function detailPelamar(element) {
+    const nama = element.dataset.nama;
+    const tglLahir = element.dataset.tgllahir;
+    const email = element.dataset.email;
+    const nomorHP = element.dataset.nomorhp;
+    const cv = element.dataset.cv;
+    const portofolio = element.dataset.portofolio;
+    const suratLamaran = element.dataset.suratlamaran;
+
+    const detailDiv = document.getElementById('detailContent');
+    const btns = document.getElementById('btnAction');
+
+    detailDiv.innerHTML = `
+        <table>
+            <tr>
+                <td>
+                    <p><strong>Nama</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong>${nama}</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Tanggal Lahir</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong>${tglLahir}</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Email</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong>${email}</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Nomor HP</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong>${nomorHP}</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>CV</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong><a href="${cv}" target="_blank">Lihat CV</a></strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Portofolio</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong><a href="${portofolio}" target="_blank">Lihat Portofolio</a></strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Surat Lamaran</strong></p>
+                </td>
+                <td>:</td>
+                <td>
+                    <p><strong><a href="${suratLamaran}" target="_blank">Lihat Surat</a></strong></p>
+                </td>
+            </tr>
+        </table>`;
+
+    btns.style.display = 'block';
+}
+
+

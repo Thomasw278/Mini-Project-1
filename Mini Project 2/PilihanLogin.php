@@ -17,7 +17,7 @@
             <a href="main.php">
                 <img src="Asset/JemkarFontHitam.png">
             </a>
-            <table>
+    <table>
         <tr>
             <td>
                 <a href="Loginuser.php">
