@@ -7,6 +7,15 @@
         exit();
     }
     $pesan = $_GET["pesan"] ?? "";
+
+
+    //Total Lowongan
+    $total = "SELECT COUNT(*) as total from pekerjaan natural join perusahaan WHERE idPerusahaan = '".$_SESSION["idPerusahaan"]."'";
+    $hasilcont = mysqli_query($conn,$total);
+    while($final = mysqli_fetch_assoc($hasilcont)){
+        $totallowongan = $final["total"];
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,9 +48,10 @@
             <select name="kategoriPekerjaan">
                 <option value="">Semua Kategori</option>
                 <?php
-                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan,lokasi from pekerjaan natural join perusahaan";
+                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan,lokasi from pekerjaan natural join perusahaan WHERE idPerusahaan = '".$_SESSION["idPerusahaan"]."'";
                 $result = mysqli_query($conn, $sql);
                 $i = 0;
+
                 $list = array();
                 while ($row = mysqli_fetch_assoc($result)){
                     if (!in_array($row['kategoriPekerjaan'], $list)){
@@ -112,6 +122,7 @@
                   <h2 class="title2p"><?php echo $_SESSION["usernamePerusahaan"]; ?></h2>
                   <a href="tambah_lowongan.php" class="btn-lowongan">Tambah Lowongan</a>
                   <p id="pesandasbor"><?php echo $pesan; ?></p>
+                  <p id="countlowongan">Total Lowongan Perusahaan : <?php echo $totallowongan; ?></p>
                 </div>
 
                 <?php 
@@ -161,6 +172,7 @@
                         $tambah .= "namaPekerjaan LIKE '%".$_GET['searchbar']."%'";
                     }
                 }
+
                 $query = "SELECT * FROM pekerjaan INNER JOIN perusahaan ON pekerjaan.idPerusahaan = perusahaan.idPerusahaan WHERE pekerjaan.idPerusahaan = '".$_SESSION["idPerusahaan"]."'";
                 if (!empty($tambah)){
                     $query .= " AND ".$tambah;
@@ -205,6 +217,24 @@
                                     echo "<a href='edit-lowongan.php?id=".$row['idPekerjaan']."' class='btn-edit'>Edit</a>";
                                     echo "<a href='hapus-lowongan.php?id=".$row['idPekerjaan']."' onclick=\"return confirm('Apakah Anda yakin ingin menghapus lowongan ini?')\" class='btn-delete'>Hapus</a>";
                                     echo "<a href='detail-lowongan.php?id=".$row['idPekerjaan']."'class='btn-detail'>Detail</a>";
+                                echo "</div>";
+                                echo "<div>";
+                                        echo "<div class='adagakya'>";
+                                            //Cek Status Cinta April 
+                                            $jumlah = "SELECT DATEDIFF(batasLamaran, NOW()) AS selisihHari FROM detailpekerjaan WHERE idPekerjaan = '".$row["idPekerjaan"]."'";
+                                            $okejumlah = mysqli_query($conn,$jumlah);
+                                            while($pecahdulu = mysqli_fetch_assoc($okejumlah)){
+                                                $hasiljumlah = $pecahdulu["selisihHari"];
+                                            }
+                                            // echo $hasiljumlah;
+                                            if($hasiljumlah == 0){
+                                                echo "<p class='statusmerah'>Lowongan Ditutup Hari Ini</p";
+                                            } else if($hasiljumlah > 0) {
+                                                echo "<p class='statushijau'>"."Lowongan Akan Ditutup Dalam ".$hasiljumlah." Hari Lagi"."</p";
+                                            } else {
+                                                echo "<p class='statusmerah'>"."Lowongan Sudah Ditutup Sejak ".abs($hasiljumlah)." Hari Yang Lalu"."</p";
+                                            }
+                                        echo "</div>";
                                 echo "</div>";
                         echo "</div>";
                     echo "</section>";

@@ -13,11 +13,28 @@
         $idPekerjaan = $_GET["id"];
     }
 
+
     //BUat Ambil IDPENGGUNA : 
     $ambildata = "SELECT * FROM pengguna WHERE namaPengguna = '".$_SESSION["username"]."'";
     $hasilambil = mysqli_query($conn,$ambildata);
     while($row = mysqli_fetch_assoc($hasilambil)){
         $idPengguna = $row["idPengguna"];
+    }
+
+
+    //Select buat cek udah pernah melamar atau belum : 
+    $ceklamar = "SELECT * FROM formpelamar WHERE idPekerjaan = '".$idPekerjaan."' and idPengguna = '".$idPengguna."'";
+    $eksekusi = mysqli_query($conn,$ceklamar);
+    if(mysqli_num_rows($eksekusi) > 0){
+    while($luping = mysqli_fetch_assoc($eksekusi)){
+        $cekiduser = $luping["idPengguna"];
+        $cekidpekerjaan = $luping["idPekerjaan"];
+    }
+    if($cekiduser == $idPengguna && $cekidpekerjaan == $idPekerjaan){
+        // echo "Ono Su";
+        $pesan = "Anda sudah pernah melamar lowongan ini";
+        header("location: detail.php?pesan=$pesan&id=$idPekerjaan");
+    }
     }
 
     //Buat Ambil Perusahaan dan Pekerja  ( Nama Perusahaan dan Nama Pekerjaaan ):
@@ -63,7 +80,7 @@
         } else {
             echo "Gagal melamar pekerjaan";
         }
-    }    
+    }
 ?>
 <!DOCTYPE html>
 <html>

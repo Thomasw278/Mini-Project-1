@@ -3,8 +3,10 @@ session_start();
 require "connection.php";
 if(isset($_SESSION['username'])) {
     $nama = $_SESSION["username"];
+    $pesan = "";
     if($_GET){
         $idpekerjaan = $_GET["id"];
+        $pesan = $_GET["pesan"] ?? "";
         $query = "SELECT * FROM pekerjaan WHERE idPekerjaan = '".$idpekerjaan."'";
         $hasil = mysqli_query($conn,$query);
         while($row = mysqli_fetch_assoc($hasil)){
@@ -95,6 +97,7 @@ if(isset($_SESSION['username'])) {
                     <?php
                         echo "<a href='form.php?id=" .$idpekerjaan. "'>Lamar Pekerjaan</a></p>";
                     ?>
+                    <p id="pesandetail"><?php echo $pesan; ?></p>
                 <br>
             </section>
             <section class = "job_description">

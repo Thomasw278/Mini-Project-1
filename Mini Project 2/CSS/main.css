@@ -1294,6 +1294,37 @@ h5#kamumelamar {
     color: red;
     font-size: 20px;
 }
+
+#pesandetail {
+    text-align: center;
+    margin-top: 35px;
+    font-weight: bold;
+    color: red;
+}
+
+#countlowongan {
+    margin-top: 50px;
+    margin-left: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 5px whitesmoke;
+    font-size: 18px;
+}
+
+.adagakya {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.statusmerah {
+    color: red;
+}
+
+.statushijau {
+    color: green;
+}
+
 /* Sumber
 https://www.lokerjogja.id/lowongan/desk-collection-di-pt-colmitra-persada-indonesia/
 https://id.jobstreet.com/id/companies/sinar-mas-agribusiness-and-food-168552544616116/jobs

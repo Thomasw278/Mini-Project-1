@@ -161,7 +161,7 @@ if (!isset($_SESSION['username'])) {
                 }
 
                 $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,pekerjaan.lokasi,
-                namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan";
+                namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan natural join detailpekerjaan WHERE detailpekerjaan.batasLamaran >= NOW()";
                 if (!empty($tambah)){
                     $sql .= " WHERE ".$tambah."";
                 }
