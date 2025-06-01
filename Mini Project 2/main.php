@@ -40,7 +40,7 @@ if (!isset($_SESSION['username'])) {
             <select name="kategoriPekerjaan">
                 <option value="">Semua Kategori</option>
                 <?php
-                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan, lokasi from pekerjaan natural join perusahaan";
+                $sql = "SELECT kategoriPekerjaan, jenisPekerjaan, gaji, namaPerusahaan, lokasi from pekerjaan natural join perusahaan natural join detailpekerjaan WHERE detailpekerjaan.batasLamaran >= NOW()";
                 $result = mysqli_query($conn, $sql);
                 $i = 0;
                 $list = array();
@@ -163,7 +163,7 @@ if (!isset($_SESSION['username'])) {
                 $sql = "SELECT idPekerjaan, namaPekerjaan, kategoriPekerjaan, jenisPekerjaan, gaji,pekerjaan.lokasi,
                 namaPerusahaan, perusahaan.logoPerusahaan FROM pekerjaan natural join perusahaan natural join detailpekerjaan WHERE detailpekerjaan.batasLamaran >= NOW()";
                 if (!empty($tambah)){
-                    $sql .= " WHERE ".$tambah."";
+                    $sql .= " AND ".$tambah."";
                 }
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)){

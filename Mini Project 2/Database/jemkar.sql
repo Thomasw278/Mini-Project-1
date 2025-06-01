@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Bulan Mei 2025 pada 18.48
+-- Waktu pembuatan: 01 Jun 2025 pada 07.56
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -39,10 +39,11 @@ CREATE TABLE `detailpekerjaan` (
 --
 
 INSERT INTO `detailpekerjaan` (`idDetailPekerjaan`, `idPekerjaan`, `deskripsiPekerjaan`, `batasLamaran`) VALUES
-(2, 2, 'Beresiko dan Harus Virgin', '2025-06-06'),
-(3, 3, 'UKDW, sebagai salah satu perguruan tinggi Kristen terkemuka di Indonesia yang telah berdiri sejak 1962, dikenal dengan komitmennya pada pendidikan yang berlandaskan kasih, keadilan, dan transformasi sosial. Sementara itu, PPPK Petra, yang menaungi lebih dari 38 unit sekolah dari tingkat TK hingga SMA sejak 1951 di Surabaya, telah menjadi rujukan pendidikan Kristen berkualitas di Indonesia Timur dan telah melahirkan ribuan lulusan berprestasi yang menghidupi iman dalam karya mereka.\r\nDalam acara ini, UKDW dipimpin oleh Rektor, Dr.-Ing. Wiyatiningsih, S.T., M.T., didampingi oleh Kepala Marketing Veronica Tiara, S.Kom., CPS, Staf Kerjasama Dalam Negeri Christina Angelina, S.I.Kom, dan Staf Promosi Hugo Christ, S.M.', '2025-05-30'),
+(2, 2, 'Beresiko dan Harus Virgin', '2025-06-02'),
 (4, 4, 'Bersama tumbuh dan berkembang dengan UKDW', '2025-06-07'),
-(5, 5, 'Perusahaan Sederhana dengan Gaji yang Fantastis tapi dengan resiko Organ dalammu akan hilang', '2025-05-30');
+(6, 6, 'Mengajar dan Tumbuh Bersama di Universitas Kristen Duta Wacana', '2025-06-01'),
+(7, 7, 'Aku Suka Kamu', '2025-11-13'),
+(8, 8, 'Perusahaan Ternak Terbaik Se Magelang', '2025-06-01');
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,8 @@ CREATE TABLE `formpelamar` (
 
 INSERT INTO `formpelamar` (`idPelamar`, `idPengguna`, `idPekerjaan`, `idPerusahaan`, `namaDepan`, `namaBelakang`, `tglLahir`, `email`, `nomorHP`, `cv`, `portofolio`, `suratLamaran`) VALUES
 (1, 1, 2, 2, 'Briggita Aprillia', 'Kuntari', '2025-05-31', 'aprilkuntari@gmail.com', '085747201855', 'bab14.pdf', '', ''),
-(2, 2, 4, 3, 'Sugeng', 'Manalu', '2025-06-06', 'Sugeng@gmail.com', '07124124', 'Aktivitas Kelas JS2 (1).pdf', '', '');
+(2, 2, 4, 3, 'Sugeng', 'Manalu', '2025-06-06', 'Sugeng@gmail.com', '07124124', 'Aktivitas Kelas JS2 (1).pdf', '', ''),
+(3, 2, 6, 3, 'Sugeng', 'Manalu', '2025-06-28', 'Sugeng@gmail.com', '085747201855', 'RPLBO_14_-_Observer_dan_CoR (1).pdf', '', '');
 
 -- --------------------------------------------------------
 
@@ -94,10 +96,11 @@ CREATE TABLE `pekerjaan` (
 --
 
 INSERT INTO `pekerjaan` (`idPekerjaan`, `idPerusahaan`, `namaPekerjaan`, `kategoriPekerjaan`, `lokasi`, `jenisPekerjaan`, `gaji`) VALUES
-(2, 2, 'Ternak Komodo Terbang', 'Pelayanan', 'Kyai Langeng', 'Full Time', '1 Miliyar'),
-(3, 3, 'Dosen Bioteknologi', 'Pengajaran', 'Yogyakarta', 'Full TIme', '8 - 10 Juta'),
-(4, 3, 'Dosen Fakultas Teknologi Informasi', 'Pengajaran', 'Yogyakarta', 'Full Time', '15-20 Juta'),
-(5, 2, 'Ternak Kelelawar', 'Beresiko', 'PGRI', 'Full Time', '10 Trilliun');
+(2, 2, 'Ternak Pangsit Sat', 'Pelayanan', 'Kyai Langeng', 'Full Time', '1 Miliyar'),
+(4, 3, 'Dosen Fakultas Teknologi Informasi', 'Pengajaran ', 'Yogyakarta JL DR Wah', 'Full Time', '15-20 Juta'),
+(6, 3, 'Dosen Fakultas Arsitektur', 'Pengajaran ', 'Yogyakarta', 'Full Time', '25 Juta'),
+(7, 2, 'Ternak', 'Pengajaran ', 'PGRI', 'Part Time', '8 - 10 Juta'),
+(8, 2, 'Recepsionist', 'Beresiko Maseee', 'Yogyakarta', 'Part Time', '15-20 Juta');
 
 -- --------------------------------------------------------
 
@@ -162,15 +165,16 @@ CREATE TABLE `syaratkualifikasi` (
 --
 
 INSERT INTO `syaratkualifikasi` (`idSyaratKualifikasi`, `idDetailPekerjaan`, `kualifikasi`) VALUES
-(3, 2, 'Virgin'),
-(4, 2, '18 - 35 Tahun'),
-(5, 3, 'Usia 18 - 35 Tahun'),
-(6, 3, 'Bersedia Mengajar anak-anak soleh'),
-(7, 3, 'berani tampil beda'),
-(8, 4, 'usia 18 -25 Tahun'),
-(9, 4, 'Bersedia hidup dalam tekanan'),
-(10, 5, 'Usia 18 - 35 Tahun'),
-(11, 5, 'Diusahakan Wanita');
+(34, 4, 'usia 18 -25 Tahun'),
+(35, 4, 'Bersedia hidup dalam tekanan'),
+(36, 6, 'Fresh Graduate'),
+(37, 6, 'Usia 18 - 35 Tahun'),
+(61, 2, 'Virgin'),
+(62, 2, '18 - 35 Tahun'),
+(63, 2, 'Siap dan Bersedia untuk kerja diluar kota'),
+(64, 8, 'Usia 18-35 Tahun'),
+(65, 8, 'Sita Akta Kelahiran Seumur Hidup'),
+(66, 7, 'Usia 25 - 35 Tahun');
 
 -- --------------------------------------------------------
 
@@ -189,15 +193,15 @@ CREATE TABLE `tugas` (
 --
 
 INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
-(4, 2, 'Merawat Komodo'),
-(5, 2, 'Membelikan makanan bos Thom'),
-(6, 3, 'Praktikum Memperkosa'),
-(7, 3, 'Praktikum Membedah Manusia dan Binatang'),
-(8, 3, 'Praktikum dan Mengajar dikelas Bitoteknologi'),
-(9, 4, 'Mengelola Database'),
-(10, 4, 'Mengajar Pemrograman'),
-(11, 5, 'Mengelola Kelelawar'),
-(12, 5, 'Memberi Makan Kelelawar Terbang dan Jalan');
+(31, 4, 'Mengelola Database'),
+(32, 4, 'Mengajar Pemrograman'),
+(33, 6, 'Mengelola Bangunan UKDW'),
+(57, 2, 'Merawat Komodo'),
+(58, 2, 'Membelikan makanan bos Thom'),
+(59, 2, 'Memberi Makan ikan laut'),
+(60, 8, 'Mengelola Database'),
+(61, 8, 'Melayani Pelanggan'),
+(62, 7, 'Mengelola Database');
 
 --
 -- Indexes for dumped tables
@@ -260,19 +264,19 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT untuk tabel `detailpekerjaan`
 --
 ALTER TABLE `detailpekerjaan`
-  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `formpelamar`
 --
 ALTER TABLE `formpelamar`
-  MODIFY `idPelamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPelamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
@@ -290,13 +294,13 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT untuk tabel `syaratkualifikasi`
 --
 ALTER TABLE `syaratkualifikasi`
-  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

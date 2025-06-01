@@ -60,6 +60,7 @@
 
         //updt detailPekerjaan
         $sqlUpdateDetail = "UPDATE detailpekerjaan SET deskripsiPekerjaan = '$deskripsi',batasLamaran = '$batasLamaran' WHERE idDetailPekerjaan = '$idDetail'";
+        mysqli_query($conn,$sqlUpdateDetail);
 
         //Sek marake bingung sek mecah seko list ben dadi string nek seumpama didelete disek dadi ko ngene
         $deletetugas = "DELETE FROM tugas WHERE idDetailPekerjaan = '$idDetail'";
