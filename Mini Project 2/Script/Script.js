@@ -79,73 +79,58 @@ function detailPelamar(element) {
     const detailDiv = document.getElementById('detailContent');
     const btns = document.getElementById('btnAction');
 
-    detailDiv.innerHTML = `
+    let detailHTML = `
         <table>
             <tr>
-                <td>
-                    <p><strong>Nama</strong></p>
-                </td>
+                <td><p><strong>Nama</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong>${nama}</strong></p>
-                </td>
+                <td><p><strong>${nama}</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>Tanggal Lahir</strong></p>
-                </td>
+                <td><p><strong>Tanggal Lahir</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong>${tglLahir}</strong></p>
-                </td>
+                <td><p><strong>${tglLahir}</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>Email</strong></p>
-                </td>
+                <td><p><strong>Email</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong>${email}</strong></p>
-                </td>
+                <td><p><strong>${email}</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>Nomor HP</strong></p>
-                </td>
+                <td><p><strong>Nomor HP</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong>${nomorHP}</strong></p>
-                </td>
+                <td><p><strong>${nomorHP}</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>CV</strong></p>
-                </td>
+                <td><p><strong>CV</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong><a href="${cv}" target="_blank">Lihat CV</a></strong></p>
-                </td>
+                <td><p><strong>${
+                    cv && cv !== ""
+                        ? `<a href="${cv}" target="_blank">Lihat CV</a>`
+                        : "<em>Tidak ada file</em>"
+                }</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>Portofolio</strong></p>
-                </td>
+                <td><p><strong>Portofolio</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong><a href="${portofolio}" target="_blank">Lihat Portofolio</a></strong></p>
-                </td>
+                <td><p><strong>${
+                    portofolio && portofolio !== ""
+                        ? `<a href="${portofolio}" target="_blank">Lihat Portofolio</a>`
+                        : "<em>Tidak ada file</em>"
+                }</strong></p></td>
             </tr>
             <tr>
-                <td>
-                    <p><strong>Surat Lamaran</strong></p>
-                </td>
+                <td><p><strong>Surat Lamaran</strong></p></td>
                 <td>:</td>
-                <td>
-                    <p><strong><a href="${suratLamaran}" target="_blank">Lihat Surat</a></strong></p>
-                </td>
+                <td><p><strong>${
+                    suratLamaran && suratLamaran !== ""
+                        ? `<a href="${suratLamaran}" target="_blank">Lihat Surat</a>`
+                        : "<em>Tidak ada file</em>"
+                }</strong></p></td>
             </tr>
         </table>`;
 
+    detailDiv.innerHTML = detailHTML;
     btns.style.display = 'block';
 }
 

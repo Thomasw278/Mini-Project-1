@@ -71,10 +71,28 @@
             }
             return null;
         }
-        $cv = upFile('cv', 'CV/');
-        $portofolio = upFile('Portofolio', 'Portofolio/');
-        $suratLamaran = upFile('surat_lamaran', 'SuratLamaran/');
-        $sql = "INSERT INTO formpelamar (idPengguna,idPekerjaan,idPerusahaan,namaDepan,namaBelakang,tglLahir,email,nomorHP,cv,portofolio,suratLamaran) VALUES ('".$idPengguna."','".$idPekerjaan."','".$Perusahaan."','$namaDepan', '$namaBelakang', '$tglLahir', '$email', '$noHP', '$cv', '$portofolio', '$suratLamaran')";
+        // $cvPath = upFile('cv', 'CV/');
+        // $portofolio = upFile('Portofolio', 'Portofolio/');
+        // $suratLamaran = upFile('surat_lamaran', 'SuratLamaran/');
+        $cvPath = "";
+        if(!empty($_FILES['cv']['name'])){
+            $cvName = uniqid() . "_" . $_FILES['cv']['name'];
+            $cvPath = "CV/" . $cvName;
+            move_uploaded_file($_FILES['cv']['tmp_name'], $cvPath);
+        }
+        $portofolioPath = "";
+        if(!empty($_FILES['Portofolio']['name'])){
+            $portofolioName = uniqid() . "_" . $_FILES['Portofolio']['name'];
+            $portofolioPath = "Portofolio/" . $portofolioName;
+            move_uploaded_file($_FILES['Portofolio']['tmp_name'], $portofolioPath);
+        }
+        $slPath = "";
+        if(!empty($_FILES['surat_lamaran']['name'])){
+            $slName = uniqid() . "_" . $_FILES['surat_lamaran']['name'];
+            $slPath = "SuratLamaran/" . $slName;
+            move_uploaded_file($_FILES['surat_lamaran']['tmp_name'], $slPath);
+        }
+        $sql = "INSERT INTO formpelamar (idPengguna,idPekerjaan,idPerusahaan,namaDepan,namaBelakang,tglLahir,email,nomorHP,cv,portofolio,suratLamaran) VALUES ('".$idPengguna."','".$idPekerjaan."','".$Perusahaan."','$namaDepan', '$namaBelakang', '$tglLahir', '$email', '$noHP', '$cvPath', '$portofolioPath', '$slPath')";
         if(mysqli_query($conn, $sql)){
             header("Location: sukses.php");
         } else {
