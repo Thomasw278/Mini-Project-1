@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2025 pada 07.56
+-- Waktu pembuatan: 03 Jun 2025 pada 08.48
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -34,10 +34,6 @@ CREATE TABLE `detailpekerjaan` (
   `batasLamaran` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `detailpekerjaan`
---
-
 -- --------------------------------------------------------
 
 --
@@ -59,10 +55,6 @@ CREATE TABLE `formpelamar` (
   `suratLamaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `formpelamar`
---
-
 -- --------------------------------------------------------
 
 --
@@ -79,10 +71,6 @@ CREATE TABLE `pekerjaan` (
   `gaji` varchar(20) DEFAULT 'negosisasi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `pekerjaan`
---
-
 -- --------------------------------------------------------
 
 --
@@ -95,11 +83,6 @@ CREATE TABLE `pengguna` (
   `namaPengguna` varchar(40) NOT NULL,
   `passwordPengguna` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `pengguna`
---
-
 
 -- --------------------------------------------------------
 
@@ -118,10 +101,6 @@ CREATE TABLE `perusahaan` (
   `logoPerusahaan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `perusahaan`
---
-
 -- --------------------------------------------------------
 
 --
@@ -134,11 +113,6 @@ CREATE TABLE `syaratkualifikasi` (
   `kualifikasi` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `syaratkualifikasi`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -150,11 +124,6 @@ CREATE TABLE `tugas` (
   `idDetailPekerjaan` int(11) DEFAULT NULL,
   `tugas` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `tugas`
---
-
 
 --
 -- Indexes for dumped tables
@@ -217,43 +186,43 @@ ALTER TABLE `tugas`
 -- AUTO_INCREMENT untuk tabel `detailpekerjaan`
 --
 ALTER TABLE `detailpekerjaan`
-  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idDetailPekerjaan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `formpelamar`
 --
 ALTER TABLE `formpelamar`
-  MODIFY `idPelamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPelamar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pekerjaan`
 --
 ALTER TABLE `pekerjaan`
-  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idPekerjaan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `idPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPengguna` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `idPerusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPerusahaan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `syaratkualifikasi`
 --
 ALTER TABLE `syaratkualifikasi`
-  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `idSyaratKualifikasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `idTugas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -263,6 +232,7 @@ ALTER TABLE `tugas`
 -- Ketidakleluasaan untuk tabel `detailpekerjaan`
 --
 ALTER TABLE `detailpekerjaan`
+  ADD CONSTRAINT `detailpekerjaan_ibfk_1` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`),
   ADD CONSTRAINT `fkdetailpekerjaan` FOREIGN KEY (`idPekerjaan`) REFERENCES `pekerjaan` (`idPekerjaan`) ON DELETE CASCADE;
 
 --
@@ -283,13 +253,15 @@ ALTER TABLE `pekerjaan`
 -- Ketidakleluasaan untuk tabel `syaratkualifikasi`
 --
 ALTER TABLE `syaratkualifikasi`
-  ADD CONSTRAINT `fksyaratdetail` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fksyaratdetail` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE,
+  ADD CONSTRAINT `syaratkualifikasi_ibfk_1` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`);
 
 --
 -- Ketidakleluasaan untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
-  ADD CONSTRAINT `fkdetailtugas` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fkdetailtugas` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`idDetailPekerjaan`) REFERENCES `detailpekerjaan` (`idDetailPekerjaan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
