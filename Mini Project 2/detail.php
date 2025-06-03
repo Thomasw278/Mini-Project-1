@@ -1,9 +1,9 @@
 <?php
 session_start();
 require "connection.php";
-if(isset($_SESSION['username'])) {
-    $nama = $_SESSION["username"];
-    $pesan = "";
+// if(isset($_SESSION['username'])) {
+//     $nama = $_SESSION["username"];
+//     $pesan = "";
     if($_GET){
         $idpekerjaan = $_GET["id"];
         $pesan = $_GET["pesan"] ?? "";
@@ -46,7 +46,7 @@ if(isset($_SESSION['username'])) {
             $ukuran = $row4["ukuranPerusahaan"];
     }
     }
-}
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +62,13 @@ if(isset($_SESSION['username'])) {
         </div>
         <div>
             <?php
-            echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+            if (isset($_SESSION['username'])){
+                echo "<b><p class='head_nav'>Halo | " . htmlspecialchars($_SESSION['username']) . "</p></b>";
+            }
+            else{
+                echo "<b><p class='head_nav'>Halo | Guest</p></b>";
+            }
+           
             ?>
         </div>
     </header>

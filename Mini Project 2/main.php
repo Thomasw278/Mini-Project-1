@@ -1,11 +1,11 @@
 <?php 
 session_start();
 require "connection.php";
-if (!isset($_SESSION['username'])) {
-    $pesan = "Kamu Belum Login";
-    header("Location: PilihanLogin.php?pesan=".$pesan);
-    exit();
-}
+// if (!isset($_SESSION['username'])) {
+//     $pesan = "Kamu Belum Login";
+//     header("Location: PilihanLogin.php?pesan=".$pesan);
+//     exit();
+// }
 ?>  
 <!DOCTYPE html>
 <html>
