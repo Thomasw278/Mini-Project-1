@@ -135,6 +135,13 @@ header div{
     margin: 4%;
 }
 
+.tanggalmain {
+    margin-top: 10px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
 .container_loker section{
     background-image: url(../Asset/BGKeren.jpg);
     border-radius:20px;
@@ -359,7 +366,7 @@ form.formtambah ::placeholder {
     font-weight: bold;
 }
 
-form.formtambah input[type="date"] :: ::placeholder{
+form.formtambah input[type="date"] ::placeholder{
     color: white;
     font-weight: bold;
 }

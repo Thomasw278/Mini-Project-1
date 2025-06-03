@@ -195,6 +195,16 @@ require "connection.php";
                                 echo "</div>";
                             echo "</div>";
                         echo "</div>";
+                        echo "<div class='tanggalmain'>";
+                            echo "</div>";
+                                $jumlah = "SELECT DATEDIFF(batasLamaran, NOW()) AS selisihHari FROM detailpekerjaan WHERE idPekerjaan = '".$row["idPekerjaan"]."'";
+                                $okejumlah = mysqli_query($conn,$jumlah);
+                                while($pecahdulu = mysqli_fetch_assoc($okejumlah)){
+                                    $hasiljumlah = $pecahdulu["selisihHari"];
+                                    echo "<p class='tanggalmain'>"."Tersisa ".$hasiljumlah." Hari"."</p";
+                                } 
+                            echo "</div>";
+                        echo "</div>";
                     echo "</section>";
                 }
                 $tambah = "";
