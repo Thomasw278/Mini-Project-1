@@ -38,13 +38,6 @@ CREATE TABLE `detailpekerjaan` (
 -- Dumping data untuk tabel `detailpekerjaan`
 --
 
-INSERT INTO `detailpekerjaan` (`idDetailPekerjaan`, `idPekerjaan`, `deskripsiPekerjaan`, `batasLamaran`) VALUES
-(2, 2, 'Beresiko dan Harus Virgin', '2025-06-02'),
-(4, 4, 'Bersama tumbuh dan berkembang dengan UKDW', '2025-06-07'),
-(6, 6, 'Mengajar dan Tumbuh Bersama di Universitas Kristen Duta Wacana', '2025-06-01'),
-(7, 7, 'Aku Suka Kamu', '2025-11-13'),
-(8, 8, 'Perusahaan Ternak Terbaik Se Magelang', '2025-06-01');
-
 -- --------------------------------------------------------
 
 --
@@ -70,11 +63,6 @@ CREATE TABLE `formpelamar` (
 -- Dumping data untuk tabel `formpelamar`
 --
 
-INSERT INTO `formpelamar` (`idPelamar`, `idPengguna`, `idPekerjaan`, `idPerusahaan`, `namaDepan`, `namaBelakang`, `tglLahir`, `email`, `nomorHP`, `cv`, `portofolio`, `suratLamaran`) VALUES
-(1, 1, 2, 2, 'Briggita Aprillia', 'Kuntari', '2025-05-31', 'aprilkuntari@gmail.com', '085747201855', 'bab14.pdf', '', ''),
-(2, 2, 4, 3, 'Sugeng', 'Manalu', '2025-06-06', 'Sugeng@gmail.com', '07124124', 'Aktivitas Kelas JS2 (1).pdf', '', ''),
-(3, 2, 6, 3, 'Sugeng', 'Manalu', '2025-06-28', 'Sugeng@gmail.com', '085747201855', 'RPLBO_14_-_Observer_dan_CoR (1).pdf', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -95,13 +83,6 @@ CREATE TABLE `pekerjaan` (
 -- Dumping data untuk tabel `pekerjaan`
 --
 
-INSERT INTO `pekerjaan` (`idPekerjaan`, `idPerusahaan`, `namaPekerjaan`, `kategoriPekerjaan`, `lokasi`, `jenisPekerjaan`, `gaji`) VALUES
-(2, 2, 'Ternak Pangsit Sat', 'Pelayanan', 'Kyai Langeng', 'Full Time', '1 Miliyar'),
-(4, 3, 'Dosen Fakultas Teknologi Informasi', 'Pengajaran ', 'Yogyakarta JL DR Wah', 'Full Time', '15-20 Juta'),
-(6, 3, 'Dosen Fakultas Arsitektur', 'Pengajaran ', 'Yogyakarta', 'Full Time', '25 Juta'),
-(7, 2, 'Ternak', 'Pengajaran ', 'PGRI', 'Part Time', '8 - 10 Juta'),
-(8, 2, 'Recepsionist', 'Beresiko Maseee', 'Yogyakarta', 'Part Time', '15-20 Juta');
-
 -- --------------------------------------------------------
 
 --
@@ -119,9 +100,6 @@ CREATE TABLE `pengguna` (
 -- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `pengguna` (`idPengguna`, `emailPengguna`, `namaPengguna`, `passwordPengguna`) VALUES
-(1, 'aprilkuntari@gmail.com', 'April Kuntari', 'cantik123'),
-(2, 'Sugeng@gmail.com', 'Sugeng Manalu', 'halohalo');
 
 -- --------------------------------------------------------
 
@@ -144,10 +122,6 @@ CREATE TABLE `perusahaan` (
 -- Dumping data untuk tabel `perusahaan`
 --
 
-INSERT INTO `perusahaan` (`idPerusahaan`, `emailPerusahaan`, `namaPerusahaan`, `password`, `alamatPerusahaan`, `industri`, `ukuranPerusahaan`, `logoPerusahaan`) VALUES
-(2, 'ptternakbiawak@gmail.com', 'PT Ternak Biawak', 'halohalo', 'Jalan Magelang KM 50 Muntilan', 'Pendidikan', '500 karyawan', 'LogoPerusahaan/PT Ternak Biawak.jpg'),
-(3, 'UKDW@gmail.com', 'PT UKDW', 'ukdw2025', 'Jalan KH Wahidin Sudirohusodo', 'Pendidikan', '100 karyawan', 'LogoPerusahaan/PT UKDW.png');
-
 -- --------------------------------------------------------
 
 --
@@ -164,17 +138,6 @@ CREATE TABLE `syaratkualifikasi` (
 -- Dumping data untuk tabel `syaratkualifikasi`
 --
 
-INSERT INTO `syaratkualifikasi` (`idSyaratKualifikasi`, `idDetailPekerjaan`, `kualifikasi`) VALUES
-(34, 4, 'usia 18 -25 Tahun'),
-(35, 4, 'Bersedia hidup dalam tekanan'),
-(36, 6, 'Fresh Graduate'),
-(37, 6, 'Usia 18 - 35 Tahun'),
-(61, 2, 'Virgin'),
-(62, 2, '18 - 35 Tahun'),
-(63, 2, 'Siap dan Bersedia untuk kerja diluar kota'),
-(64, 8, 'Usia 18-35 Tahun'),
-(65, 8, 'Sita Akta Kelahiran Seumur Hidup'),
-(66, 7, 'Usia 25 - 35 Tahun');
 
 -- --------------------------------------------------------
 
@@ -192,16 +155,6 @@ CREATE TABLE `tugas` (
 -- Dumping data untuk tabel `tugas`
 --
 
-INSERT INTO `tugas` (`idTugas`, `idDetailPekerjaan`, `tugas`) VALUES
-(31, 4, 'Mengelola Database'),
-(32, 4, 'Mengajar Pemrograman'),
-(33, 6, 'Mengelola Bangunan UKDW'),
-(57, 2, 'Merawat Komodo'),
-(58, 2, 'Membelikan makanan bos Thom'),
-(59, 2, 'Memberi Makan ikan laut'),
-(60, 8, 'Mengelola Database'),
-(61, 8, 'Melayani Pelanggan'),
-(62, 7, 'Mengelola Database');
 
 --
 -- Indexes for dumped tables

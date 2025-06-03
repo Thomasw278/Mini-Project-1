@@ -30,8 +30,8 @@
     <title> | Jemput Karir</title>
     <link rel="icon" type="image/png" href="Asset/ICON.png">
 </head>
-<body>
-    <header>
+<body class="detail">
+    <header class="detailheader">
         <div class = "icon_cont">
             <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
@@ -44,14 +44,8 @@
                     $hasilcount = mysqli_query($conn,$sqlcount);
                     while($row1 = mysqli_fetch_assoc($hasilcount)){
                         $total = $row1["total"];
-                    }
-                    echo "<div class = 'main_jobtitle'>";
-                        // echo "<a href='Dashboard_Company' class='head_nav'><h2>".$row['namaPekerjaan']."</h2></a>";
-                        echo "<h2>".$row['namaPekerjaan']."</h2>";
-                        echo "<div class = 'divpt'>";
-                            echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "' class='pt'>";
-                        echo "</div>";
-                    echo "</div>";
+                        $namapekerejaan = $row["namaPekerjaan"];
+                    } 
                 }
             ?>
         </div>
@@ -63,6 +57,10 @@
         </div>
         <?php
             if ($total > 0) {
+                echo "<div class = 'logodetail'>";
+                    echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "''>";
+                echo "</div>";
+                echo "<h2 class='judulpelamar'>".$namapekerejaan."</h2>";
                 echo "<table class='table-layout'>";
                     echo "<tr>";
                         echo "<td class='kiri'>";
