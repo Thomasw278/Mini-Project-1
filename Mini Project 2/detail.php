@@ -101,7 +101,12 @@ require "connection.php";
                 </div>
                 <p id="lamar">
                     <?php
-                        echo "<a href='form.php?id=" .$idpekerjaan. "'>Lamar Pekerjaan</a></p>";
+                        if(isset($_SESSION["username"])){
+                            echo "<a href='form.php?id=" .$idpekerjaan. "'>Lamar Pekerjaan</a></p>";
+                        }
+                        else {
+                            echo "<a href='Loginuser.php'>Login Dulu</a></p>";
+                        }
                     ?>
                     <p id="pesandetail"><?php echo $pesan; ?></p>
                 <br>
