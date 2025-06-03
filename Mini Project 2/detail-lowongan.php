@@ -106,6 +106,10 @@
                     echo "</tr>";
                 echo "</table>";
             } else {
+                echo "<div class = 'logodetail'>";
+                    echo "<img src='" . htmlspecialchars($_SESSION["logo"]) . "''>";
+                echo "</div>";
+                echo "<h2 class='judulpelamar'>".$namapekerejaan."</h2>";
                 echo "<h1 id='kosong'><center>Belum Ada Pelamar</center></h1>";
             }
         ?>

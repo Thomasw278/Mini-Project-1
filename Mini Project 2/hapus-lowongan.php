@@ -31,6 +31,8 @@ require "connection.php";
             $pesan = "Tidak Dapat Menghapus Lowongan karena Sudah Terisi";
             header("location: Dashboard_Company.php?pesan=".$pesan);
         } else {
+            $sqldeletedetail = "DELETE FROM detailpekerjaan WHERE idPekerjaan = '".$idPekerjaan."'";
+            mysqli_query($conn, $sqldeletedetail);
             $sqldelete = "DELETE FROM pekerjaan WHERE idPekerjaan  = '".$idPekerjaan."' AND idPerusahaan = '".$idPerusahaan."'";
             if(mysqli_query($conn,$sqldelete)){
                 $pesan = "Berhasil Hapus Lowongan Pekerjaan";
