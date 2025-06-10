@@ -74,21 +74,27 @@
         // $cvPath = upFile('cv', 'CV/');
         // $portofolio = upFile('Portofolio', 'Portofolio/');
         // $suratLamaran = upFile('surat_lamaran', 'SuratLamaran/');
+        $nama = isset($_POST['nama_depan']) ? $_POST['nama_depan'] : 'user';
+        $cekNama = preg_replace("/[^a-zA-Z0-9]/", "_", strtolower($nama)); 
+
         $cvPath = "";
         if(!empty($_FILES['cv']['name'])){
-            $cvName = uniqid() . "_" . $_FILES['cv']['name'];
+            $ext = pathinfo($_FILES['cv']['name'], PATHINFO_EXTENSION);
+            $cvName = "cv_" . $cekNama . "." . $ext;
             $cvPath = "CV/" . $cvName;
             move_uploaded_file($_FILES['cv']['tmp_name'], $cvPath);
         }
         $portofolioPath = "";
         if(!empty($_FILES['Portofolio']['name'])){
-            $portofolioName = uniqid() . "_" . $_FILES['Portofolio']['name'];
+            $ext = pathinfo($_FILES['Portofolio']['name'], PATHINFO_EXTENSION);
+            $portofolioName = "portofolio_" . $cekNama . "." . $ext;
             $portofolioPath = "Portofolio/" . $portofolioName;
             move_uploaded_file($_FILES['Portofolio']['tmp_name'], $portofolioPath);
         }
         $slPath = "";
         if(!empty($_FILES['surat_lamaran']['name'])){
-            $slName = uniqid() . "_" . $_FILES['surat_lamaran']['name'];
+            $ext = pathinfo($_FILES['surat_lamaran']['name'], PATHINFO_EXTENSION);
+            $slName = "lamaran_" . $cekNama . "." . $ext;
             $slPath = "SuratLamaran/" . $slName;
             move_uploaded_file($_FILES['surat_lamaran']['tmp_name'], $slPath);
         }
