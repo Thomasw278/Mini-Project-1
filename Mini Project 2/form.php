@@ -157,7 +157,7 @@
 
                 <div class="form">
                     <label for="email">E-mail *</label>
-                    <input type="email" name="email" id="email" placeholder="Masukkan email yang valid" value="<?php echo $_SESSION["emailuser"]; ?>">
+                    <input type="email" name="email" id="email" placeholder="Masukkan email yang valid" value="<?php echo $_SESSION["emailuser"]; ?>" readonly>
                 </div>
 
                 <div class="form">
