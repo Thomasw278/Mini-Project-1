@@ -33,7 +33,7 @@
 <body class="detail">
     <header class="detailheader">
         <div class = "icon_cont">
-            <a href="main.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
+            <a href="Dashboard_Company.php"><img src="Asset/JEMKAR.png" class = "icon"></a>
         </div>
         <div>
             <?php

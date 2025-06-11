@@ -1020,12 +1020,14 @@ input[type="file"] {
 
 .logodetail{
     margin-left: 41%;
+    background-image: none !important;
 }
 
 .logodetail img {
     width: 300px;
     height: 400px;
     border-radius: 20px;
+    background-color: transparent !important;
 }
 
 .form_pelamar {
