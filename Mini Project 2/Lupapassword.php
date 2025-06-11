@@ -23,7 +23,7 @@
                     $pesan = "Berhasil Mengganti Password Perusahaan";
                     header("location: LoginPerusahaan.php?pesan=".$pesan);
                 } else {
-                    $pesan = "Gagal Mengganti Password User";
+                    $pesan = "Gagal Mengganti Password Perusahaan";
                 }
             }else {
                 $pesan = "Email Tidak Ditemukan";

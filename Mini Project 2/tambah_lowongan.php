@@ -6,6 +6,8 @@
     $insertpekerjaan = "INSERT INTO pekerjaan (idPerusahaan,namaPekerjaan,kategoriPekerjaan,lokasi,jenisPekerjaan,gaji) VALUES ('".$_SESSION["idPerusahaan"]."', '".$_POST["namaPekerjaan"]."','".$_POST["kategoriPekerjaan"]."', 
     '".$_POST["lokasiPekerjaan"]."','".$_POST["jenisPekerjaan"]."','".$_POST["gaji"]."')";
     mysqli_query($conn,$insertpekerjaan);
+
+    //Buat ngambil ID Terakhir Yang Diinsert Dari DB karena Auto_Increment
     $idpekerja = mysqli_insert_id($conn);
 
     //Detail Pekerjaan
